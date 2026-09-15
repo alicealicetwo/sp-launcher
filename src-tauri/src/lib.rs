@@ -336,6 +336,16 @@ fn stop_game(state: State<'_, AppState>) -> Result<()> {
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
+        // Registered first, as the plugin requires: a second launch hands its
+        // arguments to the running instance and exits. Since closing the
+        // window only hides it to the tray, "already running" is usually
+        // invisible — so bring that window back rather than doing nothing,
+        // which would look like the launcher refusing to start.
+        .plugin(tauri_plugin_single_instance::init(|app, _args, _cwd| {
+            if let Some(window) = app.get_webview_window("main") {
+                show_from_tray_window(&window);
+            }
+        }))
         .plugin(tauri_plugin_opener::init())
         .plugin(tauri_plugin_dialog::init())
         .plugin(tauri_plugin_updater::Builder::new().build())
@@ -365,8 +375,17 @@ pub fn run() {
             let quit_item = MenuItem::with_id(app, "quit", "Quit", true, None::<&str>)?;
             let tray_menu = Menu::with_items(app, &[&show_item, &quit_item])?;
 
+            // Not `default_window_icon()`: the app icon keeps the whole mark,
+            // wings included, which is 2.19:1 — in a square tray cell that
+            // leaves it spanning the full width but under half the height, so
+            // it reads as tiny next to everything else in the tray. tray.png
+            // is the same artwork cropped to a squarer region, so it fills the
+            // cell properly. Only the tray uses it; the installer, taskbar and
+            // window icon still get the full logo.
+            let tray_icon = tauri::image::Image::from_bytes(include_bytes!("../icons/tray.png"))?;
+
             TrayIconBuilder::new()
-                .icon(app.default_window_icon().cloned().expect("app icon is bundled"))
+                .icon(tray_icon)
                 .tooltip("SP Launcher")
                 .menu(&tray_menu)
                 .show_menu_on_left_click(false)

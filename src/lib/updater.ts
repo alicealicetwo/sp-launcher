@@ -2,15 +2,14 @@ import { check, type Update } from "@tauri-apps/plugin-updater";
 
 /**
  * Checks the endpoint configured in `tauri.conf.json`'s `plugins.updater`.
- * Returns `null` when already current (or the endpoint is unreachable —
- * a broken update check must never block the rest of the launcher).
+ * Resolves to `null` only when the launcher really is current, and throws on
+ * anything else (endpoint down, 404, unparsable manifest). Deliberately does
+ * not swallow failures: reporting a broken endpoint as "up to date" hides
+ * exactly the problem the user needs to see. Callers decide whether to
+ * surface it — the check on startup stays quiet, the Settings button doesn't.
  */
 export async function checkForUpdate(): Promise<Update | null> {
-  try {
-    return await check();
-  } catch {
-    return null;
-  }
+  return await check();
 }
 
 /**

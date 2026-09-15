@@ -33,6 +33,7 @@ export default function App() {
   const [updateChecked, setUpdateChecked] = useState(false);
   const [installingUpdate, setInstallingUpdate] = useState(false);
   const [updateProgress, setUpdateProgress] = useState<{ done: number; total: number | null } | null>(null);
+  const [updateError, setUpdateError] = useState<string | null>(null);
 
   // Debounce config writes: the settings fields fire on every keystroke and
   // there is no reason to hit the disk that often.
@@ -85,20 +86,27 @@ export default function App() {
     void getVersion().then(setAppVersion);
   }, []);
 
-  const runUpdateCheck = useCallback(() => {
+  // `quiet` suppresses the error toast for the automatic startup check — a
+  // launcher that can't reach its update server should still open normally.
+  // A check the user asked for always reports what went wrong, so a dead
+  // endpoint can't masquerade as "up to date".
+  const runUpdateCheck = useCallback((quiet = false) => {
     setCheckingUpdate(true);
+    setUpdateError(null);
     void checkForUpdate()
       .then((u) => {
         setUpdate(u);
         setUpdateChecked(true);
       })
+      .catch((e) => {
+        setUpdateError(String(e));
+        if (!quiet) setError(`Update check failed: ${String(e)}`);
+      })
       .finally(() => setCheckingUpdate(false));
   }, []);
 
-  // One check shortly after startup — quiet on failure (see checkForUpdate),
-  // so a broken/unreachable update endpoint never surfaces as an error toast.
   useEffect(() => {
-    runUpdateCheck();
+    runUpdateCheck(true);
   }, [runUpdateCheck]);
 
   const runUpdateInstall = useCallback(() => {
@@ -252,7 +260,8 @@ export default function App() {
             update={update}
             checkingUpdate={checkingUpdate}
             updateChecked={updateChecked}
-            onCheckUpdate={runUpdateCheck}
+            updateError={updateError}
+            onCheckUpdate={() => runUpdateCheck(false)}
           />
         )}
       </main>
