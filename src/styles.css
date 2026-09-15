@@ -637,6 +637,16 @@ html, body, #root{
 }
 .field__row{ display:flex; gap:6px; }
 .field__hint{ font-size:12px; color: var(--muted); line-height:1.4; }
+/* Legal notice at the foot of Settings — deliberately quiet: it has to be
+   present and readable, not compete with the controls above it. */
+.disclaimer{
+  margin: 16px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--line-soft);
+  font-size: 10.5px;
+  line-height: 1.5;
+  color: var(--muted);
+}
 .input{
   flex:1 1 auto; min-width:0;
   background: rgba(5,8,12,0.5);

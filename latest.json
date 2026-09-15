@@ -1,11 +1,11 @@
 {
-  "version": "0.2.1",
-  "notes": "News images now load.",
-  "pub_date": "2026-09-15T13:45:37.909Z",
+  "version": "0.2.4",
+  "notes": "Bigger tray icon, tidier settings layout.",
+  "pub_date": "2026-09-15T15:01:48.186Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVROU9TMFdzcnQ2QkthMXFXQVgrV0g0M0ZaWnRYbXlBVmV5VFI0RHhZbStxWU9JQ2VjWGRhTVF6RnJrVStPOElVWUxSa3BuSFNZa29OaldzT09nWGY5Si9CQ3U4UDA3b0FZPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg5NDc5OTM1CWZpbGU6U1AgTGF1bmNoZXJfMC4yLjFfeDY0LXNldHVwLmV4ZQo3cDAzVG1ocjdmdkhhYktRcWl6WldYYnNST0JUSUtOQ1JsNWlHeS9VYWw5T20xNktyTytST2FpSGhKeGlNRk8xVkNYM3U1aVQydldJdENmRENtNHNBQT09Cg==",
-      "url": "http://64.226.112.204/launcher/updates/SP Launcher_0.2.1_x64-setup.exe"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVROU9TMFdzcnQ2QktrZVgzcjBvb1JSTXFnSW81c0Z2L2tHdVZiNjVTU3AyMUxPaTJHejA4VXpvRjdRNXZVcGF3SUdManE3bTY1bE9kZnZRZkpMS1NYSHowNGx1NHBDcFFrPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg5NDg0MTA1CWZpbGU6U1AgTGF1bmNoZXJfMC4yLjRfeDY0LXNldHVwLmV4ZQpBTE1vOUhOYkR6STlKS1NBTjR0VktrWWlUa1NhT3p1WDgzZXlxL3hCUGpzUEd6Q2Y1a0UvZnRsUVRxNHlFQzV5cEpPRkh3WTNFRTBuYm1HdEZpbHNCQT09Cg==",
+      "url": "http://64.226.112.204/launcher/updates/SP%20Launcher_0.2.4_x64-setup.exe"
     }
   }
 }

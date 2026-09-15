@@ -13,6 +13,7 @@ interface Props {
   update: Update | null;
   checkingUpdate: boolean;
   updateChecked: boolean;
+  updateError: string | null;
   onCheckUpdate: () => void;
 }
 
@@ -31,6 +32,7 @@ export function SettingsPanel({
   update,
   checkingUpdate,
   updateChecked,
+  updateError,
   onCheckUpdate,
 }: Props) {
   const needsAdmin = config.hosts_redirect && hosts && !hosts.writable;
@@ -185,8 +187,10 @@ export function SettingsPanel({
         <div className="field__row" style={{ marginTop: 12 }}>
           <button className="btn" type="button" onClick={onHostsRefresh}>Refresh</button>
         </div>
+      </div>
 
-        <h2 className="card__title" style={{ marginTop: 18 }}>Launcher</h2>
+      <div className="card">
+        <h2 className="card__title">Launcher</h2>
         {TOGGLES.map((t) => (
           <div className="toggle" key={t.key}>
             <span className="toggle__text">
@@ -204,17 +208,36 @@ export function SettingsPanel({
           </div>
         ))}
 
-        <h2 className="card__title" style={{ marginTop: 18 }}>About</h2>
+      </div>
+
+      <div className="card">
+        <h2 className="card__title">About</h2>
         <div className="field__row" style={{ alignItems: "center", justifyContent: "space-between" }}>
           <span className="field__hint">
             Version {appVersion || "—"}
-            {updateChecked && !update && !checkingUpdate ? " — up to date" : ""}
+            {updateChecked && !update && !checkingUpdate && !updateError ? " — up to date" : ""}
             {update ? ` — v${update.version} available` : ""}
+            {updateError && !checkingUpdate ? " — check failed" : ""}
           </span>
           <button className="btn" type="button" onClick={onCheckUpdate} disabled={checkingUpdate}>
             {checkingUpdate ? "Checking…" : "Check for updates"}
           </button>
         </div>
+
+        {/* The reason matters more than the fact: an unreachable endpoint and
+            a malformed manifest need completely different fixes. */}
+        {updateError && !checkingUpdate && (
+          <p className="field__hint" style={{ marginTop: 8 }}>
+            {updateError}
+          </p>
+        )}
+
+        <p className="disclaimer">
+          This project is a community-driven fan effort and is not affiliated with, endorsed by,
+          or sponsored by Wonder People or any of its subsidiaries. All trademarks, service marks,
+          trade names, logos, and other intellectual property referenced herein are the property of
+          their respective owners and are used solely for identification and descriptive purposes.
+        </p>
       </div>
     </section>
   );
