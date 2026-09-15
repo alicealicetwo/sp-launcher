@@ -13,12 +13,14 @@ use crate::error::{LauncherError, Result};
 pub struct Config {
     /// Where the game is installed. Empty until the user picks a folder.
     pub install_dir: String,
-    /// Base URL the launcher downloads game files from.
-    pub manifest_url: String,
     /// URL the launcher fetches the news feed (`Vec<news::NewsItem>` JSON) from.
     pub news_url: String,
     /// Extra command-line arguments, one per line as the user typed them.
     pub launch_args: String,
+    /// The last `ip:port` typed into the connect prompt, so it's pre-filled
+    /// next launch instead of starting blank every time. Empty means nothing
+    /// has been entered yet (or "Play without joining server" was used last).
+    pub last_server: String,
 
     /// Point the game's hostnames at `backend_ip` while the launcher runs.
     pub hosts_redirect: bool,
@@ -32,17 +34,15 @@ pub struct Config {
     pub auto_update: bool,
     pub verify_before_launch: bool,
     pub debug_logging: bool,
-    /// Files transferred at once. 1-16.
-    pub download_threads: u8,
 }
 
 impl Default for Config {
     fn default() -> Self {
         Self {
             install_dir: String::new(),
-            manifest_url: "https://example.invalid/manifest.json".into(),
-            news_url: "https://example.invalid/news.json".into(),
-            launch_args: "-IgnoreCatalogue".into(),
+            news_url: "http://64.226.112.204/launcher/news.json".into(),
+            launch_args: "-IgnoreCatalogue -ApiPhase=\"dev2s\"".into(),
+            last_server: String::new(),
             hosts_redirect: true,
             backend_ip: "127.0.0.1".into(),
             hosts_domains: vec![
@@ -55,7 +55,6 @@ impl Default for Config {
             auto_update: true,
             verify_before_launch: false,
             debug_logging: false,
-            download_threads: 4,
         }
     }
 }

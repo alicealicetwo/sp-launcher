@@ -11,6 +11,7 @@
     "core:window:allow-show",
     "core:window:allow-start-dragging",
     "opener:default",
-    "dialog:allow-open"
+    "dialog:allow-open",
+    "updater:default"
   ]
 }

@@ -62,95 +62,11 @@ design, regenerate every derived size from it — don't hand-edit
 `src-tauri/icons/` for what's currently there; ask for the icon to be
 rebuilt from a new source if you change the artwork.
 
-## Getting the game files hosted, downloadable, and verified (legacy/unused)
+## Getting the game files to players
 
-**This section describes a manifest-based downloader that still exists in
-the Rust backend (`download.rs`, `start_download`/`cancel_download`
-commands, `tools/make-manifest.mjs`, `tools/serve-files.mjs`) but is no
-longer wired into the UI.** The Download tab was removed — players are now
-expected to already have a game install and point the launcher at it from
-Settings → Game Files (Install location / Browse / Open folder). The notes
-below are kept for whoever wants to resurrect in-launcher downloading later;
-skip this section for day-to-day building.
-
-The downloader never talks to Steam or DepotDownloader — it only ever
-downloads plain files over HTTPS from a host you control, checking each
-one's SHA-256 against a manifest you generate once. Here is the sequence it
-was designed around:
-
-1. **Get the install files once**, however you already do (DepotDownloader,
-   a manual copy, whatever). End state: a normal folder on disk that looks
-   like a real SUPER PEOPLE install, e.g. `C:\Games\SUPER PEOPLE`.
-
-2. **Generate the manifest** — this is what makes files "verifiable": it
-   walks the folder and writes a SHA-256 hash for every file.
-
-   ```powershell
-   node tools/make-manifest.mjs `
-     --dir "C:/Games/SUPER PEOPLE" `
-     --base-url "https://files.example.com/sp/1.3.0.0" `
-     --version 1.3.0.0 `
-     --out manifest.json
-   ```
-
-   `--base-url` must be the URL the folder will actually be reachable at
-   once uploaded — the manifest bakes a full download URL into every file
-   entry by joining `--base-url` with that file's relative path. Hashing
-   ~28 GB takes a few minutes; it runs 8 files at a time.
-
-3. **Pick a host and upload the folder, keeping the same layout.** It
-   **must** support HTTP range requests or resume silently turns into
-   "start over on every drop". Object storage with cheap/free egress
-   (Cloudflare R2, Backblaze B2 + Bunny) is worth it over a plain VPS at
-   28 GB/player — a normal nginx/Apache static host also works fine. Check
-   range support before trusting it:
-
-   ```powershell
-   curl.exe -I -H "Range: bytes=0-1023" https://files.example.com/sp/1.3.0.0/some.pak
-   ```
-
-   You want `206 Partial Content` back. `200 OK` means no range support —
-   don't use that host.
-
-4. **Upload `manifest.json` itself too**, anywhere reachable (can be the
-   same host, doesn't have to sit inside the game folder).
-
-5. **Point the launcher at it**: Settings → Manifest URL → the
-   `manifest.json` URL from step 4. That's the only launcher-side
-   configuration needed — `download_threads` (also in Settings) controls
-   how many files it pulls in parallel, default 4.
-
-That's it — verification isn't a separate step you run. Every file's hash
-is checked as it streams in (it's only renamed into place on a match), and
-re-running a download or turning on **Verify before launch** in Settings
-re-checks whatever's already on disk, so a player re-downloading after an
-interruption is also implicitly a repair pass.
-
-**Test this without hosting anything first.** Serve your own game folder
-locally and point a *second, empty* install folder at it:
-
-```powershell
-# terminal 1
-node tools/serve-files.mjs --dir "C:/Games/SUPER PEOPLE" --port 8080
-
-# terminal 2 — small manifest, seconds instead of an evening
-node tools/make-manifest.mjs `
-  --dir "C:/Games/SUPER PEOPLE" `
-  --base-url "http://localhost:8080" `
-  --limit 20 --max-size 50MB `
-  --out public/manifest.test.json
-```
-
-Put `manifest.test.json` inside the served folder, set Settings → Manifest
-URL to `http://localhost:8080/manifest.test.json`, pick a different install
-folder in the Download tab, hit Download. Worth breaking on purpose:
-
-| To test | Do this |
-|---|---|
-| Resume | Ctrl-C the server mid-download, restart it, download again — the `.part` picks up where it left off. |
-| No range support | `node tools/serve-files.mjs --dir ... --no-range` — launcher should restart the file cleanly, not corrupt it. |
-| Cancel | `--throttle 2` to slow it to 2 MB/s, then hit Cancel. |
-| Corrupt file caught | Edit one `sha256` in the manifest — the run must fail and leave nothing behind. |
+There is no in-launcher downloader. Players are expected to already have a
+game install and point the launcher at it from Settings → Game Files
+(Install location / Browse / Open folder).
 
 Drop `--limit`/`--max-size` and swap in the real `--base-url` when you're
 ready to go live with the actual 28 GB.

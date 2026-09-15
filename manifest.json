@@ -1,0 +1,2735 @@
+{
+  "version": "1.3.0.0",
+  "files": [
+    {
+      "path": "BravoHotelClient.exe",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelClient.exe",
+      "size": 1606448,
+      "sha256": "2029646727512e35bec76c58ea0a0f5abe4ff092c43e186e88b2a462abee327b"
+    },
+    {
+      "path": "BravoHotelGame/Binaries/Win64/BravoHotelClient-Win64-Shipping.exe",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Binaries/Win64/BravoHotelClient-Win64-Shipping.exe",
+      "size": 126454064,
+      "sha256": "16b8b421371457d936e5cc1810ff707b5f5984126973dbdc4e6b5c714522051f"
+    },
+    {
+      "path": "BravoHotelGame/Content/EarlyStartupScreen/EarlyStartupScreen.bmp",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/EarlyStartupScreen/EarlyStartupScreen.bmp",
+      "size": 6220854,
+      "sha256": "6739a64b6bdb8f3497fe67419feaac0d4e7c218df73e0f79feca4245880e3358"
+    },
+    {
+      "path": "BravoHotelGame/Content/Movies/ClassVideos/ClassVideo_01_Gign.mp4",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Movies/ClassVideos/ClassVideo_01_Gign.mp4",
+      "size": 48317257,
+      "sha256": "4dfaff34f04f0fb4e08f69b16eabe2cd1c9a95e9c21d6ae9ecef333f35f39282"
+    },
+    {
+      "path": "BravoHotelGame/Content/Movies/ClassVideos/ClassVideo_02_Shotgun.mp4",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Movies/ClassVideos/ClassVideo_02_Shotgun.mp4",
+      "size": 56337873,
+      "sha256": "cd1f848b986b55dc1b53b61cbce152c7cb4db32f5f3eced24a378ae5c27a2fe1"
+    },
+    {
+      "path": "BravoHotelGame/Content/Movies/ClassVideos/ClassVideo_03_Speed.mp4",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Movies/ClassVideos/ClassVideo_03_Speed.mp4",
+      "size": 56618467,
+      "sha256": "948bbb8595b84eed4f90a71773ca5f84005ebff7b0c4fc84eb39c75fdb0fdeed"
+    },
+    {
+      "path": "BravoHotelGame/Content/Movies/ClassVideos/ClassVideo_04_Sniper.mp4",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Movies/ClassVideos/ClassVideo_04_Sniper.mp4",
+      "size": 59568275,
+      "sha256": "61cc24d113a7fbf71733f07e567980696e31cd4a9e5c88242c5bbf72dfd99653"
+    },
+    {
+      "path": "BravoHotelGame/Content/Movies/ClassVideos/ClassVideo_05_Recon.mp4",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Movies/ClassVideos/ClassVideo_05_Recon.mp4",
+      "size": 58320411,
+      "sha256": "0a21feb29d7b085a37acb8487ee00a8ce117ee07bd953762373d2033799ffec2"
+    },
+    {
+      "path": "BravoHotelGame/Content/Movies/ClassVideos/ClassVideo_06_CBRN.mp4",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Movies/ClassVideos/ClassVideo_06_CBRN.mp4",
+      "size": 58025339,
+      "sha256": "f7593b5b9a056be51e092d28af9a408c654279d50627df84820e6a5d88404fb0"
+    },
+    {
+      "path": "BravoHotelGame/Content/Movies/ClassVideos/ClassVideo_07_Marine.mp4",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Movies/ClassVideos/ClassVideo_07_Marine.mp4",
+      "size": 60642696,
+      "sha256": "1f4c9d0e152cf19da98f62d7f6e712744485995ad759c5eb14c47ec1ae3350d9"
+    },
+    {
+      "path": "BravoHotelGame/Content/Movies/ClassVideos/ClassVideo_08_Teleport.mp4",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Movies/ClassVideos/ClassVideo_08_Teleport.mp4",
+      "size": 56997513,
+      "sha256": "00d9eaa2f0cb4795f1220968054974a5fcdffc276fa8425b01f1be1d91aa9d1d"
+    },
+    {
+      "path": "BravoHotelGame/Content/Movies/ClassVideos/ClassVideo_09_SWAT.mp4",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Movies/ClassVideos/ClassVideo_09_SWAT.mp4",
+      "size": 57827154,
+      "sha256": "351c94415df2d45a52026f1dbd5cc69a62c5cb9df8a29782a47936edde9522f0"
+    },
+    {
+      "path": "BravoHotelGame/Content/Movies/ClassVideos/ClassVideo_10_WeaponMaster.mp4",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Movies/ClassVideos/ClassVideo_10_WeaponMaster.mp4",
+      "size": 61794961,
+      "sha256": "3f20d5896bc6acd2941ff04c486324c8a30607f1570466327e7da491172f1260"
+    },
+    {
+      "path": "BravoHotelGame/Content/Movies/ClassVideos/ClassVideo_11_Nuclear.mp4",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Movies/ClassVideos/ClassVideo_11_Nuclear.mp4",
+      "size": 53554779,
+      "sha256": "f7e06724b4c9a47c3b316d74dbb3c2a9135a8e83c073b570012d1b282482132d"
+    },
+    {
+      "path": "BravoHotelGame/Content/Movies/ClassVideos/ClassVideo_12_Driver.mp4",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Movies/ClassVideos/ClassVideo_12_Driver.mp4",
+      "size": 59429537,
+      "sha256": "8538a0bf626227cf45b7a127e0a33ad136e34e9a2a7895c1bf6019645aaab932"
+    },
+    {
+      "path": "BravoHotelGame/Content/Movies/ClassVideos/ClassVideo_13_Titan.mp4",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Movies/ClassVideos/ClassVideo_13_Titan.mp4",
+      "size": 61054104,
+      "sha256": "194f074fa855bd5c2bff756568d17cb72ec475de8bbc3f0eca2adeb6b7cab6ee"
+    },
+    {
+      "path": "BravoHotelGame/Content/Movies/ClassVideos/ClassVideo_14_Demolisher.mp4",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Movies/ClassVideos/ClassVideo_14_Demolisher.mp4",
+      "size": 64775835,
+      "sha256": "a937576d58828ac4e48ae1766e677c7fef2b9bd1eddad77e0667d1a37f3f8cb7"
+    },
+    {
+      "path": "BravoHotelGame/Content/Movies/Loading_Scene.mp4",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Movies/Loading_Scene.mp4",
+      "size": 53037869,
+      "sha256": "794cdac668a64665562f317348f2d79115fd34da5e5f89f5e0129384548d4387"
+    },
+    {
+      "path": "BravoHotelGame/Content/Movies/Localization/de/Tutorial.mp4",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Movies/Localization/de/Tutorial.mp4",
+      "size": 476682577,
+      "sha256": "36897357412b8581f9c913aa8a7ecfa4b823eb2bd0530f8e689be0ed38a8969d"
+    },
+    {
+      "path": "BravoHotelGame/Content/Movies/Localization/en/Tutorial.mp4",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Movies/Localization/en/Tutorial.mp4",
+      "size": 397081153,
+      "sha256": "fbba12a97e0e6a8eabe51ecb0c78f6d50e1e28c91def9a4c72c58092e9769f7b"
+    },
+    {
+      "path": "BravoHotelGame/Content/Movies/Localization/es-ES/Tutorial.mp4",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Movies/Localization/es-ES/Tutorial.mp4",
+      "size": 448772929,
+      "sha256": "6657966e69257a253ea2f9596d2a2e838625908bc77cde66dda0c94290974277"
+    },
+    {
+      "path": "BravoHotelGame/Content/Movies/Localization/fr/Tutorial.mp4",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Movies/Localization/fr/Tutorial.mp4",
+      "size": 448322822,
+      "sha256": "8f6b7e38f96c71dc967186a2902e7c51ec9ce80f6f392311f3a42e2f46318e3a"
+    },
+    {
+      "path": "BravoHotelGame/Content/Movies/Localization/ja/Tutorial.mp4",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Movies/Localization/ja/Tutorial.mp4",
+      "size": 419239788,
+      "sha256": "349dfb40781a9f39d670629379227b6f088ec6121ccaf3e87c85470914631cf8"
+    },
+    {
+      "path": "BravoHotelGame/Content/Movies/Localization/ko/Tutorial.mp4",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Movies/Localization/ko/Tutorial.mp4",
+      "size": 407719321,
+      "sha256": "c964b18ff773cde68a761ea497e15aae860c939fa5c1ef189b85a1ef75443f01"
+    },
+    {
+      "path": "BravoHotelGame/Content/Movies/Localization/pt-BR/Tutorial.mp4",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Movies/Localization/pt-BR/Tutorial.mp4",
+      "size": 491055090,
+      "sha256": "fb73af02be989355040de929eadee7eb4d3d3fe93b11491023fe3db1dffd1142"
+    },
+    {
+      "path": "BravoHotelGame/Content/Movies/Localization/ru/Tutorial.mp4",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Movies/Localization/ru/Tutorial.mp4",
+      "size": 447127269,
+      "sha256": "69d655aeccacd1452141375e5dd5a49dc9aa817fd49acf7e016b7a1ee41c1d7d"
+    },
+    {
+      "path": "BravoHotelGame/Content/Movies/Localization/zh-Hans/Tutorial.mp4",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Movies/Localization/zh-Hans/Tutorial.mp4",
+      "size": 397635614,
+      "sha256": "e7c8bfdcd7f6147f53e077dadd76b90778ccbaf651d171add32b3229c43327a2"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk0-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk0-WindowsClient.pak",
+      "size": 821263083,
+      "sha256": "a9fbe58881d31cd5eba838c89fbd3634d4cebe703cf9cf9a95c83a0ab61c9454"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk0-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk0-WindowsClient.sig",
+      "size": 50656,
+      "sha256": "890a691f32e89fb7007329c905076797c6af5fb9601ddffc9bedca5acebf7c78"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1-WindowsClient.pak",
+      "size": 216443766,
+      "sha256": "16749147ef1f5335028a79aacb5fe61e4d1273546998ad0fa096e7acc1fb430a"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1-WindowsClient.sig",
+      "size": 13740,
+      "sha256": "122120170b6e24245d915cd94d22ce2b47499b241e7d4626c294bb9166c8baf6"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1000-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1000-WindowsClient.pak",
+      "size": 78751,
+      "sha256": "75e80343bf279c66c4b0a24f5ec042ed3bdc640aaaec94da03d915dd4bfa3deb"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1000-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1000-WindowsClient.sig",
+      "size": 536,
+      "sha256": "858c0f49e1e0aab94a200307fd72558067cea9ca91458ccf2073501c614f565f"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk10000-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk10000-WindowsClient.pak",
+      "size": 22046319,
+      "sha256": "4ea20a48684e13a0d7a7fd4f2ed6b4206d41e153664f8a12129729db14d4d82a"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk10000-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk10000-WindowsClient.sig",
+      "size": 1876,
+      "sha256": "75a0aa793c55f3b7314899285f2bcf08ca8877b8822ed7bca62879019f81d098"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk12000-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk12000-WindowsClient.pak",
+      "size": 42061302,
+      "sha256": "30fabc34c0e008906a8d706d2a52f96ee8d202bba90d59c0b2ad19c402873348"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk12000-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk12000-WindowsClient.sig",
+      "size": 3096,
+      "sha256": "6c9785a8971877b8f99882a33bf7133c80396a8896e95a42851046f2e8541792"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk13000-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk13000-WindowsClient.pak",
+      "size": 46619,
+      "sha256": "2910c9b1497046a759c27132fb4300266f0fc5fc6e5f50a39cedb499b43efb87"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk13000-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk13000-WindowsClient.sig",
+      "size": 532,
+      "sha256": "48a8cfb3111a1dbac873899dd14e8e585879e953e1269a8c0b533edda21d91ef"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk14000-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk14000-WindowsClient.pak",
+      "size": 106920879,
+      "sha256": "a0113e7a9c5a3428542f221a92ae36cd95c2aec43c9139fed92592cdad004aa2"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk14000-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk14000-WindowsClient.sig",
+      "size": 7056,
+      "sha256": "45f6c45c10128d5a40c8b19f47b2c3e265d3cd9a6dd800bb6ba89a925b6252aa"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk15000-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk15000-WindowsClient.pak",
+      "size": 30687,
+      "sha256": "ca7206667e12cfad656cf30843b6b2acd50119b2b3633df2ddd376c2ae5f6e06"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk15000-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk15000-WindowsClient.sig",
+      "size": 532,
+      "sha256": "4404ac238e038fa6ec35e2f151f2b7a0b78e16cb00c72ab094239bdad7dddf0c"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk17000-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk17000-WindowsClient.pak",
+      "size": 192374959,
+      "sha256": "55a7c1a88e633aecc560b6a74f6318583a7a9847e8d38e1710b23c4c84563a58"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk17000-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk17000-WindowsClient.sig",
+      "size": 12272,
+      "sha256": "1206944244bc2222c0069b261a11dff8d2e44b31fcc12d13d393a9219cf545f9"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk17000_s1-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk17000_s1-WindowsClient.pak",
+      "size": 2506671,
+      "sha256": "1bcec216e3258314d64e783783e323142d4dc6856fd6880b7a2a77a2d39b2694"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk17000_s1-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk17000_s1-WindowsClient.sig",
+      "size": 684,
+      "sha256": "a32f2f1e92ba9d445adc51d0dd43d995751b68f126995d71b0757aa49e90087b"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk18000-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk18000-WindowsClient.pak",
+      "size": 125379819,
+      "sha256": "4bc6907410167911438dd561b74b5a73d035aa4ff7b258d9d677e48ac656e07c"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk18000-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk18000-WindowsClient.sig",
+      "size": 8184,
+      "sha256": "656f4400f940d58b56569485f24681ce12570dc57300c633e5b8992864428e10"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk19000-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk19000-WindowsClient.pak",
+      "size": 300720927,
+      "sha256": "5ba00ee5c0bb38ecf1e1116b0f1af4a5b1440064e1282619c3f3156e2369036d"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk19000-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk19000-WindowsClient.sig",
+      "size": 18884,
+      "sha256": "d9fd7e1b24f4f1bce31431f3c6e60ac2ccec9078d77beff05f3a6a3438c191e5"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk19000_s1-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk19000_s1-WindowsClient.pak",
+      "size": 162437035,
+      "sha256": "13979640fbf503fe0745c9f90d6689f01bd879675637f5f403da71bb55e96da4"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk19000_s1-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk19000_s1-WindowsClient.sig",
+      "size": 10444,
+      "sha256": "fda9800b95c487509bca119d6dd2f8056a5ace6f68eb238dc6a9e0e02975b3fb"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s1-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s1-WindowsClient.pak",
+      "size": 224263894,
+      "sha256": "0a6cade0b94f4deb076b2dbcca2f58c1480332a2aa0bb12dfbc0534efa0b2e88"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s1-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s1-WindowsClient.sig",
+      "size": 14216,
+      "sha256": "30def0534234ccf33f12a120920a633abbb0465e6cad22bdc5d8f297c2683137"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s10-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s10-WindowsClient.pak",
+      "size": 287355302,
+      "sha256": "a181485902ea14b8939843882e83fe467794dce979e89b6d88f953cd500cee11"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s10-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s10-WindowsClient.sig",
+      "size": 18068,
+      "sha256": "eae61275cd5d7718839da6135dba52e93094aa141b57f61fe05490b99bd54859"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s11-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s11-WindowsClient.pak",
+      "size": 286667503,
+      "sha256": "6ba86656c63e79a9fb2ec96433c51c4ffcb8350d6ea7d28761d185041cc7d72e"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s11-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s11-WindowsClient.sig",
+      "size": 18028,
+      "sha256": "d723189886195399f2fc7e43144170af470f4f0887b70321eb528823c4dd270e"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s12-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s12-WindowsClient.pak",
+      "size": 285520662,
+      "sha256": "e4c050964f79377dbe940d862cbabf0fa3f75fb12306fcbe936fe5b1aed2e56e"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s12-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s12-WindowsClient.sig",
+      "size": 17956,
+      "sha256": "5d942414ea4f6018c8145746c8cf636c001c1c917aa585ca901d34c1f8e361f0"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s13-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s13-WindowsClient.pak",
+      "size": 290123375,
+      "sha256": "351cd35c7ec2e18840ae89c5c1f98273e23dbe680d0b82932617a2752e3e0c70"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s13-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s13-WindowsClient.sig",
+      "size": 18236,
+      "sha256": "df9dfe339ba9a5d29f5f539ec9e41e1a77a92cdf18d957d7891360877f35e9b9"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s14-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s14-WindowsClient.pak",
+      "size": 286038694,
+      "sha256": "3d8b2b8e93673d33be1669061b2a360eba534b8073c05989de2578f5e0b6bc25"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s14-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s14-WindowsClient.sig",
+      "size": 17988,
+      "sha256": "d8e32c5ecf92542b0dc8561ffa53d2119de6fd5687d6be103e327001fc06bc67"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s15-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s15-WindowsClient.pak",
+      "size": 291672879,
+      "sha256": "08757aa808845f887e1e9b9b364262b07307a8cbc6f84b1192d7c7755e5b962f"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s15-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s15-WindowsClient.sig",
+      "size": 18332,
+      "sha256": "e0cb54cd31e80758d2e4d49e2dc93f215cc1dfee2fe8fc1ca27d3a703d2cab15"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s16-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s16-WindowsClient.pak",
+      "size": 274072182,
+      "sha256": "1c1a0d9d340d1737dc960e33cfa154fe6934ed976004bcc36d18f30e7c5bbc62"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s16-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s16-WindowsClient.sig",
+      "size": 17260,
+      "sha256": "430005a33cc65859a8a9e2a5e7a3354654ef3523521215fe4e26512e511755fb"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s17-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s17-WindowsClient.pak",
+      "size": 260058182,
+      "sha256": "2c167fbbbdae502c3a76e271f9d8a17d3930b81073fd2bb524fa580bd0177be3"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s17-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s17-WindowsClient.sig",
+      "size": 16404,
+      "sha256": "a57f0b51b6c175c2a9f4de579fc8e518331c8d12396bc180568eddd2c3bb8d01"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s18-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s18-WindowsClient.pak",
+      "size": 259623723,
+      "sha256": "c0339dc3bfc6c36207c1e30c0235bfed55ff6cb88268f44902fbe720c5d4438d"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s18-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s18-WindowsClient.sig",
+      "size": 16376,
+      "sha256": "b85ac38b97745feaed3dfa6f5da0934ad4c3ea4f930ddfd08bd802c0cda18014"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s19-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s19-WindowsClient.pak",
+      "size": 243808943,
+      "sha256": "ce798331a75f21a2d640e1268603c9eb1dfba0e169b8efc407dd42396f45d701"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s19-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s19-WindowsClient.sig",
+      "size": 15412,
+      "sha256": "9a68262d8cb3c069a157c444fc51872e3ec9892709976f63e161365068c1efc5"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s2-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s2-WindowsClient.pak",
+      "size": 260180214,
+      "sha256": "08601c9e645dfd600339b003a43d3e4f34cb7d8c0e9a27c1d66197a86c3b157d"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s2-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s2-WindowsClient.sig",
+      "size": 16412,
+      "sha256": "f14ae4985c9f60445a96db1a9a7e7f0c1a72b5baff5ae179ca3ef32ed6b7b4cf"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s20-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s20-WindowsClient.pak",
+      "size": 271544182,
+      "sha256": "8147846434e3cdcb1cefb9485abf2d7a7408fffdb91239b359e625bfb4a6dad8"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s20-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s20-WindowsClient.sig",
+      "size": 17104,
+      "sha256": "24387d320acbef1c3397277df7b0d4e602ff8d540aa393e901851b8a4cc2e9d1"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s21-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s21-WindowsClient.pak",
+      "size": 267332742,
+      "sha256": "3ad63b82f1483564fdb90d256fdf6cce19072a7d2ad7fa9e392962069bca27f1"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s21-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s21-WindowsClient.sig",
+      "size": 16848,
+      "sha256": "568aa953532faf06393c0f28756b0c4c0cb5a3a1da7b53204db87ac7fca417f2"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s22-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s22-WindowsClient.pak",
+      "size": 256457286,
+      "sha256": "15678b2100c3c96d2bf3fe8b583a3e5075817ba9267315e5b79089b555b48b05"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s22-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s22-WindowsClient.sig",
+      "size": 16184,
+      "sha256": "36c3d902a1345c0be92f570073063fe167e4c024309f2ebcbb00cd5df7d8375a"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s23-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s23-WindowsClient.pak",
+      "size": 261675919,
+      "sha256": "4d3e8750ca844721caead6500bf4a078e46f18810df18b11fc2183fc0559b753"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s23-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s23-WindowsClient.sig",
+      "size": 16500,
+      "sha256": "86b86437e510a7d32109a4780317532297d45fe95a2435d6bdae2488871df79e"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s24-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s24-WindowsClient.pak",
+      "size": 265266831,
+      "sha256": "a7ae7c0a2408bcdb46ff09e24215ee3b48ad72e012db73552e49192dd72dbe88"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s24-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s24-WindowsClient.sig",
+      "size": 16720,
+      "sha256": "8d38d84f73ec1bb24a54f5701d61c02d0cf3e9db526dbe0a4f3013211ffe0b8e"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s25-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s25-WindowsClient.pak",
+      "size": 277082614,
+      "sha256": "f9d2bcaa841f26106ab58b64ef86b1fbf705e347d1f49f5a47474ff0d273216a"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s25-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s25-WindowsClient.sig",
+      "size": 17440,
+      "sha256": "878921d02a9ff7568c0b3c7c5c693404c00c90e683242da62da45dfdb5a716b0"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s26-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s26-WindowsClient.pak",
+      "size": 273729078,
+      "sha256": "24f9f2bc79823b69ba14cad774105ce6409d217070a8145d8ca5368fb688ea11"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s26-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s26-WindowsClient.sig",
+      "size": 17236,
+      "sha256": "0d49a25d569dda2c7dab251c604a002521bb0c46020ac8ddf931f8e76eab22df"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s27-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s27-WindowsClient.pak",
+      "size": 279768671,
+      "sha256": "10b1d5fa9eaed76d49541d5c07925cb97153a0592e38b2112185785c230fab3e"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s27-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s27-WindowsClient.sig",
+      "size": 17604,
+      "sha256": "31803513a80ec0d252dbdbca5b52ba83aab51bcec54b110d3632b11662391789"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s28-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s28-WindowsClient.pak",
+      "size": 271855526,
+      "sha256": "663ff58fb7ebd59aaa9602e02460b55bbce8d5106667fd74abf033192bca6d0d"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s28-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s28-WindowsClient.sig",
+      "size": 17124,
+      "sha256": "249e19df848e3aa1228f0329b416ece9c8de23edfca678eb27a8ecb5b2174046"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s29-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s29-WindowsClient.pak",
+      "size": 282074070,
+      "sha256": "41b50a9c4e557ed21a6482152f1ec0f1ac7d189e7fb1bbb671d47159e1e4786f"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s29-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s29-WindowsClient.sig",
+      "size": 17748,
+      "sha256": "76ab89be33e7279932b66c71e5898db8649fd381df6a0b54c77ce7cef51cd28e"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s3-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s3-WindowsClient.pak",
+      "size": 260585556,
+      "sha256": "94c2566745e1c1b02ac9c32672d2be27bfecfedadeb4787c7740f7762c82fa9b"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s3-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s3-WindowsClient.sig",
+      "size": 16436,
+      "sha256": "2ce34d65ccca13642ae2cbb36424dd3badcab7921b0145d8c594b491bd61371b"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s30-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s30-WindowsClient.pak",
+      "size": 275747398,
+      "sha256": "e5dcada722b82b977ca51f069fe499ef031dbfe135ec7451e99557ca4fcd512c"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s30-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s30-WindowsClient.sig",
+      "size": 17360,
+      "sha256": "56a5c4c6bb7038b720ca3b721122792dc5dd88bfb30256629c4a523b3234dd93"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s31-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s31-WindowsClient.pak",
+      "size": 266610038,
+      "sha256": "46a254e71746db4fcf2062655bd65e7c6da630fb52fd17aff74de365e92de391"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s31-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s31-WindowsClient.sig",
+      "size": 16804,
+      "sha256": "5e7f32f0f84e7d90f5cf1f20d0735fd8340e1ddc96e5702c1c2dba092007329f"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s32-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s32-WindowsClient.pak",
+      "size": 285775631,
+      "sha256": "1498bd32cb9ea4a91be6dca1a1e689dd436ba50277e888fba8d19cd7538a3a57"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s32-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s32-WindowsClient.sig",
+      "size": 17972,
+      "sha256": "d72e4e5feae8c4a7e0c357fce4d4d3d92a112639d83f7f0adc07b3525e5e0871"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s33-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s33-WindowsClient.pak",
+      "size": 281264623,
+      "sha256": "ed9f64539c0fe10ecc4c67b2325b2106e3759d99bcac8176e13431ef00f6cbc8"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s33-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s33-WindowsClient.sig",
+      "size": 17696,
+      "sha256": "525167d1f306c3f497cbd07a8828b84f5536ac3b0b82019417d124221a8b7d4b"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s34-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s34-WindowsClient.pak",
+      "size": 278317398,
+      "sha256": "bd22187af45c78ff5b9d4a7ad9311e3eb5a54b3408dd7353b3419543ed69438d"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s34-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s34-WindowsClient.sig",
+      "size": 17516,
+      "sha256": "59f74893ba7bb334f1720ee2fe699727c175e11252d7535efed418f51c478fc9"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s35-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s35-WindowsClient.pak",
+      "size": 201655062,
+      "sha256": "dd4a145c1d3976d18d54dbeaf5e978a1e3afadd75028cf67d1ef9ad119778f32"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s35-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s35-WindowsClient.sig",
+      "size": 12840,
+      "sha256": "319a0ebc13a4464b11641631081c148ee0c0cfe8ee230a06a15b3181c515126f"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s36-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s36-WindowsClient.pak",
+      "size": 115132528,
+      "sha256": "3a925e891372b0261fca67d344af00d22b8b17f61deade9e5c87bc422a881ce0"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s36-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s36-WindowsClient.sig",
+      "size": 7556,
+      "sha256": "15a063ae7340040d6faa47764cd62fb5de43b96b7e5af2111f54aee56ca7198b"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s37-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s37-WindowsClient.pak",
+      "size": 113022310,
+      "sha256": "9d1b195dc4b3c1bf8fafbbd6ed75b0415164aa35de8caa19050c92214f2621d3"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s37-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s37-WindowsClient.sig",
+      "size": 7428,
+      "sha256": "df12576e0c324d2f3df3c0d275e29022563a62863c9ca3cd55fe3cbd89707b63"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s38-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s38-WindowsClient.pak",
+      "size": 138197302,
+      "sha256": "c13f9743e85756f47463b44a1104f8ac44fd6d2a3631f0dd59d97b1a85413bcc"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s38-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s38-WindowsClient.sig",
+      "size": 8964,
+      "sha256": "fbb319c1063e1cbd873fcb36151903c4c115a2de54e173028bc2427969192128"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s39-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s39-WindowsClient.pak",
+      "size": 182001414,
+      "sha256": "15eef1a32a5d6e87b024d451f766f78dbf36893831fa037e026c806a4b5787c5"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s39-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s39-WindowsClient.sig",
+      "size": 11640,
+      "sha256": "5f263666c4493161d667b4000a5ec8b15dab9aa9fc714d1e276102501df959ec"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s4-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s4-WindowsClient.pak",
+      "size": 273831942,
+      "sha256": "894f6709ede2ebe31cfcd0b596b9f103532b63605380d412e9a90be9a0ddca57"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s4-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s4-WindowsClient.sig",
+      "size": 17244,
+      "sha256": "a3d335558111b3abfe68d5278b16eedae68902858fcdcd0823868d76c05c9a73"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s40-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s40-WindowsClient.pak",
+      "size": 143733910,
+      "sha256": "e1ec86b72fcd1713ab0b8430e5802ef5aa6b749e3a348346c1d06e977cd11fcc"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s40-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s40-WindowsClient.sig",
+      "size": 9304,
+      "sha256": "180dfd660dfc5fd4c27ceeb3e0725ece56d97b9c3e1f16760ae2238dae560405"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s41-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s41-WindowsClient.pak",
+      "size": 100004470,
+      "sha256": "d741c1e6992916926f9fdc5291cb8799121f4a20eed2a127f865afeaac205940"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s41-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s41-WindowsClient.sig",
+      "size": 6632,
+      "sha256": "87ea890e1842736df121ace783ecf6d3d5df8adb0fc3887d5501a923d85552fb"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s5-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s5-WindowsClient.pak",
+      "size": 262999398,
+      "sha256": "cdd499b5478b893aad640a0d8c2def06e9c86bcb81c3c1a92819a65e92905422"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s5-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s5-WindowsClient.sig",
+      "size": 16584,
+      "sha256": "618f92b9f6561215873b32bc2ea4d83fba00eec69ec32b56cf6422e6cb282de2"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s6-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s6-WindowsClient.pak",
+      "size": 264720383,
+      "sha256": "05121bb9be2390756e8f3117d4cdb0090074bbd4746d95c4df1f4accc60747fd"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s6-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s6-WindowsClient.sig",
+      "size": 16688,
+      "sha256": "c7b3c3ec55d02ee4fda79911266021153057f2fd488e134d7630222c5504cc8a"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s7-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s7-WindowsClient.pak",
+      "size": 282435750,
+      "sha256": "55e5f25a54810ec830465f81133f7d616ec74ddd022ea28e064e7978271093b8"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s7-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s7-WindowsClient.sig",
+      "size": 17768,
+      "sha256": "5ad2a946c31f106a37e6fd7ed284cfb2fd402aa79579ab9fc48dd8218c0272f6"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s8-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s8-WindowsClient.pak",
+      "size": 286265126,
+      "sha256": "07adedf3e139e85af16bbf01b62455d26b27018649496207a9fe4b4de6db9644"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s8-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s8-WindowsClient.sig",
+      "size": 18004,
+      "sha256": "81b4a48928470f1d5cf5fee3e2ae771a175c4d622d5a9a6cd3c09111c1760bd3"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s9-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s9-WindowsClient.pak",
+      "size": 285833030,
+      "sha256": "5bd8178420ba4d791dcb587efd88f6555ed79e55435574f856a6fc1d85cde173"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk1_s9-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk1_s9-WindowsClient.sig",
+      "size": 17976,
+      "sha256": "1e14dfcbbd3451aae33768a14df25875bb40bf10e7d7838ee7d528ed3093eee4"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk2-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk2-WindowsClient.pak",
+      "size": 125315650,
+      "sha256": "b80953572bc4fe0ab2e1fdcaf5c34f49594fc6f5d9810fe2387900482f351c3a"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk2-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk2-WindowsClient.sig",
+      "size": 8180,
+      "sha256": "c0f6a249405f243e9f5dcd76be04d13a6a9f4e7ed1289286b7e23dac466cb0e2"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk2000-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk2000-WindowsClient.pak",
+      "size": 413086427,
+      "sha256": "00f499681b0a4c6e056fda54794a4eebefdd8036ef748a91d65cc198b875077f"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk2000-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk2000-WindowsClient.sig",
+      "size": 25744,
+      "sha256": "fa02635d0b42159b47bd6cd33c1bc69aea1162fdc219472cdf26b9a8e946941a"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk20000-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk20000-WindowsClient.pak",
+      "size": 7348959,
+      "sha256": "8d66c750599912bd61b1e78da0ac36c145661248610022bebd05465137d16c1d"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk20000-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk20000-WindowsClient.sig",
+      "size": 980,
+      "sha256": "5303f6bcd29615c1d234308bf25d4ed3e43543f4ab8fdb4a8330b7946b73b967"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk2000_s1-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk2000_s1-WindowsClient.pak",
+      "size": 412038539,
+      "sha256": "2b43e63cc725cd7f84d9de6796b16ee7c42a0e8b68cfaa431f4d5e5fac539119"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk2000_s1-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk2000_s1-WindowsClient.sig",
+      "size": 25680,
+      "sha256": "c010d4b18f72779a454423e10c9823e64a89d279fd91998eb7890fd0debdfc80"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk2000_s2-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk2000_s2-WindowsClient.pak",
+      "size": 409804091,
+      "sha256": "079de6d526c44375a9ddc3ccf27147da51bf1ef352a05bf09402b75d3ebf4ebc"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk2000_s2-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk2000_s2-WindowsClient.sig",
+      "size": 25544,
+      "sha256": "6fd51ebb613ce61b2cd81bce1bca897eb00da8cfe68532d39859c83740920f88"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk2000_s3-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk2000_s3-WindowsClient.pak",
+      "size": 376751995,
+      "sha256": "e431dd05e17b1306e4a702cd70e4254c06066df1710cfe1ec600baeb5fbc2820"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk2000_s3-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk2000_s3-WindowsClient.sig",
+      "size": 23524,
+      "sha256": "3dde0151f100a9a44f83f824ce8eba52329fd46b26add4f75e92343902fd829f"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk2000_s4-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk2000_s4-WindowsClient.pak",
+      "size": 341376375,
+      "sha256": "48d9c50ba6a3c60424c1ab7c228cbc5493351dd0700a37582d6688feb895c586"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk2000_s4-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk2000_s4-WindowsClient.sig",
+      "size": 21364,
+      "sha256": "a5531e83e16b7fe50b6c13264423f2e5e5f9aa18a2822fb2156dd87d9dcd2914"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk21000-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk21000-WindowsClient.pak",
+      "size": 17799455,
+      "sha256": "195ff230cbfde4b50e09617e42dddd811681586f4ade13893bebebf2b58fa67f"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk21000-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk21000-WindowsClient.sig",
+      "size": 1616,
+      "sha256": "e992555a1964079f168c4bb76d43d19cd4dfdd7ca97e8c5f99e846a8391f3f6a"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk22000-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk22000-WindowsClient.pak",
+      "size": 285662694,
+      "sha256": "15c3cc39408c5c3430632856e7e7a46996c9e432b30d8faa0ad5a784a5f84e0f"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk22000-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk22000-WindowsClient.sig",
+      "size": 17964,
+      "sha256": "600eed014983c4c6910221310f45e3f225898a98fdcd860b50a091b9e34ad6f9"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk22000_s1-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk22000_s1-WindowsClient.pak",
+      "size": 2665727,
+      "sha256": "b6fe439cd2d0416f13d4374c600696fb35afccb40a367468b2cd0398afd0b3ee"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk22000_s1-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk22000_s1-WindowsClient.sig",
+      "size": 692,
+      "sha256": "2bc04d3d8e857ff73680d48a024f7a6baa212815b50f6c88bad742b7ca8b9ac9"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk23000-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk23000-WindowsClient.pak",
+      "size": 240037535,
+      "sha256": "2d902f37436ad82d362ddafee4fcd11ffcd6a3dedbe8ed78761af52197e42cea"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk23000-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk23000-WindowsClient.sig",
+      "size": 15180,
+      "sha256": "b7970fb62740687560e111afc2d3b1eccc4d3edc6ac3ea9dd8bb69b4aadb56ed"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk24000-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk24000-WindowsClient.pak",
+      "size": 179071,
+      "sha256": "243848535c544a134c064c85c1c8aea997d3074f1610df42b61edf3e61bc7b9e"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk24000-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk24000-WindowsClient.sig",
+      "size": 540,
+      "sha256": "d26d1034cbf7932adc66d65ae6e50ab716f562d69668f1ccca3922baa72635a0"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk25000-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk25000-WindowsClient.pak",
+      "size": 168250511,
+      "sha256": "2b555d253e1af8da552c5d79ea4cb6447027846716a7dd8966ac923172ac078e"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk25000-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk25000-WindowsClient.sig",
+      "size": 10800,
+      "sha256": "06f8d50e29b50f460cdef7b124d4d55d9ed33fc7f873c95e32c5bba8b0bf9867"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk26000-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk26000-WindowsClient.pak",
+      "size": 23346278,
+      "sha256": "548da8f2fed51ecf1c4d7e0a22f9b08622b73477ef22fd4dc4a33f8c434dce5b"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk26000-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk26000-WindowsClient.sig",
+      "size": 1956,
+      "sha256": "fc081e8872a91c70c05fa77c9ec742454ae3a3b423c8d3d045726aaf13993e18"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk27000-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk27000-WindowsClient.pak",
+      "size": 9147175,
+      "sha256": "31cac7020987a6027404d2c0356194f7b962eb9774c7338bf7c50dbfe4308ace"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk27000-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk27000-WindowsClient.sig",
+      "size": 1088,
+      "sha256": "9fdf4e4ac1bb3b792dfa7e8598471e2f5dad5ee387bec523b38b72869a1a12a0"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk28000-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk28000-WindowsClient.pak",
+      "size": 16912959,
+      "sha256": "83930d95a951ad17a32998a1115237fe699749ccb827abcca8ba53af5c4cde6b"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk28000-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk28000-WindowsClient.sig",
+      "size": 1564,
+      "sha256": "73741b4da2ec95339e7ba25fbef34a335d8bdc0b22e9878d98834e7010068b50"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk29000-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk29000-WindowsClient.pak",
+      "size": 7507718,
+      "sha256": "c02f3dc829176641f0793bb7efb447862e73c50dc8e42790e187f5718b1f0351"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk29000-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk29000-WindowsClient.sig",
+      "size": 988,
+      "sha256": "4be4e1de5c75844e3a5188fdd073333bfadcaec323b6fbaaa3f3ceab2312b7bf"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk29100-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk29100-WindowsClient.pak",
+      "size": 160015,
+      "sha256": "0dff8c9e581ef74b978627f766e3de7b23f9ace074f66b9269a723883df98476"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk29100-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk29100-WindowsClient.sig",
+      "size": 540,
+      "sha256": "3faab5e8310290553e918853a9352968ace127fe8fb540bdf90205602753c05b"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk29200-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk29200-WindowsClient.pak",
+      "size": 9708902,
+      "sha256": "ce84fa102b61b844d832f19adca29896d3ccca5049f956f4fdbf51403da09a61"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk29200-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk29200-WindowsClient.sig",
+      "size": 1124,
+      "sha256": "8122dda3b3caa24ba5bd0624532168d4cd02259866505486f16c22d29aeb666d"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk29300-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk29300-WindowsClient.pak",
+      "size": 1928671,
+      "sha256": "17d91f1e2e7a969c89980301ecc9ac735cb3cd15738cc7325fa6113f8459dbbe"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk29300-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk29300-WindowsClient.sig",
+      "size": 648,
+      "sha256": "0178de7b7c582cb08c5fc0cf601ade1edc96746c5ad098b12da54b9acf7558c0"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk29400-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk29400-WindowsClient.pak",
+      "size": 1393350,
+      "sha256": "728be997e73209b43c338054f9190455913afad2fb63cea45b8c7241e4a96d17"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk29400-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk29400-WindowsClient.sig",
+      "size": 616,
+      "sha256": "e4e37c904a799b67b6fa0c41d490381102edc12b77a3065b8416fd3d50f2a6ec"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk29500-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk29500-WindowsClient.pak",
+      "size": 82462630,
+      "sha256": "56266f92967eef8733580822300e895c81bb7694a3ff2be4a8a79edaa67848cb"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk29500-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk29500-WindowsClient.sig",
+      "size": 5564,
+      "sha256": "3e7e060ddc18f980a987b87e7cdbd85cce83dcc587e1e3a1ba8b681e34e1ca64"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk29600-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk29600-WindowsClient.pak",
+      "size": 287940342,
+      "sha256": "80163e17061dfaa9ca775826dd46869b80c14f628abf0e6bf3f84cef7553db83"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk29600-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk29600-WindowsClient.sig",
+      "size": 18104,
+      "sha256": "7fc66defaa7c1cca9ca26b9bfe0f7e449a64b0c4d7f8304b3d0aa19060a82237"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk29600_s1-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk29600_s1-WindowsClient.pak",
+      "size": 31732230,
+      "sha256": "17400f2f0cb6f554436b60f53981aeae96f3e3111f69e17687de1e6318ffd454"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk29600_s1-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk29600_s1-WindowsClient.sig",
+      "size": 2468,
+      "sha256": "8e266e1c73a6636f25c13b3290f3bae58c9cf25d97d003dbfdd2f1ee984b9a42"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk3-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk3-WindowsClient.pak",
+      "size": 6876774,
+      "sha256": "afd9a1d2d80123a5d46bd5967d91fa64703775147b53a7272bf438d38b75b831"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk3-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk3-WindowsClient.sig",
+      "size": 948,
+      "sha256": "b70cacc5ccd10d42c619df8f4244a962df427c690bdb0407f0bd99ac3e7060ca"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk3000-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk3000-WindowsClient.pak",
+      "size": 15333855,
+      "sha256": "c74aed433e1eb27cfa8b69088d53ecf9ec5329448513c6dd23e59b09f19efd30"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk3000-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk3000-WindowsClient.sig",
+      "size": 1464,
+      "sha256": "af4a63cf0b90ca92060e7ca02fa523585632df7610a075a4798e8b71d237940c"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk4-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk4-WindowsClient.pak",
+      "size": 298485414,
+      "sha256": "86c9deb9550ee68426a25083602e4a33923f174b2044d3eb8582bc45afbb1243"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk4-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk4-WindowsClient.sig",
+      "size": 18748,
+      "sha256": "bab5b54b4f97e1ab1a6c913377143b5438a643da0ec7eac211f9299068eb9c85"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk4000-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk4000-WindowsClient.pak",
+      "size": 14843286,
+      "sha256": "bcbefefc5e021ae62e7f67479275fd4247dd6a079b28ebda9535d895fa78ff44"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk4000-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk4000-WindowsClient.sig",
+      "size": 1436,
+      "sha256": "7b54f45a62e426dd2cd5897bab5507cd6e488b6aafc7fdc97c77682b56ce2e20"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk4_s1-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk4_s1-WindowsClient.pak",
+      "size": 282146294,
+      "sha256": "557aaaedd668be056f4433e7aeb25e2cb7094a860279cd5cfcb18efda388811f"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk4_s1-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk4_s1-WindowsClient.sig",
+      "size": 17752,
+      "sha256": "905b4d5382455a3fb41a93c524548043acaef8edce4d1f12bf690f0699103ffc"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk4_s10-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk4_s10-WindowsClient.pak",
+      "size": 282646319,
+      "sha256": "c515e30487e8e1145768624cbc695a2793d49acf1f3a6500e2640c21414fb726"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk4_s10-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk4_s10-WindowsClient.sig",
+      "size": 17780,
+      "sha256": "ac84c4cb33b477c77fbcd263def539a98fa566435ee6e08012fedc72fef9cde1"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk4_s2-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk4_s2-WindowsClient.pak",
+      "size": 286892406,
+      "sha256": "980c3bfb5441a54514d9127f2b734523578e20380ae23e8e32a4bcb22ba9c2e1"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk4_s2-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk4_s2-WindowsClient.sig",
+      "size": 18040,
+      "sha256": "c67aff21ae9005e07cbb7e838083fe7c40bb0a931ae5e022de2143fb0b080e15"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk4_s3-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk4_s3-WindowsClient.pak",
+      "size": 315240358,
+      "sha256": "a6d5d545795f19e817ba05faf96597d8f5bb6d4cd8e198c5333cbf5975acc6ce"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk4_s3-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk4_s3-WindowsClient.sig",
+      "size": 19772,
+      "sha256": "a3ab57d07324565a8a30c423ac7b04bdc75f19eb2790ee81032886a83c46a021"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk4_s4-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk4_s4-WindowsClient.pak",
+      "size": 287219151,
+      "sha256": "4141a52d05af0550ecce50734328332badf80ffd7090e051ce1d6637f2c93202"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk4_s4-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk4_s4-WindowsClient.sig",
+      "size": 18060,
+      "sha256": "1f08682f9c2c78219472a7f4c12956cdc4bc76acacdc06249afea591bb5f6ce9"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk4_s5-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk4_s5-WindowsClient.pak",
+      "size": 253134630,
+      "sha256": "a8e46b308f938b7cc74f545ac2b5d6cc217d8c6e1a9eecefbfd7e82fe3870b14"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk4_s5-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk4_s5-WindowsClient.sig",
+      "size": 15980,
+      "sha256": "ce1c791038d545d6692ebea6dbf32c9c4484c1dac762224a45d34d1ee9cd960d"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk4_s6-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk4_s6-WindowsClient.pak",
+      "size": 338233110,
+      "sha256": "26c706937919556445a4a7124fed4028d894b1d62c217fde42bc5aa2736db2e9"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk4_s6-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk4_s6-WindowsClient.sig",
+      "size": 21176,
+      "sha256": "0180e9403db9137035c91c4fb7af19e32d285fb3b5c806d8c7f93cd0dd083037"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk4_s7-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk4_s7-WindowsClient.pak",
+      "size": 335646022,
+      "sha256": "cde37e7246be5f6081c00d8f7d3d2255cb3b5558df7414693cd0578bed073de8"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk4_s7-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk4_s7-WindowsClient.sig",
+      "size": 21016,
+      "sha256": "9011a9f55bf1d05e94a716212abd726bfcde0573bf3cdc4659f575960c17bb92"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk4_s8-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk4_s8-WindowsClient.pak",
+      "size": 347043910,
+      "sha256": "b771b3098b6263e34b628852a926a26bc6f25dfb4af4915ed07bafe89f914e34"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk4_s8-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk4_s8-WindowsClient.sig",
+      "size": 21712,
+      "sha256": "f95e0a176c1c16ec7528e4a5a32432e3e19d81500e01c9918c84d2065a6d26de"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk4_s9-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk4_s9-WindowsClient.pak",
+      "size": 341958134,
+      "sha256": "3179e8daa766fa3e35072ac75a241730a79df85871628cbee9c874bb067856ed"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk4_s9-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk4_s9-WindowsClient.sig",
+      "size": 21400,
+      "sha256": "6e464e8efc0def65613389844d16a87b3cf344f6ae071636e154bc3afba7baec"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk5000-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk5000-WindowsClient.pak",
+      "size": 9868015,
+      "sha256": "dce964ed3594e53b4f1e4b1fdab6f9cf542d5ad3a1b329207343e3eb313a6cd1"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk5000-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk5000-WindowsClient.sig",
+      "size": 1132,
+      "sha256": "e75e0a37109102fcc8359e7b8d867e6f9391f7ccf2c197451da2e589b8030939"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk7000-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk7000-WindowsClient.pak",
+      "size": 192880703,
+      "sha256": "0f0d9a6b15d30c3dc338b3e9500f16d32a8b5bb05174facf6e61d5f90d7a813e"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk7000-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk7000-WindowsClient.sig",
+      "size": 12304,
+      "sha256": "21fe2b830ba9adf5713a209b73b0f1dfc582e4b2ec137baa7c4687dfaaad26c3"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk7100-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk7100-WindowsClient.pak",
+      "size": 1123051,
+      "sha256": "f9937870f65e79b725c54488761fefd4f1d3f971559e04637cb3e1a9942b3f0b"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk7100-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk7100-WindowsClient.sig",
+      "size": 600,
+      "sha256": "4129b7d2b26c7314563958d1b2e9c8a69a4728f84122be9e1cd078344f222a96"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8100-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8100-WindowsClient.pak",
+      "size": 182768015,
+      "sha256": "a1e46632b1e99a96e97b8a4f6c2a4ebbb7d335a017c2de3af11fa778692492e8"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8100-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8100-WindowsClient.sig",
+      "size": 11684,
+      "sha256": "1e9163a41a502b7c1c6e5721fb377e54615367d0521c6fd15f2808df435ee2c2"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8101-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8101-WindowsClient.pak",
+      "size": 17681990,
+      "sha256": "e2d142280ff1d95ea4dec182633953eb0ef4bb6a6bc01f10ea2d700d47f790d4"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8101-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8101-WindowsClient.sig",
+      "size": 1608,
+      "sha256": "4045960b56b63f87650abc481694d13badc78e538620af7529ba06fd21ba15bb"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8102-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8102-WindowsClient.pak",
+      "size": 30865158,
+      "sha256": "ddaeb8efd9a333ab5230dc1f8c8b307b9f2a569dd495cfb5fa150eb5019b2f7f"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8102-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8102-WindowsClient.sig",
+      "size": 2412,
+      "sha256": "b6a21b49d68f945dff18691cce393f17aa5a02956e3c5596f939a17792a3115d"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8103-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8103-WindowsClient.pak",
+      "size": 149615,
+      "sha256": "12f65ce6634ba4dadcf3d37e0d281a71cd79d045c6de7d79448f6ab69aa26948"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8103-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8103-WindowsClient.sig",
+      "size": 540,
+      "sha256": "2ef8f913bfba0a225fae8291ca3d4484589444329cd0f101ee9fc78d05a9a6ff"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8104-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8104-WindowsClient.pak",
+      "size": 7167094,
+      "sha256": "fd5e6d2675c38fa131f42bda04ab78446ddbd54bfad6c9ab8a4229769db40c77"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8104-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8104-WindowsClient.sig",
+      "size": 968,
+      "sha256": "3eb0cdf14785ad471e27a83a7c3d62b7b049c50a2fca78c770bc7149e969ae5f"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8105-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8105-WindowsClient.pak",
+      "size": 1224783,
+      "sha256": "6ff51589ed9cacfadd4d35443f56eec06bd9718c79200ca3fbc02aa45016765d"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8105-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8105-WindowsClient.sig",
+      "size": 604,
+      "sha256": "342e693873f2d8b043ab509836c4c03fc9aa8112da759f7dd2dd8561e0373ba0"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8106-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8106-WindowsClient.pak",
+      "size": 290735151,
+      "sha256": "9dc095305c1f0e59882efc51719bcaa6e6c772e97b66af6b0363f7a84d907bfc"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8106-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8106-WindowsClient.sig",
+      "size": 18276,
+      "sha256": "37811ead8391de29c131e950babaefa16ca1464fdb7e19071a275258cb650db1"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8107-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8107-WindowsClient.pak",
+      "size": 29534230,
+      "sha256": "cec28c15b9d6b139366cfc6a3dcdc2e74321e333de6c560019860c2b08295657"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8107-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8107-WindowsClient.sig",
+      "size": 2332,
+      "sha256": "f709d2a4b078d7de6b8da0728f35573d6602c0b97cb7be2d8c0e2ed64dd2d281"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8108-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8108-WindowsClient.pak",
+      "size": 60975590,
+      "sha256": "28c0488ed4f4a26a8f1e09acaa3154053a6638f9739b25744e55372e1e3ae01b"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8108-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8108-WindowsClient.sig",
+      "size": 4252,
+      "sha256": "db7f59aa41eab5c3414f456c89904744bb33d8c529cb3812d82071144b2314e3"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8109-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8109-WindowsClient.pak",
+      "size": 44879462,
+      "sha256": "6cc13a876d79a85296c1fb4dd240ecf716e656d9d38f107767c12edd90a7f191"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8109-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8109-WindowsClient.sig",
+      "size": 3268,
+      "sha256": "22dcf9b94e405583bfb71013c4b87adb263f5a79bcdaf46afc635caafe9c7d12"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8111-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8111-WindowsClient.pak",
+      "size": 40677311,
+      "sha256": "49f5fe37bb8d03aa5496850238561269db80203c3b6642ede837b23157f08167"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8111-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8111-WindowsClient.sig",
+      "size": 3012,
+      "sha256": "32a1291898f8dbad8a3eda04d24f66212501d3604d030265b8c7574a522baadd"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8113-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8113-WindowsClient.pak",
+      "size": 171486582,
+      "sha256": "3baae2832ea957d971a1af88cd82b39f77108fff0f6b1b58e60ff40fefb9755d"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8113-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8113-WindowsClient.sig",
+      "size": 10996,
+      "sha256": "65648515027f2b885d9966f489ebb26f6da8642accc8eb535e85210ab98cbda8"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8114-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8114-WindowsClient.pak",
+      "size": 49420742,
+      "sha256": "fde72a2f849700eaf210f06b7e5da15c6c846ec468807b97016de71b651965f6"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8114-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8114-WindowsClient.sig",
+      "size": 3548,
+      "sha256": "a6511f99d5fa95e62065d5f122aad8e17d78b55de1c2858f89b6261ce52471af"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8115-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8115-WindowsClient.pak",
+      "size": 3414223,
+      "sha256": "e98f1fd2425fa2a38d9501230ea6e7d082dc8c6d5fe8704fca72c7afdbbf2cac"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8115-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8115-WindowsClient.sig",
+      "size": 740,
+      "sha256": "be599307a2c0b5148ef7b6f07f520d75ff05253c12d27a6d6ac1e96e8f2daf79"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8116-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8116-WindowsClient.pak",
+      "size": 39354342,
+      "sha256": "33b5d046108e55d747818428c550354f7fd6e14c3534f90cd6c9b7db0512e5ad"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8116-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8116-WindowsClient.sig",
+      "size": 2932,
+      "sha256": "20da1fbc36830f004033f8bf49970cda0e6271eaef1faad2667714796e375259"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8117-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8117-WindowsClient.pak",
+      "size": 210923814,
+      "sha256": "c5d094e846926efb4876d96f7ecb799b1e85cf15ce525763da357483f1478dc7"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8117-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8117-WindowsClient.sig",
+      "size": 13404,
+      "sha256": "d25b26201575a73f9612ba064996b0b36f45fd204c456b47d225f38457cee16c"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8118-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8118-WindowsClient.pak",
+      "size": 7712495,
+      "sha256": "4d9c5ca6ec44ed8d4c5e2f91556bfa10a809c97ca17e65d89ae11144e9b711e2"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8118-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8118-WindowsClient.sig",
+      "size": 1000,
+      "sha256": "92f4184db3f4ecc15a52d41790de33c8755f3688836dd1e0bd1f23d004571370"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8119-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8119-WindowsClient.pak",
+      "size": 156189759,
+      "sha256": "ba9ce011683f68a37ca6d016767610a8bb97bce4349b8396e6d014a276b30f0a"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8119-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8119-WindowsClient.sig",
+      "size": 10064,
+      "sha256": "3715241771a5ecba05493b6788c62d0bd4752daea567416e765c518377c80071"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8120-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8120-WindowsClient.pak",
+      "size": 26830790,
+      "sha256": "bd4750779cf5ce487a5ff3856a12c4ad411e89cd1dfee9f5732b9a8bbcf544ca"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8120-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8120-WindowsClient.sig",
+      "size": 2168,
+      "sha256": "ae646f587fb402441e10d907a406179de926b8856274a8138a401b82230a947c"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8121-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8121-WindowsClient.pak",
+      "size": 66769471,
+      "sha256": "33631ae72721ce90b9615b57e376d3518409976af471d0e3273ac076ad3de168"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8121-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8121-WindowsClient.sig",
+      "size": 4604,
+      "sha256": "bffae7c6a73277695c60a6814cf6a06c84ff58f2a86fcb0bcc6d742afa327766"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8122-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8122-WindowsClient.pak",
+      "size": 142221759,
+      "sha256": "ddb081677aff3bc1b61dd1b1a47812662e84cf489db0f597ee87252a78b9dc5a"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8122-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8122-WindowsClient.sig",
+      "size": 9212,
+      "sha256": "04f46e9778eb160c1d12fad9341a0ae8b63d8e3dc8a54853be9cbda8d8a11ff1"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8123-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8123-WindowsClient.pak",
+      "size": 54144214,
+      "sha256": "43898befce14697e0628792c13ae6eb87e12e91ba2f3213ca617267d3e64b6a4"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8123-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8123-WindowsClient.sig",
+      "size": 3836,
+      "sha256": "aca4e096faefc7efc13d47b511a412c4d263c2f1f4fdcadff9863a5de1d37d14"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8124-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8124-WindowsClient.pak",
+      "size": 97011558,
+      "sha256": "ef280e2af2cabfa253898ee9016590e7b6b9971b1ae0921e8adeac3bad6b3de6"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8124-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8124-WindowsClient.sig",
+      "size": 6452,
+      "sha256": "69593f8a50d47d5e30c14839d929e0da4a0e85145ee753670968c85b58320b5b"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8125-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8125-WindowsClient.pak",
+      "size": 73245766,
+      "sha256": "7422cb5f442e6059a494c9713792722619451dda984dacdda8049f575671fc6d"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8125-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8125-WindowsClient.sig",
+      "size": 5000,
+      "sha256": "32343cce055616ba4cb97be3e8c3d91b3003728b4582b3ae86b88874314c7b2a"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8126-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8126-WindowsClient.pak",
+      "size": 5240374,
+      "sha256": "5d700237100d2a18c040c8e181f88449a00c3154c0c3c902dd74a5ede7bf5e43"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8126-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8126-WindowsClient.sig",
+      "size": 848,
+      "sha256": "16e0345be0f82cb296cacfaeed3ed98cba76f725efc0fb5056c463483d48fe4f"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8127-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8127-WindowsClient.pak",
+      "size": 7225766,
+      "sha256": "1b9e3ff62ca38464a218b7020fec4de6cb67885fca0f3fb36695e35fd9d13290"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8127-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8127-WindowsClient.sig",
+      "size": 972,
+      "sha256": "3dca67cf87fb8042d534f42a3924e0f8ea3c94b0bae0ff4aa26be398017a6392"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8128-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8128-WindowsClient.pak",
+      "size": 94602102,
+      "sha256": "f17f402be7a21d0d0b6c44d287f18330980aa3b2f02c86ee76e5fb45bf5c3394"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8128-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8128-WindowsClient.sig",
+      "size": 6304,
+      "sha256": "a87620fea031039452e191826bde9c7036b954a0f88e13f42e6aeaf529e9eb14"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8129-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8129-WindowsClient.pak",
+      "size": 44093718,
+      "sha256": "fd8661bfe04aa7c5731dcdb84f82c73a884cdcef2d270bc9e12a6f067dd8a4ee"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8129-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8129-WindowsClient.sig",
+      "size": 3220,
+      "sha256": "021b68e8716751d02f5b628b1880f7f0e60641585b293d70bc0a7cd69ee5e632"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8130-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8130-WindowsClient.pak",
+      "size": 26228134,
+      "sha256": "6d4ff3700cb6d63d47e63924ba0f36e10b30b36bda05736df0cc393626d18c27"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8130-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8130-WindowsClient.sig",
+      "size": 2132,
+      "sha256": "253c1da6793709c69ff5479e19fd22905aa168fcba6490f74f1eab746b00e490"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8131-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8131-WindowsClient.pak",
+      "size": 125715887,
+      "sha256": "703a86d56aba809a429e1e8fd094e3b0752f265fd0f6f3c73345e5821b543139"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8131-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8131-WindowsClient.sig",
+      "size": 8204,
+      "sha256": "d500b08c8c011d4118e1457172fce8354d302646de59079199b1128378cb11a2"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8132-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8132-WindowsClient.pak",
+      "size": 76285030,
+      "sha256": "505442f1c928db8d288bed56a6b018882e6089d0d00537db5e1c1eb1b42bce7a"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8132-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8132-WindowsClient.sig",
+      "size": 5188,
+      "sha256": "0a1447ea568079017dcc1b8310a078292c0378c73d109df503e803b8a829b301"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8133-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8133-WindowsClient.pak",
+      "size": 33445990,
+      "sha256": "f3c9972b5ca63fd435ff6c69bf439badb21f9d30deda2921eb56ceeb766f7eb7"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8133-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8133-WindowsClient.sig",
+      "size": 2572,
+      "sha256": "9a74b95865ea216b42fc7625d670c44dab927081c5b8cee9eed9de0f1ae7ca34"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8134-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8134-WindowsClient.pak",
+      "size": 238413926,
+      "sha256": "f9de2337d04d700ec9f661d4439784c0008836df21469ddbd3aedc2b4fe804d4"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8134-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8134-WindowsClient.sig",
+      "size": 15080,
+      "sha256": "919ae0b79a93cbb9c340439c341e68dd17cf5e220744196cc1816e87855885cc"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8135-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8135-WindowsClient.pak",
+      "size": 39617702,
+      "sha256": "76b632d026fbd50725d2b2bee91910afc2b942da921c28afe54211b0eee9eae6"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8135-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8135-WindowsClient.sig",
+      "size": 2948,
+      "sha256": "1aa351481fb5746481108308142fe180113a21dfbc135040c3f9204dbbf08395"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8136-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8136-WindowsClient.pak",
+      "size": 45769327,
+      "sha256": "f8bdef110182a06ba66a9293162fbdba16221e28208d7bc8bad407869752146d"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8136-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8136-WindowsClient.sig",
+      "size": 3324,
+      "sha256": "f12a60916b4ef0e9ff67eb068e17b3f8dcabdb0f4a7f43201974434f5e846cfe"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8137-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8137-WindowsClient.pak",
+      "size": 140631174,
+      "sha256": "61ab71fc1f8525991b9fc6b26306a1cfff28d171c6df1539fda4145728b99c00"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8137-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8137-WindowsClient.sig",
+      "size": 9112,
+      "sha256": "9297c88a55f7184502bd1da48f30a69fbad960046dc92909be9826c12c9f6cac"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8138-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8138-WindowsClient.pak",
+      "size": 46888111,
+      "sha256": "422aea086b1147fcf2943e6fd5d9a091791638960f6f8e05f6dde50a6a56df02"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8138-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8138-WindowsClient.sig",
+      "size": 3392,
+      "sha256": "50f7b0d61a5a1724d4e6810bc48763d59102458745c050286a92536f69794f88"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8139-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8139-WindowsClient.pak",
+      "size": 15598975,
+      "sha256": "1002b3ac2c7c855bc0f219b5229c31d65b5fbc18b7f5ed9077547b88cd956c58"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8139-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8139-WindowsClient.sig",
+      "size": 1484,
+      "sha256": "ecd65f020b8c15f1f3645998421d63022fb730eaead994cf48d3414f0224a520"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8201-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8201-WindowsClient.pak",
+      "size": 50718150,
+      "sha256": "045f640f3e0ba814975500e5660e0db034f397f037deaa583b207fdb9a8fc8e9"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8201-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8201-WindowsClient.sig",
+      "size": 3624,
+      "sha256": "465991ca1a8c0e4679f2e88341833eb7319861abf0a90f4aa8e58464fd715207"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8202-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8202-WindowsClient.pak",
+      "size": 56080646,
+      "sha256": "8fb4f7584651328c229103733f88f6e8a53c0175708dbf543ca678d3a95b74ab"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8202-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8202-WindowsClient.sig",
+      "size": 3952,
+      "sha256": "13027eca0e103be80bed114c188070755bf2a0832487a66a872c50d01476d7ec"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8203-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8203-WindowsClient.pak",
+      "size": 113366623,
+      "sha256": "1bc55e920014c453a455f2f32e4fed155fca3aab45111ace91f985f11b177dd5"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8203-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8203-WindowsClient.sig",
+      "size": 7448,
+      "sha256": "dda2707f56a5b397876f609e6ac91df47f00e5c1f93573ffdbae89196166d9bb"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8204-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8204-WindowsClient.pak",
+      "size": 13648127,
+      "sha256": "193b5c3b53f2a094d423ecc3cea094669b67874fa5708f4324da856d5e84aea0"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8204-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8204-WindowsClient.sig",
+      "size": 1364,
+      "sha256": "8063466771f34534d5f044fd623e4f1467ea3ac93c60134a9f3c6e05686e1443"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8205-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8205-WindowsClient.pak",
+      "size": 92429375,
+      "sha256": "a2b58e0207f457b77f8694ad0c6419dfe471617162c58eb229dafc2dcd1d13ab"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8205-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8205-WindowsClient.sig",
+      "size": 6172,
+      "sha256": "483b5d8d578f67e910eda26350b244891b935e5c40675ce3d39e927f0b3f8846"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8206-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8206-WindowsClient.pak",
+      "size": 33624031,
+      "sha256": "9893075809e1701d1e68eb0628c89f71ff9c2d23924723a6167d9af96a33663a"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8206-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8206-WindowsClient.sig",
+      "size": 2584,
+      "sha256": "99819d097ad20c00738bd7ed6fc97c07d2068dce05536a8155a2a82b9d427e87"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8207-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8207-WindowsClient.pak",
+      "size": 26216369,
+      "sha256": "5e4f27c377ce5463fa40d9c584fbd70f8084fa5ef29aa89a7d652339ae2ec1bd"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8207-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8207-WindowsClient.sig",
+      "size": 2132,
+      "sha256": "753217f630e68fcbbc474ccf2e82d5a60d9c070230b684478423b8e4999332e8"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8208-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8208-WindowsClient.pak",
+      "size": 45817270,
+      "sha256": "4e2de7268a050698ee657ea0f196a624a62df019a467accb15574fa623309e7b"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8208-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8208-WindowsClient.sig",
+      "size": 3328,
+      "sha256": "f8ad9e5b5f8f4247103249c2bb1477f8f196aefecf39afd4c5aae0fe69280d59"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8209-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8209-WindowsClient.pak",
+      "size": 90447471,
+      "sha256": "682b9a86ed8a502ae52d88c5fae7e3fceae1ec04989c841e0fa9bba706c24e34"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8209-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8209-WindowsClient.sig",
+      "size": 6052,
+      "sha256": "646c6ba25e660aa5ee47b1753f12843c424d583b1f6de70ddd8130087ded766e"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8210-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8210-WindowsClient.pak",
+      "size": 253455830,
+      "sha256": "8a55654b6960a707ed4679b4d46a9ff5ba8a23ca72e9ae78df8511df77086f18"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8210-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8210-WindowsClient.sig",
+      "size": 16000,
+      "sha256": "5ad792bfd8f527b8b8a5153cd68b3ebfa8fb42bad89a79a3cf713c879f651afb"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8210_s1-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8210_s1-WindowsClient.pak",
+      "size": 13631318,
+      "sha256": "b0b2ee2ad27a3bca6d01d840d446b584898a0c9c7ee95ec7f67d0fa662a9a29b"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8210_s1-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8210_s1-WindowsClient.sig",
+      "size": 1360,
+      "sha256": "8b8f9aa4a232ca4173e223429b6119a141e4e03f8cc25f3228bd5e57201e9a3a"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8211-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8211-WindowsClient.pak",
+      "size": 30226102,
+      "sha256": "9551cb2d6b0642f6f421bf6171d7509c1b23d893634ae7e81619171961fa28ff"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8211-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8211-WindowsClient.sig",
+      "size": 2376,
+      "sha256": "8908aa10c33b2aacac3bf46fe6d1d25be52dd99848e784edd21c015fdd801e5c"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8212-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8212-WindowsClient.pak",
+      "size": 247794022,
+      "sha256": "05563fc29cd2d0a4a2b9d9d98857f47675d7caecb32dae2eb0815b7864d3380c"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8212-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8212-WindowsClient.sig",
+      "size": 15656,
+      "sha256": "9c1b33b31be57cc9a3efad3cca4161b62c2f0b88170c71787bd9c7807528689e"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8212_s1-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8212_s1-WindowsClient.pak",
+      "size": 234586655,
+      "sha256": "081ba1d27cd65a819f3593d671efdde04733a8a5b26378ce8a5c2c495e3d4c0d"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8212_s1-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8212_s1-WindowsClient.sig",
+      "size": 14848,
+      "sha256": "0e9159fe694ea1185c5011ea6df53869f8017e7d126aa337178264a0eb2870c2"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8212_s2-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8212_s2-WindowsClient.pak",
+      "size": 24415903,
+      "sha256": "a1afffe66023dab24be5609f3943678d2a190e320af7a1f2d37beceac987e6e3"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8212_s2-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8212_s2-WindowsClient.sig",
+      "size": 2020,
+      "sha256": "72d4d38ccf10d3f2fe3f5847c30b3cd235ea2e525b1e0d2c02a84ddcbcad4405"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8213-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8213-WindowsClient.pak",
+      "size": 204957894,
+      "sha256": "6d8b2d27dfdb153abf0677c3898314ca8f7c6705d21a9e888d42a8d404e3aab5"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8213-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8213-WindowsClient.sig",
+      "size": 13040,
+      "sha256": "3a416df62d2a21044d90f534c40a4fbca9783931e4994ece2da103d1c69184ad"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8213_s1-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8213_s1-WindowsClient.pak",
+      "size": 258070166,
+      "sha256": "bf03af2c05692d3b311e28ebc4b9a9e14995a87f09f7a99116c82277be0ed718"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8213_s1-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8213_s1-WindowsClient.sig",
+      "size": 16280,
+      "sha256": "c91062e9f37c686a81c2310029491355a9000f50029794cc4d5b6c6e1781a304"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8214-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8214-WindowsClient.pak",
+      "size": 335068294,
+      "sha256": "366b5e36a4741bea3872b14f7f94581be184eb7f9608e89e7238d7bc6a94abca"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8214-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8214-WindowsClient.sig",
+      "size": 20980,
+      "sha256": "c99aab96421b0aac9e47f19972644ce6045a8ab556bed635c9f1860fdc8f6fdf"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8214_s1-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8214_s1-WindowsClient.pak",
+      "size": 105042943,
+      "sha256": "3b3652bec03d9c09429fbe4f97668437aa2bb8064493f8e7da1c3efe9f36166a"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8214_s1-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8214_s1-WindowsClient.sig",
+      "size": 6940,
+      "sha256": "bae1c50c35bf621fe38e7bc99e4e57e3bf81a0ad868c87ee1840a9f78cb7c0cd"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8215-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8215-WindowsClient.pak",
+      "size": 50091471,
+      "sha256": "96ab460bad368e48716d6016949050e1d12b5bb0fac131e28f337b95d5e7ccb2"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8215-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8215-WindowsClient.sig",
+      "size": 3588,
+      "sha256": "67cace79c9e3a785cc8fb6771a0ea330ff1311bd595892810ff380d05bb9225b"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8300-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8300-WindowsClient.pak",
+      "size": 77878486,
+      "sha256": "fbddbc74c0ee88ad73a2f7e60510c0f339e3cadf072935620c91365b226620be"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8300-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8300-WindowsClient.sig",
+      "size": 5284,
+      "sha256": "b658d016f7d5b50886a71ead3fb57aa7f1f9d2debe894518f6c54f59acf04a3f"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8400-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8400-WindowsClient.pak",
+      "size": 291581167,
+      "sha256": "f60d92a230f982f3cdcc55465fb2081894e87e120257455832841738957cf4f3"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8400-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8400-WindowsClient.sig",
+      "size": 18328,
+      "sha256": "2ce1cad5faf31a35631fea9542881ff3cade54b5ff0da99f384c2166962dee78"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8400_s1-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8400_s1-WindowsClient.pak",
+      "size": 12190182,
+      "sha256": "30bd51c294a9bd74b41498765b157cd3dee43bf7dc5b8bc137f0d8cbd97b3545"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8400_s1-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8400_s1-WindowsClient.sig",
+      "size": 1276,
+      "sha256": "06b315ba72a01c0a4888df31d2a365aeb01862282f706f8348d2af42b676ca8b"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8500-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8500-WindowsClient.pak",
+      "size": 270969846,
+      "sha256": "d36f827d0a2d630cf55a7b56bd69b7954769204296898ff5c91e2fff93a82713"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8500-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8500-WindowsClient.sig",
+      "size": 17068,
+      "sha256": "28ce5276ac43a661b1dea46f25234e265173fb446903de62b7aa0e2b27e8052f"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8500_s1-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8500_s1-WindowsClient.pak",
+      "size": 298147151,
+      "sha256": "dae392818d15ae75f02c9a23871df7b0866fceb2210098f107bc468d4c77d8b8"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8500_s1-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8500_s1-WindowsClient.sig",
+      "size": 18728,
+      "sha256": "11d30094fb1ad5632d68255c03ca1ddbe357c17405a6bef0027a93dacb03f62d"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8500_s2-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8500_s2-WindowsClient.pak",
+      "size": 260943183,
+      "sha256": "6cd42faa85802f99d6bb250e5db335d523c813d99fa4d8c482ba6238327ca7f9"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk8500_s2-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk8500_s2-WindowsClient.sig",
+      "size": 16456,
+      "sha256": "c2b6b6953e2d9a1ade549b8b64063bf10be0ad3f99c3a8b685f71399084a1200"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk9000-WindowsClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk9000-WindowsClient.pak",
+      "size": 5844619,
+      "sha256": "5890be00d1931c598e98b08684f94983742d1593c1a8de54072b32c190e85d23"
+    },
+    {
+      "path": "BravoHotelGame/Content/Paks/pakchunk9000-WindowsClient.sig",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Paks/pakchunk9000-WindowsClient.sig",
+      "size": 888,
+      "sha256": "afb009c95de0a88d7392a4f54a4974b0627ff427468461acbc24223ab896f443"
+    },
+    {
+      "path": "BravoHotelGame/Content/Splash/Splash.bmp",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Content/Splash/Splash.bmp",
+      "size": 996856,
+      "sha256": "a9794c30294e6b86a7dfce20f243b76a16061193265fac27d689c564e7de4587"
+    },
+    {
+      "path": "BravoHotelGame/Plugins/EarlyStartupScreen/Resources/Icon128.png",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Plugins/EarlyStartupScreen/Resources/Icon128.png",
+      "size": 12699,
+      "sha256": "f7239efaeefbd82de33ebe18518e50de075ea4188a468a9e4991396433d2275f"
+    },
+    {
+      "path": "BravoHotelGame/Plugins/Online/OnlineSubsystemGeeGee/ThirdParty/lib/Release/wp_api_x64.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Plugins/Online/OnlineSubsystemGeeGee/ThirdParty/lib/Release/wp_api_x64.dll",
+      "size": 246152,
+      "sha256": "9679e98fa043aa90db130721f453559caa7147e3f98741ea50b68e9f7c4d9fa7"
+    },
+    {
+      "path": "BravoHotelGame/Plugins/VivoxCoreUE4Plugin/Source/ThirdParty/VivoxCoreLibrary/Windows/Release/x64/vivoxsdk.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Plugins/VivoxCoreUE4Plugin/Source/ThirdParty/VivoxCoreLibrary/Windows/Release/x64/vivoxsdk.dll",
+      "size": 12437440,
+      "sha256": "7dcd07786ae4b216ad5347105801fa5328ef89fad8247ded764c96d20a333e26"
+    },
+    {
+      "path": "BravoHotelGame/Plugins/ZipUtility-ue4/ThirdParty/7zpp/dll/Win64/7z.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/BravoHotelGame/Plugins/ZipUtility-ue4/ThirdParty/7zpp/dll/Win64/7z.dll",
+      "size": 1515200,
+      "sha256": "5e80ba1c7283acbfdf612ea06027e1100b29183f86a577bdf00c73c6a89c834c"
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/BattlEye/Client/BEClient_x64.cfg",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Binaries/ThirdParty/BattlEye/Client/BEClient_x64.cfg",
+      "size": 26,
+      "sha256": "659d36ca563ba4622daabb36a71dafaf6060cdcbf89bb12e75426198496d272c"
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/BattlEye/Client/BEClient_x64.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Binaries/ThirdParty/BattlEye/Client/BEClient_x64.dll",
+      "size": 5965616,
+      "sha256": "f18142f666ad1b0813e2c5cd7969788e20a8e7ed30262f810997711e00a3fa61"
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CoherentUIGT/Win64/CoherentGTCore.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Binaries/ThirdParty/CoherentUIGT/Win64/CoherentGTCore.dll",
+      "size": 28269984,
+      "sha256": "28731a3f30484ba9a2328eb8651073be0f8b9d60355a5a05e5146eae3bd89561"
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CoherentUIGT/Win64/CoherentGTJS.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Binaries/ThirdParty/CoherentUIGT/Win64/CoherentGTJS.dll",
+      "size": 9694592,
+      "sha256": "ebcbc3b36e65ba1e422aa1e881479cc942511330a666c3f41124770802ca4761"
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CoherentUIGT/Win64/CoherentUIGT.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Binaries/ThirdParty/CoherentUIGT/Win64/CoherentUIGT.dll",
+      "size": 3318456,
+      "sha256": "77ea42cc8eeaa9f59e260af5ecf77ce48be82aa52f1b3ba962e51c2eaf672363"
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CoherentUIGT/Win64/TestDriver.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Binaries/ThirdParty/CoherentUIGT/Win64/TestDriver.dll",
+      "size": 237992,
+      "sha256": "94618d1e0fcb8dd00217bbc9929f5424b3dba9b61b4f3fa08f51f47e31b9421b"
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CoherentUIGT/Win64/WTF.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Binaries/ThirdParty/CoherentUIGT/Win64/WTF.dll",
+      "size": 482880,
+      "sha256": "5756545e6844874eab0ba9e3b9dcd150c6e9a447f84078195a8eb31139f8fec3"
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CoherentUIGT/Win64/coherenticuin.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Binaries/ThirdParty/CoherentUIGT/Win64/coherenticuin.dll",
+      "size": 1864432,
+      "sha256": "d789f8b13a8678ae2e40b55fa3272eb448ba4230d7c5528f2a4a8f0c370d5d0e"
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CoherentUIGT/Win64/coherenticuuc.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Binaries/ThirdParty/CoherentUIGT/Win64/coherenticuuc.dll",
+      "size": 1340216,
+      "sha256": "8ea800ab700c8e86fbe7ef6f76936e1779f66fdc0f344b1841f2d539856c4b3f"
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CoherentUIGT/Win64/d3dcompiler_47.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Binaries/ThirdParty/CoherentUIGT/Win64/d3dcompiler_47.dll",
+      "size": 4173928,
+      "sha256": "e994847e01a6f1e4cbdc5a864616ac262f67ee4f14db194984661a8d927ab7f4"
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/CoherentUIGT/Win64/icudtcoherent53.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Binaries/ThirdParty/CoherentUIGT/Win64/icudtcoherent53.dll",
+      "size": 21732024,
+      "sha256": "665611e3f2d35153981aad0894c07847ec200608ae72fc8a40e57b2edeadaca2"
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/DbgHelp/dbghelp.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Binaries/ThirdParty/DbgHelp/dbghelp.dll",
+      "size": 1369936,
+      "sha256": "159b30d9f1bbe69ae03e0d19669d4fcb565246d81672b7034a69cef9f466dcbe"
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/NVIDIA/NVaftermath/Win64/GFSDK_Aftermath_Lib.x64.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Binaries/ThirdParty/NVIDIA/NVaftermath/Win64/GFSDK_Aftermath_Lib.x64.dll",
+      "size": 1432768,
+      "sha256": "f540c94bfcd83ee9b7fb1a5188e29a8c7a169bc3795a25055d5c4bfd4707201d"
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/Ogg/Win64/VS2015/libogg_64.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Binaries/ThirdParty/Ogg/Win64/VS2015/libogg_64.dll",
+      "size": 56000,
+      "sha256": "5482f53d70170212df1dc171486cc21f1af20f4355a0c53bbf98ac031c257486"
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/PhysX3/Win64/VS2015/APEX_Clothing_x64.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Binaries/ThirdParty/PhysX3/Win64/VS2015/APEX_Clothing_x64.dll",
+      "size": 1225920,
+      "sha256": "9a13443b4b48e2859f9427a6c96a4d8b1950526336df36aa9b8d66f819d81809"
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/PhysX3/Win64/VS2015/APEX_Destructible_x64.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Binaries/ThirdParty/PhysX3/Win64/VS2015/APEX_Destructible_x64.dll",
+      "size": 2016448,
+      "sha256": "3c341c045606519c465244efdc125ef4f28b2246b4c3edfd88f4a906cb27957f"
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/PhysX3/Win64/VS2015/APEX_Legacy_x64.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Binaries/ThirdParty/PhysX3/Win64/VS2015/APEX_Legacy_x64.dll",
+      "size": 3336384,
+      "sha256": "67e34c7054a65105143017436a9c3534d6aeaad66aaf53bba905c21d5458be27"
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/PhysX3/Win64/VS2015/ApexFramework_x64.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Binaries/ThirdParty/PhysX3/Win64/VS2015/ApexFramework_x64.dll",
+      "size": 1050816,
+      "sha256": "bc0a7a18a2647b365a6a273c736fee3ab60fe711b2eec6c2ef1f73606239ef2f"
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/PhysX3/Win64/VS2015/NvCloth_x64.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Binaries/ThirdParty/PhysX3/Win64/VS2015/NvCloth_x64.dll",
+      "size": 272576,
+      "sha256": "3c6c13824ce17eae75cfe49869c72752eb22e49c517854fea2bd3ccf4100f293"
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/PhysX3/Win64/VS2015/PhysX3Common_x64.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Binaries/ThirdParty/PhysX3/Win64/VS2015/PhysX3Common_x64.dll",
+      "size": 1621184,
+      "sha256": "2cfbf3d7c2815b4f99f7e8c35e8b6ec76b08f38f9fc52c12930d1936346f1f47"
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/PhysX3/Win64/VS2015/PhysX3Cooking_x64.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Binaries/ThirdParty/PhysX3/Win64/VS2015/PhysX3Cooking_x64.dll",
+      "size": 255680,
+      "sha256": "dd1794658f32df97163c8debbda4cd15d3119e21cec34963755b6c7e0d8e4ac3"
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/PhysX3/Win64/VS2015/PhysX3_x64.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Binaries/ThirdParty/PhysX3/Win64/VS2015/PhysX3_x64.dll",
+      "size": 2116288,
+      "sha256": "e66bf86c576293770afd59b5bc819c2603e614399e71b3daeb7e6a51e6b0d946"
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/PhysX3/Win64/VS2015/PxFoundation_x64.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Binaries/ThirdParty/PhysX3/Win64/VS2015/PxFoundation_x64.dll",
+      "size": 65728,
+      "sha256": "2918dfc7f46721bc0010e366ff4701fe396df7234c46aa87ce2fd5d5aa186bfc"
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/PhysX3/Win64/VS2015/PxPvdSDK_x64.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Binaries/ThirdParty/PhysX3/Win64/VS2015/PxPvdSDK_x64.dll",
+      "size": 189120,
+      "sha256": "ea371aab86a4de7706d8dce0b3a3b854d0dea4d89945acb7018bf3a963d091b6"
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/Renoir/Win64/RenoirCore.WindowsDesktop.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Binaries/ThirdParty/Renoir/Win64/RenoirCore.WindowsDesktop.dll",
+      "size": 1781872,
+      "sha256": "7631221f0a65ea81a6f0a619824bc718e2f7a1737ac665db780041bb6ab4f4f6"
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/Steamworks/Steamv147/Win64/steam_api64.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Binaries/ThirdParty/Steamworks/Steamv147/Win64/steam_api64.dll",
+      "size": 290768,
+      "sha256": "728d0d3a8df8e5bea3a5fe5bdbe826f2a3f9fb6a397bc8a3ac716c3e2ce9c944"
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/Vorbis/Win64/VS2015/libvorbis_64.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Binaries/ThirdParty/Vorbis/Win64/VS2015/libvorbis_64.dll",
+      "size": 1721024,
+      "sha256": "7778b74c4467db02749a3e082b2f5b8a684184f9ad3b9f8afcff2ae7f619c626"
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/Vorbis/Win64/VS2015/libvorbisfile_64.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Binaries/ThirdParty/Vorbis/Win64/VS2015/libvorbisfile_64.dll",
+      "size": 44736,
+      "sha256": "3825d0ebb253452ffaa23fdb96d09dcf155ef2f4ca6f05873397a9207ff5ce99"
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/Windows/WinPixEventRuntime/x64/WinPixEventRuntime.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Binaries/ThirdParty/Windows/WinPixEventRuntime/x64/WinPixEventRuntime.dll",
+      "size": 44752,
+      "sha256": "0afaa35527ac034861ffa5564e5f6bd9e4d54e79132b3283cdd98e41f5584d19"
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/Windows/XAudio2_9/x64/xaudio2_9redist.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Binaries/ThirdParty/Windows/XAudio2_9/x64/xaudio2_9redist.dll",
+      "size": 847440,
+      "sha256": "0e01f400baa09694cacfd2cfbff0d721c17b56785d2d6e29b6fdd117f70ccc1e"
+    },
+    {
+      "path": "Engine/Binaries/Win64/CrashReportClient.exe",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Binaries/Win64/CrashReportClient.exe",
+      "size": 18573616,
+      "sha256": "d222a6ecfcc2817ac80837baa0b416ec5231e27f81fb21744011695404266ae4"
+    },
+    {
+      "path": "Engine/Content/SlateDebug/Fonts/LastResort.tps",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Content/SlateDebug/Fonts/LastResort.tps",
+      "size": 930,
+      "sha256": "0f775fa99d05e21d43d2d06d55982b23dcdccdb512a9a5a07aff674f212c41b8"
+    },
+    {
+      "path": "Engine/Extras/Redist/en-us/UE4PrereqSetup_x64.exe",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Extras/Redist/en-us/UE4PrereqSetup_x64.exe",
+      "size": 41033784,
+      "sha256": "145f4e4d11e76a2612db5ffbfae8f9ab8e4385ff7660802ffd2f473c9dcb2a0d"
+    },
+    {
+      "path": "Engine/Plugins/Runtime/Intel/XeSS/Binaries/ThirdParty/Win64/XeFX.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Runtime/Intel/XeSS/Binaries/ThirdParty/Win64/XeFX.dll",
+      "size": 67240,
+      "sha256": "e2bd7a15535057046de668660c85e2aafc8c2a66e7af2cd251dcac8dcbfc934c"
+    },
+    {
+      "path": "Engine/Plugins/Runtime/Intel/XeSS/Binaries/ThirdParty/Win64/XeFX_Loader.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Runtime/Intel/XeSS/Binaries/ThirdParty/Win64/XeFX_Loader.dll",
+      "size": 41640,
+      "sha256": "a0b2074b9275a18a04b712a213c58e46c45ddcd1e985ed330710f27e9666a640"
+    },
+    {
+      "path": "Engine/Plugins/Runtime/Intel/XeSS/Binaries/ThirdParty/Win64/dxcompiler.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Runtime/Intel/XeSS/Binaries/ThirdParty/Win64/dxcompiler.dll",
+      "size": 19331984,
+      "sha256": "f57549d1df4a22839f57999d75af5473fb8df9f916a8364f1b6a721ad548130f"
+    },
+    {
+      "path": "Engine/Plugins/Runtime/Intel/XeSS/Binaries/ThirdParty/Win64/dxil.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Runtime/Intel/XeSS/Binaries/ThirdParty/Win64/dxil.dll",
+      "size": 1495328,
+      "sha256": "21be7fee9bf8c81dc8a3a28757b552fae44f9f72b50f5d9d2f5269bbe9710586"
+    },
+    {
+      "path": "Engine/Plugins/Runtime/Intel/XeSS/Binaries/ThirdParty/Win64/igxess.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Runtime/Intel/XeSS/Binaries/ThirdParty/Win64/igxess.dll",
+      "size": 61281448,
+      "sha256": "aa0a346e80d71bdaa56f92a8eefeeb44144f1f6374991f902318ac81b9f67750"
+    },
+    {
+      "path": "Engine/Plugins/Runtime/Intel/XeSS/Binaries/ThirdParty/Win64/libxess.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Runtime/Intel/XeSS/Binaries/ThirdParty/Win64/libxess.dll",
+      "size": 9272488,
+      "sha256": "4ae10f9bec7391343898da0e22f024c6dea0bd03d754901af2b8a1ed893d7706"
+    },
+    {
+      "path": "Engine/Plugins/Runtime/Nvidia/DLSS/Binaries/ThirdParty/Win64/Development/nvngx_dlss.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Runtime/Nvidia/DLSS/Binaries/ThirdParty/Win64/Development/nvngx_dlss.dll",
+      "size": 15031928,
+      "sha256": "ae4a630c18ebdef0fe35d7b5f44da10bfb3e904df9b68e00fdbce6e2a86ebd95"
+    },
+    {
+      "path": "Engine/Plugins/Runtime/Nvidia/DLSS/Binaries/ThirdParty/Win64/nvngx_dlss.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Runtime/Nvidia/DLSS/Binaries/ThirdParty/Win64/nvngx_dlss.dll",
+      "size": 15076920,
+      "sha256": "735cdbd4700ec7abb41fbe205561c31491e69a379a804104c75354f324736996"
+    },
+    {
+      "path": "Engine/Plugins/Runtime/Nvidia/Streamline/Binaries/ThirdParty/Win64/Development/nvngx_dlssg.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Runtime/Nvidia/Streamline/Binaries/ThirdParty/Win64/Development/nvngx_dlssg.dll",
+      "size": 12831272,
+      "sha256": "055e1e8c7f5cd89fc071e457cd941872083c36171cdc14567002ccf865d5fd6d"
+    },
+    {
+      "path": "Engine/Plugins/Runtime/Nvidia/Streamline/Binaries/ThirdParty/Win64/Development/sl.common.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Runtime/Nvidia/Streamline/Binaries/ThirdParty/Win64/Development/sl.common.dll",
+      "size": 568832,
+      "sha256": "8584895ea36cc03ea1e03148415b7cdfe07c3d6e5c07f61cdbeeea08885d985c"
+    },
+    {
+      "path": "Engine/Plugins/Runtime/Nvidia/Streamline/Binaries/ThirdParty/Win64/Development/sl.debug.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Runtime/Nvidia/Streamline/Binaries/ThirdParty/Win64/Development/sl.debug.dll",
+      "size": 267776,
+      "sha256": "9662ae7cb104445413c64a684ea005eb1e4f1dd07ac5baecabad8221a2425537"
+    },
+    {
+      "path": "Engine/Plugins/Runtime/Nvidia/Streamline/Binaries/ThirdParty/Win64/Development/sl.dlss_g.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Runtime/Nvidia/Streamline/Binaries/ThirdParty/Win64/Development/sl.dlss_g.dll",
+      "size": 291840,
+      "sha256": "0d8891e488100f51ff44fd88ffd20a4b0acd212d8df5183e1d2980a75f62566f"
+    },
+    {
+      "path": "Engine/Plugins/Runtime/Nvidia/Streamline/Binaries/ThirdParty/Win64/Development/sl.interposer.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Runtime/Nvidia/Streamline/Binaries/ThirdParty/Win64/Development/sl.interposer.dll",
+      "size": 429056,
+      "sha256": "8b320b8bf3dc4655dc36e9ff82f425e473b2b06f56eb91c22e4a126a176fb084"
+    },
+    {
+      "path": "Engine/Plugins/Runtime/Nvidia/Streamline/Binaries/ThirdParty/Win64/Development/sl.reflex.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Runtime/Nvidia/Streamline/Binaries/ThirdParty/Win64/Development/sl.reflex.dll",
+      "size": 172544,
+      "sha256": "75029d889d0c16e991b48bd9899368828447986ab1da65fb2f86d60952cc3044"
+    },
+    {
+      "path": "Engine/Plugins/Runtime/Nvidia/Streamline/Binaries/ThirdParty/Win64/nvngx_dlssg.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Runtime/Nvidia/Streamline/Binaries/ThirdParty/Win64/nvngx_dlssg.dll",
+      "size": 12799528,
+      "sha256": "5696c944f1884ae2827d7b20f5e05bddf8ae0c30f17284a0eb2a72bf412231be"
+    },
+    {
+      "path": "Engine/Plugins/Runtime/Nvidia/Streamline/Binaries/ThirdParty/Win64/sl.common.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Runtime/Nvidia/Streamline/Binaries/ThirdParty/Win64/sl.common.dll",
+      "size": 517600,
+      "sha256": "ba378d757fcbf87882f6af3e3a1857ad47553814506eb49e63e586928e1f3976"
+    },
+    {
+      "path": "Engine/Plugins/Runtime/Nvidia/Streamline/Binaries/ThirdParty/Win64/sl.dlss_g.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Runtime/Nvidia/Streamline/Binaries/ThirdParty/Win64/sl.dlss_g.dll",
+      "size": 289248,
+      "sha256": "a77f78a56a80b4e88778152e814e84d3d43841933d7dac345e1ac6acafb443f8"
+    },
+    {
+      "path": "Engine/Plugins/Runtime/Nvidia/Streamline/Binaries/ThirdParty/Win64/sl.interposer.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Runtime/Nvidia/Streamline/Binaries/ThirdParty/Win64/sl.interposer.dll",
+      "size": 414680,
+      "sha256": "d0ddca91f20d540f2d9fa982d14663ea0c46291f10e7b0902b0ff33096fa17b1"
+    },
+    {
+      "path": "Engine/Plugins/Runtime/Nvidia/Streamline/Binaries/ThirdParty/Win64/sl.reflex.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Runtime/Nvidia/Streamline/Binaries/ThirdParty/Win64/sl.reflex.dll",
+      "size": 157152,
+      "sha256": "5b8e4c7ce398e634d86af909828e3dacd0a1820f49ccc3587b381febc29ff57a"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/AkAudioInput.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/AkAudioInput.dll",
+      "size": 102912,
+      "sha256": "49aa84aff878f302cfbd45b8c8a261d7867bbae4c8bce10c3c3e3f227f29f970"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/AkCompressor.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/AkCompressor.dll",
+      "size": 105984,
+      "sha256": "e469c74e23dcab9fa96dc2f09115f89cd487933a4a3fb6e94dec6cef59b9b919"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/AkDelay.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/AkDelay.dll",
+      "size": 107520,
+      "sha256": "98f54364e2093597d671195a092503d7730281bd80520ba4b37fe9524d29782e"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/AkExpander.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/AkExpander.dll",
+      "size": 107520,
+      "sha256": "8fc165d9c60e8f2dd5f15b150fd5c5f38896246745c3b492fe0340b3fd108621"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/AkFlanger.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/AkFlanger.dll",
+      "size": 129024,
+      "sha256": "51353e0c80ded54bb2a2a915d40a6e4f4e3758e1c9532a010e098a539cb25cc1"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/AkGain.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/AkGain.dll",
+      "size": 102912,
+      "sha256": "27c52ebe78a433ed247780579298bc21149a8e9a8e91d8b0e068cecb11272bcf"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/AkGuitarDistortion.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/AkGuitarDistortion.dll",
+      "size": 141312,
+      "sha256": "58edbfea0b8af330d7d90ba1e59cde8b06d159932d8f8e302b1267c0718c9e21"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/AkHarmonizer.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/AkHarmonizer.dll",
+      "size": 236032,
+      "sha256": "69695dabb319ec5a76a61a215ec557c0c4081188d22fc711676191cd189deb9e"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/AkMatrixReverb.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/AkMatrixReverb.dll",
+      "size": 168448,
+      "sha256": "e65ff6e943c57df8cbeb686a9cfa49f0407a5b9207be1a334c5f5ceb2cb6f860"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/AkParametricEQ.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/AkParametricEQ.dll",
+      "size": 130560,
+      "sha256": "5057932bb480af2ee6db52a89c1340c8c4290c664f11a425291ed23e85b90599"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/AkPeakLimiter.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/AkPeakLimiter.dll",
+      "size": 110592,
+      "sha256": "5ff60b0da1ca808cbc5d34dd2d77333f9b8e6ac3085c7d6e08b9404bfe233003"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/AkPitchShifter.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/AkPitchShifter.dll",
+      "size": 136192,
+      "sha256": "7bb91a629dec1ad7d102bac0b638c8ceec9efcb4519d43f9096c2ba2241817c2"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/AkRecorder.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/AkRecorder.dll",
+      "size": 102912,
+      "sha256": "06dde740867bd567518c7d24fb137565a59e9b838f2a19a69d8fcef3a715f27c"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/AkRoomVerb.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/AkRoomVerb.dll",
+      "size": 225280,
+      "sha256": "f7db37ec84a70020067ea05dad77c69e8eb78c8da9514cd3aea0d7d1fef402f5"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/AkSilenceGenerator.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/AkSilenceGenerator.dll",
+      "size": 93696,
+      "sha256": "542636fff52e8d96763fa055226ff63eba9b90dd3615d0bfa541a0154097bc57"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/AkSineTone.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/AkSineTone.dll",
+      "size": 102912,
+      "sha256": "f8a33bee0facd92f354d5e24da2ad0b0790e6a16954e81b142f65d5bc2b5fa22"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/AkSoundEngineDLL.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/AkSoundEngineDLL.dll",
+      "size": 1773568,
+      "sha256": "dea96152d0b4f6e1b7e21707fde5e30697e310ba71479aa475b65f4cccffc81a"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/AkStereoDelay.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/AkStereoDelay.dll",
+      "size": 141824,
+      "sha256": "786215f97ebc014b01bb94ab96b08e13f14bca3d5c152d153d4667e12890e0cd"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/AkSynthOne.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/AkSynthOne.dll",
+      "size": 148480,
+      "sha256": "cd055175e3ae01d271150a504df87116dcb8490a5b00a00e3cf3c5b5f361622b"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/AkTimeStretch.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/AkTimeStretch.dll",
+      "size": 201728,
+      "sha256": "9dddfc807ee097343842c5532027f8a38d2fb99c593cb3cb61ac545130d74df1"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/AkToneGen.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/AkToneGen.dll",
+      "size": 122880,
+      "sha256": "18d1b24017bca41bc522be23267169be58fa9bb1e4bfac312a4a05746ad4e745"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/AkTremolo.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/AkTremolo.dll",
+      "size": 127488,
+      "sha256": "4b53251637d373dedd843f732248842579b547d62d079decac953e7afae258a4"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/CrankcaseAudioREVModelPlayer.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/CrankcaseAudioREVModelPlayer.dll",
+      "size": 252416,
+      "sha256": "d377490e9cb7461e07eca62998a74ee565ada5ff79382dd78d96922d7942c239"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/MSSpatial.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/MSSpatial.dll",
+      "size": 126976,
+      "sha256": "bff510347da205a74f04617ff7fac9c8da9ea87ad65563f159ed09afaf4b723c"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/ResonanceAudio.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Profile/bin/ResonanceAudio.dll",
+      "size": 662528,
+      "sha256": "c9aa21d041895cde28614756d87e18fefe0700b578954318693c237134800d72"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/AkAudioInput.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/AkAudioInput.dll",
+      "size": 112264,
+      "sha256": "43cccfe646c4ad39afec8efb61ce2adfd849e313ed2ea45a64b71e27b97a6809"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/AkCompressor.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/AkCompressor.dll",
+      "size": 115336,
+      "sha256": "5206931a19271082230330aeaefaef851ae5587ace0b232d4552da3a3ff5e639"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/AkDelay.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/AkDelay.dll",
+      "size": 116872,
+      "sha256": "a1e7bd43b42534ca46b339407ff73fed4921ea1ee40fb6a36c6dfa73e03cbc1c"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/AkExpander.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/AkExpander.dll",
+      "size": 116872,
+      "sha256": "f38b4bf4cbb2ac289f4bffac4da16b56290f1361aeee1474eabf0350aa7ae66d"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/AkFlanger.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/AkFlanger.dll",
+      "size": 138376,
+      "sha256": "de7c9ad6e03cdeec2f6ab50ebf0bd4988f537b93085772096afce9216a207b28"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/AkGain.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/AkGain.dll",
+      "size": 112264,
+      "sha256": "17a201e1a5d4685b2da1abbe446a793baaf805d43f02ff945c5cf7f13b261f1f"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/AkGuitarDistortion.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/AkGuitarDistortion.dll",
+      "size": 150664,
+      "sha256": "b80f31c14b3b4e57c5d6779f7ebbef88ae381a2c553dc4088a793d18cfe925a6"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/AkHarmonizer.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/AkHarmonizer.dll",
+      "size": 245384,
+      "sha256": "2a062112a01d5ebf94ae4c34a20e8809e63eacb3d1b92bab2ef92b720ede6ee5"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/AkMatrixReverb.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/AkMatrixReverb.dll",
+      "size": 177800,
+      "sha256": "e0308d8da22620eca1b93a9a047b6fdb66a6c18d40fab1e2c1fd8f85946f357f"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/AkParametricEQ.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/AkParametricEQ.dll",
+      "size": 139912,
+      "sha256": "10850bf54c3cb11b29dc46c9a8000320ba3697e999b9c1cc790dde40d38d11a7"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/AkPeakLimiter.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/AkPeakLimiter.dll",
+      "size": 119432,
+      "sha256": "3ba39628298972ac16e0cdca7460f63b75f6d8fb384f15e7d2c76e456142a0c2"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/AkPitchShifter.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/AkPitchShifter.dll",
+      "size": 145544,
+      "sha256": "c409d16a5c9a88c361047dc3d30dd3f81f095665a661b9fae2983051d434ed57"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/AkRecorder.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/AkRecorder.dll",
+      "size": 112264,
+      "sha256": "d7913edd34dfcb490bc5fbb49c05c513dd0d082bf96f8e17a918d073ec693131"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/AkRoomVerb.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/AkRoomVerb.dll",
+      "size": 234632,
+      "sha256": "4de1a1eafb8cd12d87556f5e9f4dafe714a36854e8e9e031dd14725355bcb73a"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/AkSilenceGenerator.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/AkSilenceGenerator.dll",
+      "size": 103048,
+      "sha256": "1c50237641f23a3e1d4a5b982aaf08d90ba0ea2db71e46994717d70ac3ab35d1"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/AkSineTone.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/AkSineTone.dll",
+      "size": 112264,
+      "sha256": "b88c0648e6dab44695e63f628c56a7b1a7b3609dde372b1c6384e2f0b781b969"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/AkSoundEngineDLL.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/AkSoundEngineDLL.dll",
+      "size": 1496200,
+      "sha256": "8986f1230a7d3915be4e847379d7de6b6b5ceb1033eae9d0ef2185e2e115f620"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/AkStereoDelay.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/AkStereoDelay.dll",
+      "size": 151176,
+      "sha256": "65f73873d52dbfd3eb5d76acec507dc994f38d7caa3f96ff6131fc3d1ae4136a"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/AkSynthOne.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/AkSynthOne.dll",
+      "size": 157832,
+      "sha256": "41f8e4aa6b4ee48c8824acf6f032c603113d531e5bfe6467b03aa98171e01ba8"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/AkTimeStretch.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/AkTimeStretch.dll",
+      "size": 211080,
+      "sha256": "ad479962f9531b0a78b86ce6f3173f986739a80f469fcb24d1fd22e84e3736b7"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/AkToneGen.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/AkToneGen.dll",
+      "size": 132232,
+      "sha256": "2d4709c116067edc11b5812d3d82636058a9ecb01528414b12e7321fe3fec1d1"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/AkTremolo.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/AkTremolo.dll",
+      "size": 136840,
+      "sha256": "7de87b79bb235fe911ffb06c6c4729ad3fd139a53bae0ee004dbf79804a9da67"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/CrankcaseAudioREVModelPlayer.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/CrankcaseAudioREVModelPlayer.dll",
+      "size": 261768,
+      "sha256": "6c6c627283a451ffe280848350fd2424dbbdfc58e496c71515b8f1df7f83cddf"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/MSSpatial.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/MSSpatial.dll",
+      "size": 136328,
+      "sha256": "c4305f08e114feac894a60d249783fa00473bd2683a1e9d706357e02c1c36741"
+    },
+    {
+      "path": "Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/ResonanceAudio.dll",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Plugins/Wwise/ThirdParty/x64_vc160/Release/bin/ResonanceAudio.dll",
+      "size": 671880,
+      "sha256": "2e11772fdcab0e50486da7c30c201d2887fa7a4c4851b4f6e5265b4c2d3d84d1"
+    },
+    {
+      "path": "Engine/Programs/CrashReportClient/Content/Paks/CrashReportClient.pak",
+      "url": "https://link.storjshare.io/s/<long-token>/sp-launcher-files/game/Engine/Programs/CrashReportClient/Content/Paks/CrashReportClient.pak",
+      "size": 24080459,
+      "sha256": "5c6bee8dd361ede8b5c903945f7f46294e8c485e48e48cd01c8fe27e805091ef"
+    }
+  ]
+}
