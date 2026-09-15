@@ -1,11 +1,11 @@
 {
-  "version": "0.1.0",
-  "notes": "First public build including a auto updater.",
-  "pub_date": "2026-09-15T13:06:29.055Z",
+  "version": "0.2.1",
+  "notes": "News images now load.",
+  "pub_date": "2026-09-15T13:45:37.909Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVROU9TMFdzcnQ2QkhTZUszRUtBaTBEbHdlRjdiWmFUaFMzL2hXSkVmckFsMldvd25KdzlYdjl0bGxYYkVUTjNoQ0J0d3Q5R3grTEtYODhJWUNwRlhaVitLbjNkS3RSbmdnPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg5NDc3NDk5CWZpbGU6U1AgTGF1bmNoZXJfMC4xLjBfeDY0LXNldHVwLmV4ZQp0M2xHeUw1VUJpWFhjYnpreGpybG5hTk42VkZGMy9BMjlpV0RyRVZrRUZBYVgwOWRDL1FSbjhHT3UxOHZaNU5rSmtNbHhQaGVnVnhRT0trdW5kSXRBdz09Cg==",
-      "url": "http://64.226.112.204/launcher/updates/SP Launcher_0.1.0_x64-setup.exe"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVROU9TMFdzcnQ2QkthMXFXQVgrV0g0M0ZaWnRYbXlBVmV5VFI0RHhZbStxWU9JQ2VjWGRhTVF6RnJrVStPOElVWUxSa3BuSFNZa29OaldzT09nWGY5Si9CQ3U4UDA3b0FZPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg5NDc5OTM1CWZpbGU6U1AgTGF1bmNoZXJfMC4yLjFfeDY0LXNldHVwLmV4ZQo3cDAzVG1ocjdmdkhhYktRcWl6WldYYnNST0JUSUtOQ1JsNWlHeS9VYWw5T20xNktyTytST2FpSGhKeGlNRk8xVkNYM3U1aVQydldJdENmRENtNHNBQT09Cg==",
+      "url": "http://64.226.112.204/launcher/updates/SP Launcher_0.2.1_x64-setup.exe"
     }
   }
 }
