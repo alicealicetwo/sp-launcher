@@ -1,10 +1,11 @@
 /** Mirrors `Config` in src-tauri/src/config.rs — keep the two in step. */
 export interface Config {
   install_dir: string;
-  manifest_url: string;
   /** URL the launcher fetches the news feed (`NewsItem[]` JSON) from. */
   news_url: string;
   launch_args: string;
+  /** Last `ip:port` entered in the connect prompt; pre-fills it next launch. */
+  last_server: string;
   hosts_redirect: boolean;
   backend_ip: string;
   hosts_domains: string[];
@@ -12,8 +13,6 @@ export interface Config {
   auto_update: boolean;
   verify_before_launch: boolean;
   debug_logging: boolean;
-  /** Files transferred at once, 1-16. */
-  download_threads: number;
 }
 
 export interface InstallState {

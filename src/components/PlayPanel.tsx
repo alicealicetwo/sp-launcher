@@ -10,6 +10,7 @@ interface Props {
   news: NewsItem[];
   phase: Phase;
   launchArgs: string;
+  lastServer: string;
   busy: boolean;
   onLaunchArgs: (next: string) => void;
   onPrimary: () => void;
@@ -22,11 +23,17 @@ interface Props {
 // is actually load-bearing for the "did they finish typing something" check.
 const SERVER_PATTERN = /^[^\s:]+:\d{1,5}$/;
 
-/** Text field + Play, plus the "skip it" fallback — asked fresh every launch
- * rather than remembered, since the server to join can change launch to
- * launch. */
-function ConnectPlay({ onLaunch }: { onLaunch: (server: string | null) => void }) {
-  const [server, setServer] = useState("");
+/** Text field + Play, plus the "skip it" fallback. Pre-filled with the last
+ * address entered, since it's usually the same server launch to launch —
+ * still editable, and still asked fresh (not skipped) every time. */
+function ConnectPlay({
+  initialServer,
+  onLaunch,
+}: {
+  initialServer: string;
+  onLaunch: (server: string | null) => void;
+}) {
+  const [server, setServer] = useState(initialServer);
   const canJoin = SERVER_PATTERN.test(server.trim());
 
   return (
@@ -88,7 +95,7 @@ export function PlayPanel(props: Props) {
               </span>
             </button>
           ) : (
-            <ConnectPlay onLaunch={props.onLaunch} />
+            <ConnectPlay initialServer={props.lastServer} onLaunch={props.onLaunch} />
           )}
         </div>
 

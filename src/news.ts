@@ -1,22 +1,4 @@
 import type { NewsItem } from "./types";
-import playtestsImage from "./assets/news-playtests.jpg";
-
-// Hardcoded for now instead of coming from `news_url` — swap back to the
-// fetched feed (drop this and use `news` from `fetch_news` directly) once
-// there's a real feed to point at.
-export const HARDCODED_NEWS: NewsItem[] = [
-  {
-    id: "playtests",
-    tag: "PLAYTESTS",
-    title: "Join our testing sessions",
-    description: "More info in Discord.",
-    image: playtestsImage,
-    starts_at: "",
-    ends_at: "",
-    clickable: false,
-    url: null,
-  },
-];
 
 /**
  * Keeps only items whose `[starts_at, ends_at)` window covers `now`. An

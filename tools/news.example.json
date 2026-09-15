@@ -1,0 +1,24 @@
+[
+  {
+    "id": "double-xp-weekend",
+    "tag": "Event",
+    "title": "Double XP Weekend",
+    "description": "All XP gains are doubled from Friday to Sunday.",
+    "image": "https://example.com/news/double-xp.jpg",
+    "starts_at": "2026-09-18T00:00:00Z",
+    "ends_at": "2026-09-21T00:00:00Z",
+    "clickable": true,
+    "url": "https://discord.gg/superpeopleofficial"
+  },
+  {
+    "id": "welcome",
+    "tag": "Info",
+    "title": "Welcome to SUPER PEOPLE",
+    "description": "Join the Discord for updates and support.",
+    "image": "https://example.com/news/welcome.jpg",
+    "starts_at": "",
+    "ends_at": "",
+    "clickable": false,
+    "url": null
+  }
+]

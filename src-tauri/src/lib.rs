@@ -1,5 +1,4 @@
 mod config;
-pub mod download;
 mod error;
 mod game;
 mod gateway;
@@ -23,7 +22,6 @@ use error::{LauncherError, Result};
 pub struct AppState {
     config_dir: PathBuf,
     config: Mutex<Config>,
-    cancel: Arc<AtomicBool>,
     /// True while the game is running and our hosts block is in place.
     redirect_active: Arc<AtomicBool>,
     /// Set while the game is running, so `stop_game` knows what to kill.
@@ -87,24 +85,6 @@ fn show_from_tray_window(window: &impl WindowLike) {
     let _ = window.set_focus();
 }
 
-/// Bridges the download module's events onto Tauri's IPC.
-struct AppEvents(AppHandle);
-
-impl download::Events for AppEvents {
-    fn file(&self, state: download::FileState) {
-        let _ = self.0.emit("download:file", state);
-    }
-    fn progress(&self, progress: download::Progress) {
-        let _ = self.0.emit("download:progress", progress);
-    }
-    fn complete(&self, version: String) {
-        let _ = self.0.emit("download:complete", version);
-    }
-    fn cancelled(&self) {
-        let _ = self.0.emit("download:cancelled", ());
-    }
-}
-
 // ---------------------------------------------------------------- config ---
 
 #[tauri::command]
@@ -142,47 +122,6 @@ fn open_install_dir(state: State<'_, AppState>) -> Result<()> {
         std::process::Command::new("xdg-open").arg(&dir).spawn()?;
     }
     Ok(())
-}
-
-// -------------------------------------------------------------- download ---
-
-#[tauri::command]
-async fn start_download(app: AppHandle, state: State<'_, AppState>) -> Result<()> {
-    let (manifest_url, install_dir, threads) = {
-        let cfg = state.config.lock().expect("config mutex");
-        (
-            cfg.manifest_url.clone(),
-            cfg.install_dir.clone(),
-            cfg.download_threads,
-        )
-    };
-
-    if install_dir.is_empty() {
-        return Err(LauncherError::Message("pick an install folder first".into()));
-    }
-
-    state.cancel.store(false, Ordering::Relaxed);
-    let cancel = state.cancel.clone();
-
-    let manifest: download::Manifest = reqwest::get(&manifest_url)
-        .await?
-        .error_for_status()?
-        .json()
-        .await?;
-
-    download::run(
-        Arc::new(AppEvents(app)),
-        manifest,
-        PathBuf::from(install_dir),
-        cancel,
-        threads as usize,
-    )
-    .await
-}
-
-#[tauri::command]
-fn cancel_download(state: State<'_, AppState>) {
-    state.cancel.store(true, Ordering::Relaxed);
 }
 
 // ------------------------------------------------------------------ news ---
@@ -399,6 +338,7 @@ pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
         .plugin(tauri_plugin_dialog::init())
+        .plugin(tauri_plugin_updater::Builder::new().build())
         .setup(|app| {
             let config_dir = app.path().app_config_dir()?;
             std::fs::create_dir_all(&config_dir)?;
@@ -413,7 +353,6 @@ pub fn run() {
             app.manage(AppState {
                 config_dir,
                 config: Mutex::new(cfg),
-                cancel: Arc::new(AtomicBool::new(false)),
                 redirect_active: Arc::new(AtomicBool::new(false)),
                 running_pid: Arc::new(Mutex::new(None)),
             });
@@ -488,8 +427,6 @@ pub fn run() {
             set_config,
             install_state,
             open_install_dir,
-            start_download,
-            cancel_download,
             fetch_news,
             hosts_status,
             hosts_apply,

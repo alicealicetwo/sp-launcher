@@ -1,3 +1,4 @@
+import type { Update } from "@tauri-apps/plugin-updater";
 import type { Config, HostsStatus } from "../types";
 import { pickInstallFolder } from "../lib/browse";
 
@@ -8,13 +9,30 @@ interface Props {
   onElevate: () => void;
   onHostsRefresh: () => void;
   onOpenFolder: () => void;
+  appVersion: string;
+  update: Update | null;
+  checkingUpdate: boolean;
+  updateChecked: boolean;
+  onCheckUpdate: () => void;
 }
 
 const TOGGLES: { key: keyof Config; name: string; hint: string }[] = [
   { key: "close_on_launch", name: "Minimize to tray on launch", hint: "Send the launcher to the tray once the game starts, instead of staying open" },
 ];
 
-export function SettingsPanel({ config, hosts, onConfig, onElevate, onHostsRefresh, onOpenFolder }: Props) {
+export function SettingsPanel({
+  config,
+  hosts,
+  onConfig,
+  onElevate,
+  onHostsRefresh,
+  onOpenFolder,
+  appVersion,
+  update,
+  checkingUpdate,
+  updateChecked,
+  onCheckUpdate,
+}: Props) {
   const needsAdmin = config.hosts_redirect && hosts && !hosts.writable;
 
   async function browse() {
@@ -28,7 +46,7 @@ export function SettingsPanel({ config, hosts, onConfig, onElevate, onHostsRefre
         <h2 className="card__title">Game Files</h2>
 
         <span className="field__hint" style={{ marginBottom: 10, display: "block" }}>
-          Download the game using the guide in the #download-game channel.
+          Point Install location at the folder the game is already installed in.
         </span>
 
         <div className="field">
@@ -44,6 +62,22 @@ export function SettingsPanel({ config, hosts, onConfig, onElevate, onHostsRefre
             <button className="btn" type="button" onClick={() => void browse()}>Browse</button>
             <button className="btn" type="button" onClick={onOpenFolder}>Open folder</button>
           </div>
+        </div>
+      </div>
+
+      <div className="card">
+        <h2 className="card__title">News</h2>
+
+        <div className="field">
+          <span className="field__label">News URL</span>
+          <input
+            className="input"
+            spellCheck={false}
+            value={config.news_url}
+            placeholder="https://files.example.com/sp/news.json"
+            onChange={(e) => onConfig({ news_url: e.target.value })}
+          />
+          <span className="field__hint">JSON feed for the Play tab's news carousel.</span>
         </div>
       </div>
 
@@ -169,6 +203,18 @@ export function SettingsPanel({ config, hosts, onConfig, onElevate, onHostsRefre
             />
           </div>
         ))}
+
+        <h2 className="card__title" style={{ marginTop: 18 }}>About</h2>
+        <div className="field__row" style={{ alignItems: "center", justifyContent: "space-between" }}>
+          <span className="field__hint">
+            Version {appVersion || "—"}
+            {updateChecked && !update && !checkingUpdate ? " — up to date" : ""}
+            {update ? ` — v${update.version} available` : ""}
+          </span>
+          <button className="btn" type="button" onClick={onCheckUpdate} disabled={checkingUpdate}>
+            {checkingUpdate ? "Checking…" : "Check for updates"}
+          </button>
+        </div>
       </div>
     </section>
   );
