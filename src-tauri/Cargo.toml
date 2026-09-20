@@ -1,6 +1,6 @@
 [package]
 name = "sp-launcher"
-version = "0.2.4"
+version = "0.2.7"
 description = "SUPER PEOPLE Launcher"
 edition = "2021"
 
@@ -29,6 +29,13 @@ hyper-util = { version = "0.1", features = ["tokio"] }
 http-body-util = "0.1"
 
 thiserror = "2"
+discord-rich-presence = "1.1.0"
+
+# DPAPI, for storing the launcher key encrypted at rest. Windows-only on
+# purpose: the launcher ships for Windows, and a non-Windows build falls back
+# to a passthrough that auth.rs marks loudly as not being encryption.
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.59", features = ["Win32_Foundation", "Win32_Security_Cryptography"] }
 
 [dev-dependencies]
 tempfile = "3"

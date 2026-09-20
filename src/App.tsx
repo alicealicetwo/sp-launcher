@@ -7,10 +7,11 @@ import type { Update } from "@tauri-apps/plugin-updater";
 import { TitleBar } from "./components/TitleBar";
 import { PlayPanel } from "./components/PlayPanel";
 import { SettingsPanel } from "./components/SettingsPanel";
+import { SignIn } from "./components/SignIn";
 import { activeNews } from "./news";
 import { pickInstallFolder } from "./lib/browse";
 import { checkForUpdate, installUpdate } from "./lib/updater";
-import type { Config, HostsStatus, InstallState, NewsItem, Phase, Tab } from "./types";
+import type { AuthStatus, Config, HostsStatus, InstallState, NewsItem, Phase, Tab } from "./types";
 
 // Re-check which items are in their [starts_at, ends_at) window every so
 // often, so an event that just started (or just ended) updates without the
@@ -26,6 +27,13 @@ export default function App() {
   const [hosts, setHosts] = useState<HostsStatus | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
   const [news, setNews] = useState<NewsItem[]>([]);
+
+  // Sign-in state is kept separate from `config` because it is the backend's
+  // answer, not a setting: the config only remembers it so the window can be
+  // drawn before the first call comes back.
+  const [auth, setAuth] = useState<AuthStatus | null>(null);
+  const [authBusy, setAuthBusy] = useState(false);
+  const [authError, setAuthError] = useState<string | null>(null);
 
   const [appVersion, setAppVersion] = useState("");
   const [update, setUpdate] = useState<Update | null>(null);
@@ -55,6 +63,12 @@ export default function App() {
       // already in it is the only way to get going — ask for it right away
       // rather than leaving the user to find the Install button on their own.
       // A picker that fails or is dismissed must not hold up the UI.
+      // Not fatal: a launcher that cannot reach the backend must still open,
+      // so the gate falls back to "signed out" and says why when they try.
+      void invoke<AuthStatus>("auth_status")
+        .then(setAuth)
+        .catch(() => setAuth({ signed_in: false, account_id: "", display_name: "", status: "" }));
+
       let effective = cfg;
       if (!cfg.install_dir) {
         const dir = await pickInstallFolder().catch(() => null);
@@ -168,25 +182,23 @@ export default function App() {
     }
   }, [config, patchConfig]);
 
-  // `server` is `ip:port` from the connect prompt, or null for "Play without
-  // joining server" — asked fresh every launch, but remembered (via
-  // `last_server`) so the field is pre-filled next time instead of blank.
-  const onLaunch = useCallback(
-    (server: string | null) => {
-      if (server) patchConfig({ last_server: server });
-      setBusy(true);
-      setError(null);
-      void invoke("launch_game", { server })
-        .then(() => invoke<HostsStatus>("hosts_status").then(setHosts))
-        .catch((e) => {
-          setError(String(e));
-          setBusy(false);
-        });
-      // `busy` is cleared by the game:exited event, not here: the launcher
-      // stays in the launched state for as long as the game is up.
-    },
-    [patchConfig]
-  );
+  // One button, no address. Joining a specific listen server by ip:port used to
+  // be asked here; the lobby queue does that now, so the prompt was two extra
+  // decisions on the way to playing. The backend side is untouched --
+  // `launch_game` still takes an address and passes it as the first argument --
+  // so bringing the prompt back is a UI change only.
+  const onLaunch = useCallback(() => {
+    setBusy(true);
+    setError(null);
+    void invoke("launch_game", { server: null })
+      .then(() => invoke<HostsStatus>("hosts_status").then(setHosts))
+      .catch((e) => {
+        setError(String(e));
+        setBusy(false);
+      });
+    // `busy` is cleared by the game:exited event, not here: the launcher
+    // stays in the launched state for as long as the game is up.
+  }, []);
 
   const stopGame = useCallback(() => {
     void invoke("stop_game").catch((e) => setError(String(e)));
@@ -213,6 +225,34 @@ export default function App() {
 
   const phase: Phase = install.installed ? "ready" : "not-installed";
 
+  const redeemKey = async (key: string) => {
+    setAuthBusy(true);
+    setAuthError(null);
+    try {
+      const next = await invoke<AuthStatus>("redeem_key", { key });
+      setAuth(next);
+      // The stored copy changed on the Rust side; pull it back so Settings
+      // shows the account without a restart.
+      setConfig(await invoke<Config>("get_config"));
+    } catch (e) {
+      setAuthError(String(e));
+    } finally {
+      setAuthBusy(false);
+    }
+  };
+
+  const signOut = async () => {
+    try {
+      await invoke("sign_out");
+      setAuth({ signed_in: false, account_id: "", display_name: "", status: "" });
+      setAuthError(null);
+      setConfig(await invoke<Config>("get_config"));
+      setTab("play");
+    } catch (e) {
+      setError(String(e));
+    }
+  };
+
   return (
     <div className="app">
       <div className="bg" />
@@ -229,12 +269,15 @@ export default function App() {
       <TitleBar tab={tab} onTab={setTab} />
 
       <main className="stage">
-        {tab === "play" && (
+        {tab === "play" && auth && !auth.signed_in && (
+          <SignIn busy={authBusy} error={authError} onRedeem={(k) => void redeemKey(k)} />
+        )}
+
+        {tab === "play" && (!auth || auth.signed_in) && (
           <PlayPanel
             news={activeNews(news)}
             phase={phase}
             launchArgs={config.launch_args}
-            lastServer={config.last_server}
             busy={busy}
             onLaunchArgs={(launch_args) => patchConfig({ launch_args })}
             onPrimary={onPrimary}
@@ -262,6 +305,8 @@ export default function App() {
             updateChecked={updateChecked}
             updateError={updateError}
             onCheckUpdate={() => runUpdateCheck(false)}
+            auth={auth}
+            onSignOut={() => void signOut()}
           />
         )}
       </main>

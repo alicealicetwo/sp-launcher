@@ -23,3 +23,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Scratch folder used while working with Claude — not part of the project.
+Claude outputs/

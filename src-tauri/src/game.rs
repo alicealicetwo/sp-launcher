@@ -71,10 +71,39 @@ pub fn parse_args(raw: &str) -> Vec<String> {
     out
 }
 
-/// Builds the full argv passed to the game: the server address first (if the
-/// person entered one in the connect prompt), then whatever they configured
-/// in Launch Arguments. Split out from `launch` so it can be tested without
-/// actually spawning a process.
+/// The arguments the game does not work without, kept here rather than in the
+/// player's settings.
+///
+/// `-IgnoreCatalogue` skips a catalogue fetch that cannot succeed.
+/// `-ApiPhase` has to match `apiPhase` in the backend config.
+/// `-ServicePlatform` names an online-subsystem module: the client appends the
+/// value to "OnlineSubsystem" and loads that. An EMPTY value resolves to
+/// "Internal", which is the client's own account path -- the login screen with
+/// a username box. That is the path we want: the backend recognises the
+/// launcher's key and logs the player in on it without anyone typing anything,
+/// and no Steam client or game ownership is involved.
+///
+/// (It used to say Steam here, on the belief that Internal was not in the build
+/// and would hang on the loading screen. That was wrong -- a real run reached
+/// the Internal login screen and completed.)
+///
+/// These are invisible to the player on purpose: they are not preferences, and
+/// a launcher that lets someone delete them is a launcher that lets someone
+/// break their own install.
+pub const BASE_ARGS: &[&str] = &[
+    "-IgnoreCatalogue",
+    "-ApiPhase=\"dev2s\"",
+    // Empty on purpose. "Steam" sends the client down the Steam login path,
+    // which needs Steam running and an account that owns the game. An EMPTY
+    // value resolves to the client's `Internal` subsystem, which is its own
+    // account path -- and that is the one the backend logs players in on
+    // automatically from the launcher's key. Do not "fix" this to Steam.
+    "-ServicePlatform=",
+];
+
+/// Builds the full argv: the server address first (if one was entered in the
+/// connect prompt), then the required arguments, then whatever the player added
+/// on top. Split out from `launch` so it can be tested without spawning.
 fn full_args(server: Option<&str>, user_args: &str) -> Vec<String> {
     let mut args = Vec::new();
     if let Some(server) = server {
@@ -82,12 +111,66 @@ fn full_args(server: Option<&str>, user_args: &str) -> Vec<String> {
             args.push(server.to_string());
         }
     }
-    args.extend(parse_args(user_args));
+    // A required argument is skipped when the player already supplied the same
+    // one. Unreal's parser takes the FIRST occurrence, so appending ours first
+    // and theirs second would silently ignore whatever they typed -- which is
+    // the opposite of what an override is for.
+    let user = parse_args(user_args);
+    for base in BASE_ARGS {
+        if EMPTY_VALUE_LAST.contains(base) {
+            continue;                       // emitted after the player's args, see below
+        }
+        if !user.iter().any(|u| same_switch(u, base)) {
+            args.push((*base).to_string());
+        }
+    }
+    args.extend(user.clone());
+
+    // An argument whose value is EMPTY has to be the last thing on the command
+    // line. Unreal's parser reads the text after `=` up to whitespace, and with
+    // nothing there it takes the NEXT TOKEN instead. A real run proved it: with
+    // `-ServicePlatform= -loginauto`, the game tried to load an online
+    // subsystem module literally called "-loginauto" and logged
+    // `D03001 Failed to load module`. Anything the player types would be
+    // swallowed the same way, so these go at the very end where nothing follows.
+    for base in BASE_ARGS {
+        if !EMPTY_VALUE_LAST.contains(base) {
+            continue;
+        }
+        if !user.iter().any(|u| same_switch(u, base)) {
+            args.push((*base).to_string());
+        }
+    }
     args
+}
+
+/// Required arguments whose value is empty, which therefore must come last.
+const EMPTY_VALUE_LAST: &[&str] = &["-ServicePlatform="];
+
+/// Do two tokens set the same switch? `-ApiPhase="dev2s"` and `-ApiPhase=x` do;
+/// `-ServicePlatform=Steam` and `-ServicePlatform=` do, which is the case that
+/// matters for testing a different platform.
+fn same_switch(a: &str, b: &str) -> bool {
+    let key = |s: &str| -> String {
+        let s = s.trim_start_matches('-');
+        match s.find('=') {
+            Some(i) => s[..i].to_ascii_lowercase(),
+            None => s.to_ascii_lowercase(),
+        }
+    };
+    key(a) == key(b)
 }
 
 pub struct LaunchSpec<'a> {
     pub install_dir: &'a str,
+    /// Extra environment variables for the game process only.
+    ///
+    /// This is how the one-time login ticket reaches the game, and the choice
+    /// of environment over a command-line argument is deliberate: on Windows
+    /// any process can read another's command line, while its environment
+    /// block cannot be read without debug privileges. A ticket on the command
+    /// line would be visible in Task Manager.
+    pub env: &'a [(String, String)],
     /// `ip:port` typed into the connect prompt, or `None`/empty for "Play
     /// without joining server" — asked fresh on every launch rather than
     /// stored, since who to connect to can change launch to launch.
@@ -118,37 +201,106 @@ pub fn launch(spec: LaunchSpec<'_>) -> Result<std::process::Child> {
 
     // Returning the Child, not just the pid: the caller waits on it so the
     // hosts entries come out again the moment the game exits.
-    Command::new(&exe)
-        .args(&args)
-        .current_dir(working_dir)
+    build_command(&exe, &args, working_dir, spec.env)
         .spawn()
         .map_err(|e| LauncherError::Message(format!("could not start the game: {e}")))
 }
 
+/// Assembles the process without spawning it, so what ends up in argv and what
+/// ends up in the environment can both be asserted in a test. That split is
+/// security-relevant -- the login ticket must be in the environment and must
+/// never appear on the command line -- so it is worth being able to prove.
+fn build_command(
+    exe: &Path,
+    args: &[String],
+    working_dir: &Path,
+    env: &[(String, String)],
+) -> Command {
+    let mut cmd = Command::new(exe);
+    cmd.args(args).current_dir(working_dir);
+    for (k, v) in env {
+        cmd.env(k, v);
+    }
+    cmd
+}
+
 #[cfg(test)]
 mod tests {
-    use super::{detect, full_args, parse_args};
+    use super::{build_command, detect, full_args, parse_args};
+    use std::ffi::OsStr;
     use std::fs;
+    use std::path::Path;
 
-    #[test]
-    fn server_address_comes_first_when_given() {
-        let got = full_args(Some("203.0.113.10:27015"), "-IgnoreCatalogue");
-        assert_eq!(got, vec!["203.0.113.10:27015", "-IgnoreCatalogue"]);
+    use super::BASE_ARGS;
+
+    fn base() -> Vec<String> {
+        BASE_ARGS.iter().map(|a| (*a).to_string()).collect()
     }
 
     #[test]
-    fn no_server_address_means_just_the_user_args() {
-        assert_eq!(full_args(None, "-IgnoreCatalogue"), vec!["-IgnoreCatalogue"]);
+    fn the_required_arguments_are_always_there() {
+        // Even with nothing configured and nowhere to connect.
+        assert_eq!(full_args(None, ""), base());
+    }
+
+    #[test]
+    fn server_address_comes_first_then_the_required_arguments() {
+        let got = full_args(Some("203.0.113.10:27015"), "");
+        assert_eq!(got[0], "203.0.113.10:27015");
+        // Same set, but -ServicePlatform= is moved to the end (see below).
+        let mut want: Vec<String> = base().into_iter().filter(|a| a != "-ServicePlatform=").collect();
+        want.push("-ServicePlatform=".to_string());
+        assert_eq!(got[1..], want[..]);
+    }
+
+    #[test]
+    fn an_empty_valued_argument_is_last_so_it_cannot_swallow_the_next_one() {
+        // The bug this exists to prevent: Unreal read `-loginauto` as the VALUE
+        // of `-ServicePlatform=` and tried to load it as a module.
+        let got = full_args(None, "-loginauto -windowed");
+        assert_eq!(got.last().unwrap(), "-ServicePlatform=", "{got:?}");
+        assert!(got.contains(&"-loginauto".to_string()));
+        assert!(got.contains(&"-windowed".to_string()));
+    }
+
+    #[test]
+    fn a_player_override_replaces_the_required_argument() {
+        // Unreal takes the first occurrence, so ours must not be emitted at all.
+        let got = full_args(None, "-ServicePlatform=Steam");
+        assert_eq!(got.iter().filter(|a| a.starts_with("-ServicePlatform")).count(), 1, "{got:?}");
+        assert!(got.contains(&"-ServicePlatform=Steam".to_string()), "{got:?}");
+        assert!(!got.contains(&"-ServicePlatform=".to_string()), "{got:?}");
+        // The others are untouched.
+        assert!(got.contains(&"-IgnoreCatalogue".to_string()));
+    }
+
+    #[test]
+    fn an_override_is_matched_regardless_of_value_or_case() {
+        let got = full_args(None, "-serviceplatform=Null");
+        assert_eq!(got.iter().filter(|a| a.to_lowercase().starts_with("-serviceplatform")).count(), 1, "{got:?}");
+    }
+
+    #[test]
+    fn the_players_own_arguments_go_after_the_required_ones() {
+        let got = full_args(None, "-windowed -ResX=1280");
+        let mut want: Vec<String> = base().into_iter().filter(|a| a != "-ServicePlatform=").collect();
+        want.extend(["-windowed".to_string(), "-ResX=1280".to_string()]);
+        want.push("-ServicePlatform=".to_string());
+        assert_eq!(got, want);
     }
 
     #[test]
     fn an_empty_server_address_is_treated_the_same_as_none() {
-        assert_eq!(full_args(Some(""), "-IgnoreCatalogue"), vec!["-IgnoreCatalogue"]);
+        assert_eq!(full_args(Some(""), "-windowed"), full_args(None, "-windowed"));
     }
 
     #[test]
-    fn server_address_alone_with_no_user_args() {
-        assert_eq!(full_args(Some("1.2.3.4:80"), ""), vec!["1.2.3.4:80"]);
+    fn the_service_platform_is_empty_because_that_is_the_account_login_path() {
+        // An empty value is NOT the same as omitting the switch: omitting it
+        // lets the client pick its configured default, which is Steam.
+        let got = full_args(None, "");
+        assert!(got.iter().any(|a| a == "-ServicePlatform="), "{got:?}");
+        assert!(!got.iter().any(|a| a == "-ServicePlatform=Steam"), "{got:?}");
     }
 
     #[test]
@@ -188,13 +340,56 @@ mod tests {
     }
 
     #[test]
+    fn the_login_ticket_goes_in_the_environment_and_never_in_argv() {
+        // On Windows any process can read another's command line; the
+        // environment block cannot be read without debug privileges. A ticket
+        // in argv would be visible in Task Manager, so this must stay true.
+        let args = full_args(Some("1.2.3.4:7777"), "-IgnoreCatalogue");
+        let env = vec![("SP_AUTH_TICKET".to_string(), "secret-token".to_string())];
+        let cmd = build_command(Path::new("game.exe"), &args, Path::new("."), &env);
+
+        let argv: Vec<String> = cmd.get_args().map(|a| a.to_string_lossy().into_owned()).collect();
+        assert!(
+            !argv.iter().any(|a| a.contains("secret-token")),
+            "the ticket must never reach the command line: {argv:?}"
+        );
+
+        let found = cmd
+            .get_envs()
+            .find(|(k, _)| *k == OsStr::new("SP_AUTH_TICKET"))
+            .and_then(|(_, v)| v)
+            .map(|v| v.to_string_lossy().into_owned());
+        assert_eq!(found.as_deref(), Some("secret-token"));
+    }
+
+    #[test]
+    fn no_env_means_nothing_extra_is_set() {
+        let cmd = build_command(Path::new("game.exe"), &[], Path::new("."), &[]);
+        assert_eq!(cmd.get_envs().count(), 0);
+    }
+
+    #[test]
+    fn the_server_address_still_leads_the_command_line() {
+        let args = full_args(Some("1.2.3.4:7777"), "-a -b");
+        let env = vec![("SP_AUTH_TICKET".to_string(), "t".to_string())];
+        let cmd = build_command(Path::new("game.exe"), &args, Path::new("."), &env);
+        let argv: Vec<String> = cmd.get_args().map(|a| a.to_string_lossy().into_owned()).collect();
+
+        let mut want = vec!["1.2.3.4:7777".to_string()];
+        want.extend(base().into_iter().filter(|a| a != "-ServicePlatform="));
+        want.extend(["-a".to_string(), "-b".to_string()]);
+        want.push("-ServicePlatform=".to_string());   // empty value, so it goes last
+        assert_eq!(argv, want);
+    }
+
+    #[test]
     fn splits_on_spaces_and_newlines() {
         let got = parse_args("-windowed -ResX=1920\n-nosteam");
         assert_eq!(got, vec!["-windowed", "-ResX=1920", "-nosteam"]);
     }
 
     #[test]
-    fn keeps_the_default_arguments_intact() {
+    fn keeps_the_required_arguments_intact_when_split() {
         // UE strips the quotes itself; the token must reach it whole.
         let got = parse_args("-IgnoreCatalogue -ApiPhase=\"dev2s\"");
         assert_eq!(got, vec!["-IgnoreCatalogue", "-ApiPhase=\"dev2s\""]);

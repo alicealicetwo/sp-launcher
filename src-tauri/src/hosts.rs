@@ -26,6 +26,24 @@ use crate::error::{LauncherError, Result};
 pub const BEGIN: &str = "# sp-launcher start";
 pub const END: &str = "# sp-launcher end";
 
+/// What the hostnames below are pointed at. Fixed: this launcher exists to
+/// reach one backend, and a mistyped IP here is indistinguishable, from the
+/// player's side, from the server being down.
+pub const BACKEND_IP: &str = "64.226.112.204";
+
+/// The hostnames the game talks to, which the block above overrides.
+const DOMAINS: &[&str] = &[
+    "game.bravohotel.io",
+    "ui-lobby.bravohotel.io",
+    "game-public-dev2-ap-northeast-2.bravohotel.io",
+    "game-private-dev.bravohotel.io",
+];
+
+/// `DOMAINS` as owned strings, which is what the functions here take.
+pub fn domains() -> Vec<String> {
+    DOMAINS.iter().map(|d| (*d).to_string()).collect()
+}
+
 /// Written while the block is applied, so a crashed launcher can be detected
 /// and cleaned up on the next start.
 const SENTINEL: &str = "hosts-applied.json";

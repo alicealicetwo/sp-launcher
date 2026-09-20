@@ -1,6 +1,10 @@
+mod auth;
 mod config;
+mod discord;
+mod engine_ini;
 mod error;
 mod game;
+mod shim;
 mod gateway;
 pub mod hosts;
 pub mod news;
@@ -26,6 +30,9 @@ pub struct AppState {
     redirect_active: Arc<AtomicBool>,
     /// Set while the game is running, so `stop_game` knows what to kill.
     running_pid: Arc<Mutex<Option<u32>>>,
+    /// Discord rich presence. A handle to a worker thread, so nothing here
+    /// ever waits on Discord.
+    discord: discord::Presence,
 }
 
 /// `Window` (handed to `on_window_event`) and `WebviewWindow` (handed back
@@ -128,27 +135,20 @@ fn open_install_dir(state: State<'_, AppState>) -> Result<()> {
 
 #[tauri::command]
 async fn fetch_news(state: State<'_, AppState>) -> Result<Vec<news::NewsItem>> {
-    let news_url = state.config.lock().expect("config mutex").news_url.clone();
-    news::fetch(&news_url).await
+    let _ = state;
+    news::fetch(news::FEED_URL).await
 }
 
 // ----------------------------------------------------------------- hosts ---
 
 #[tauri::command]
-fn hosts_status(state: State<'_, AppState>) -> hosts::HostsStatus {
-    let domains = state
-        .config
-        .lock()
-        .expect("config mutex")
-        .hosts_domains
-        .clone();
-    hosts::status(&domains)
+fn hosts_status(_state: State<'_, AppState>) -> hosts::HostsStatus {
+    hosts::status(&hosts::domains())
 }
 
 #[tauri::command]
 fn hosts_apply(state: State<'_, AppState>) -> Result<()> {
-    let cfg = state.config.lock().expect("config mutex").clone();
-    hosts::apply(&state.config_dir, &cfg.backend_ip, &cfg.hosts_domains)?;
+    hosts::apply(&state.config_dir, hosts::BACKEND_IP, &hosts::domains())?;
     state.redirect_active.store(true, Ordering::Relaxed);
     Ok(())
 }
@@ -208,6 +208,75 @@ fn hide_to_tray(app: AppHandle) -> Result<()> {
     Ok(())
 }
 
+// ------------------------------------------------------------------ auth ---
+//
+// The key never leaves this file except to go to the backend. It is not
+// returned to the frontend, not logged, and not passed to the game -- what the
+// game gets is a one-time ticket minted at launch.
+
+/// Makes sure this installation has an id, persisting it the first time.
+fn ensure_device_id(state: &State<'_, AppState>) -> Result<String> {
+    {
+        let cfg = state.config.lock().expect("config mutex");
+        if !cfg.device_id.is_empty() {
+            return Ok(cfg.device_id.clone());
+        }
+    }
+    let id = auth::new_device_id();
+    {
+        let mut cfg = state.config.lock().expect("config mutex");
+        cfg.device_id = id.clone();
+        config::save(&state.config_dir, &cfg)?;
+    }
+    Ok(id)
+}
+
+#[tauri::command]
+fn auth_status(state: State<'_, AppState>) -> Result<auth::AuthStatus> {
+    let cfg = state.config.lock().expect("config mutex");
+    Ok(auth::AuthStatus {
+        signed_in: !cfg.auth_key_sealed.is_empty(),
+        account_id: cfg.account_id.clone(),
+        display_name: cfg.display_name.clone(),
+        status: cfg.key_status.clone(),
+    })
+}
+
+#[tauri::command]
+async fn redeem_key(state: State<'_, AppState>, key: String) -> Result<auth::AuthStatus> {
+    let device_id = ensure_device_id(&state)?;
+    let normalized = auth::normalize_key(&key);
+
+    let status = auth::redeem(auth::AUTH_BASE_URL, &normalized, &device_id).await?;
+
+    // Only store the key once the backend has accepted it, so a typo never
+    // leaves a dead key sitting in the config.
+    let sealed = auth::seal(&normalized)?;
+    {
+        let mut cfg = state.config.lock().expect("config mutex");
+        cfg.auth_key_sealed = sealed;
+        cfg.account_id = status.account_id.clone();
+        cfg.display_name = status.display_name.clone();
+        cfg.key_status = status.status.clone();
+        config::save(&state.config_dir, &cfg)?;
+    }
+    Ok(status)
+}
+
+#[tauri::command]
+fn sign_out(state: State<'_, AppState>) -> Result<()> {
+    let mut cfg = state.config.lock().expect("config mutex");
+    cfg.auth_key_sealed.clear();
+    cfg.account_id.clear();
+    cfg.display_name.clear();
+    cfg.key_status.clear();
+    // device_id deliberately survives: it identifies the installation, not the
+    // player, and keeping it means signing back in is not treated as a move to
+    // a new PC.
+    config::save(&state.config_dir, &cfg)?;
+    Ok(())
+}
+
 // ---------------------------------------------------------------- launch ---
 
 #[derive(Serialize)]
@@ -225,10 +294,56 @@ async fn launch_game(
     let cfg = state.config.lock().expect("config mutex").clone();
     let config_dir = state.config_dir.clone();
 
+    // Mint the login ticket FIRST, before anything with a side effect.
+    //
+    // It is the step most likely to fail -- no key yet, key suspended, backend
+    // down -- and failing here leaves the machine completely untouched: no
+    // Engine.ini edit, no hosts entries, no process. It also means the game is
+    // never started in a state where it cannot log in.
+    let mut env: Vec<(String, String)> = Vec::new();
+    if cfg.auth_key_sealed.is_empty() {
+        return Err(LauncherError::Message(
+            "You are not signed in. Enter your launcher key first -- get one with /authkey in Discord.".into(),
+        ));
+    }
+    {
+        let key = auth::unseal(&cfg.auth_key_sealed)?;
+        let ticket = auth::mint_ticket(auth::AUTH_BASE_URL, &key, &cfg.device_id).await?;
+        if cfg.debug_logging {
+            // The lifetime, never the token. A ticket in a log file is a ticket
+            // someone else can use for the next minute.
+            eprintln!("[auth] login ticket minted, valid for {}s", ticket.expires_in);
+        }
+        // Environment, not argv: see the note on LaunchSpec::env.
+        env.push(("SP_AUTH_TICKET".into(), ticket.token));
+    }
+
+    // `n.VerifyPeer=False` has to be in the player's Engine.ini before the
+    // client starts reading config. Done before the hosts redirect so that a
+    // failure here leaves the system completely untouched — there is nothing
+    // to roll back yet at this point.
+    // The no-Steam DLL, before anything starts the game: Windows holds a loaded
+    // DLL open, so this is the only moment it can be written. Placed before the
+    // hosts redirect for the same reason engine_ini is -- a failure here leaves
+    // the machine untouched.
+    match shim::apply(&cfg.install_dir) {
+        Ok(shim::Applied::NotBundled) => {
+            eprintln!("[shim] this launcher has no DLL bundled -- the game needs XAPOFX1_5.dll placed by hand");
+        }
+        Ok(what) => {
+            if cfg.debug_logging {
+                eprintln!("[shim] no-Steam DLL: {what:?}");
+            }
+        }
+        Err(e) => return Err(e),
+    }
+
+    engine_ini::apply()?;
+
     // Redirect first: the game reads the hostnames on startup, so the entries
     // have to be in place before the process exists, not just before it
     // connects.
-    let redirected = if cfg.hosts_redirect && !cfg.hosts_domains.is_empty() {
+    let redirected = if cfg.hosts_redirect {
         if !hosts::writable() {
             return Err(LauncherError::Message(
                 "The hosts file is not writable. Restart the launcher as administrator, \
@@ -236,7 +351,7 @@ async fn launch_game(
                     .into(),
             ));
         }
-        hosts::apply(&config_dir, &cfg.backend_ip, &cfg.hosts_domains)?;
+        hosts::apply(&config_dir, hosts::BACKEND_IP, &hosts::domains())?;
         state.redirect_active.store(true, Ordering::Relaxed);
         true
     } else {
@@ -247,6 +362,7 @@ async fn launch_game(
         install_dir: &cfg.install_dir,
         server: server.as_deref(),
         user_args: &cfg.launch_args,
+        env: &env,
     })
     .inspect_err(|_| {
         // The game never started, so take the entries straight back out.
@@ -258,6 +374,7 @@ async fn launch_game(
 
     let pid = child.id();
     *state.running_pid.lock().expect("pid mutex") = Some(pid);
+    state.discord.set(discord::State::InGame);
 
     // The launcher used to hide itself here and only reappear when the game
     // exited. Now it stays open — the Play tab swaps its button for "Close
@@ -277,10 +394,12 @@ async fn launch_game(
         let app = app.clone();
         let redirect_active = state.redirect_active.clone();
         let running_pid = state.running_pid.clone();
+        let presence = state.discord.clone();
         let mut child = child;
         tauri::async_runtime::spawn_blocking(move || {
             let status = child.wait();
             *running_pid.lock().expect("pid mutex") = None;
+            presence.set(discord::State::InLauncher);
             if redirected {
                 match hosts::remove(&config_dir) {
                     Ok(()) => redirect_active.store(false, Ordering::Relaxed),
@@ -365,6 +484,7 @@ pub fn run() {
                 config: Mutex::new(cfg),
                 redirect_active: Arc::new(AtomicBool::new(false)),
                 running_pid: Arc::new(Mutex::new(None)),
+                discord: discord::Presence::start(),
             });
 
             // Tray icon: reuses the app's own bundled icon rather than
@@ -454,6 +574,9 @@ pub fn run() {
             hide_to_tray,
             launch_game,
             stop_game,
+            auth_status,
+            redeem_key,
+            sign_out,
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

@@ -13,48 +13,63 @@ use crate::error::{LauncherError, Result};
 pub struct Config {
     /// Where the game is installed. Empty until the user picks a folder.
     pub install_dir: String,
-    /// URL the launcher fetches the news feed (`Vec<news::NewsItem>` JSON) from.
-    pub news_url: String,
-    /// Extra command-line arguments, one per line as the user typed them.
+    /// EXTRA command-line arguments, one per line as the player typed them.
+    ///
+    /// Only the extras. The arguments the game cannot run without live in
+    /// `game::BASE_ARGS` and are prepended at launch, so they cannot be
+    /// deleted here by accident. Empty by default: an empty box says "add
+    /// something if you want to", where a box pre-filled with required flags
+    /// invites someone to edit them.
     pub launch_args: String,
     /// The last `ip:port` typed into the connect prompt, so it's pre-filled
     /// next launch instead of starting blank every time. Empty means nothing
     /// has been entered yet (or "Play without joining server" was used last).
     pub last_server: String,
 
-    /// Point the game's hostnames at `backend_ip` while the launcher runs.
+    /// Point the game's hostnames at the backend while the launcher runs.
+    /// Which hostnames, and which IP, are fixed in `hosts` — they describe
+    /// the one server this launcher exists to reach, so they are not the
+    /// player's to get wrong.
     pub hosts_redirect: bool,
-    /// What the hostnames below should resolve to.
-    pub backend_ip: String,
-    /// Hostnames the game talks to.
-    pub hosts_domains: Vec<String>,
     /// Send the launcher to the tray when the game launches, instead of
     /// staying visible with the "Close Game" button.
     pub close_on_launch: bool,
     pub auto_update: bool,
     pub verify_before_launch: bool,
     pub debug_logging: bool,
+
+    // --- key login (see auth.rs) -------------------------------------------
+    /// The launcher key, encrypted with DPAPI and hex-encoded. Never the key
+    /// itself: this file sits in a readable folder, and the key is the one
+    /// long-lived credential a player has.
+    pub auth_key_sealed: String,
+    /// Identifies this installation so the backend can bind the key to it.
+    /// A label, not a secret -- generated once, then left alone.
+    pub device_id: String,
+    /// Shown in the UI so it does not have to ask the backend just to draw the
+    /// signed-in state. The backend re-checks on every launch regardless, so a
+    /// stale value here can never grant anything.
+    pub account_id: String,
+    pub display_name: String,
+    pub key_status: String,
 }
 
 impl Default for Config {
     fn default() -> Self {
         Self {
             install_dir: String::new(),
-            news_url: "http://64.226.112.204/launcher/news.json".into(),
-            launch_args: "-IgnoreCatalogue -ApiPhase=\"dev2s\"".into(),
+            launch_args: String::new(),
             last_server: String::new(),
             hosts_redirect: true,
-            backend_ip: "127.0.0.1".into(),
-            hosts_domains: vec![
-                "game.bravohotel.io".into(),
-                "ui-lobby.bravohotel.io".into(),
-                "game-public-dev2-ap-northeast-2.bravohotel.io".into(),
-                "game-private-dev.bravohotel.io".into(),
-            ],
             close_on_launch: false,
             auto_update: true,
             verify_before_launch: false,
             debug_logging: false,
+            auth_key_sealed: String::new(),
+            device_id: String::new(),
+            account_id: String::new(),
+            display_name: String::new(),
+            key_status: String::new(),
         }
     }
 }
@@ -63,13 +78,34 @@ pub fn config_path(base: &Path) -> PathBuf {
     base.join("config.v1.json")
 }
 
+/// Strips the arguments that used to be the default out of a saved config.
+///
+/// Before they moved into `game::BASE_ARGS`, every install had them sitting in
+/// the settings box. Left there they would now be passed twice, and they would
+/// still be visible and deletable — so an existing config is cleaned the first
+/// time it is read. Anything the player added themselves is kept, in order.
+fn strip_base_args(raw: &str) -> String {
+    let kept: Vec<String> = super::game::parse_args(raw)
+        .into_iter()
+        .filter(|tok| !super::game::BASE_ARGS.iter().any(|b| b.eq_ignore_ascii_case(tok)))
+        .collect();
+    kept.join(" ")
+}
+
 pub fn load(base: &Path) -> Config {
     let path = config_path(base);
-    match std::fs::read_to_string(&path) {
+    let mut cfg = load_raw(base, &path);
+    cfg.launch_args = strip_base_args(&cfg.launch_args);
+    cfg
+}
+
+fn load_raw(base: &Path, path: &Path) -> Config {
+    let _ = base;
+    match std::fs::read_to_string(path) {
         Ok(text) => serde_json::from_str(&text).unwrap_or_else(|e| {
             // A corrupt file must not brick the launcher: keep a copy and
             // start fresh rather than refusing to open.
-            let _ = std::fs::rename(&path, path.with_extension("json.corrupt"));
+            let _ = std::fs::rename(path, path.with_extension("json.corrupt"));
             eprintln!("[config] unreadable ({e}), starting from defaults");
             Config::default()
         }),
@@ -89,4 +125,32 @@ pub fn save(base: &Path, cfg: &Config) -> Result<()> {
     // rename is atomic on the same volume, so readers never see a partial file
     std::fs::rename(&tmp, &path)?;
     Ok(())
+}
+
+#[cfg(test)]
+mod tests {
+    use super::strip_base_args;
+
+    #[test]
+    fn the_old_defaults_are_removed_from_an_existing_config() {
+        // Exactly what every install before this change had saved.
+        assert_eq!(strip_base_args("-IgnoreCatalogue -ApiPhase=\"dev2s\""), "");
+    }
+
+    #[test]
+    fn what_the_player_added_survives() {
+        let got = strip_base_args("-IgnoreCatalogue -windowed -ApiPhase=\"dev2s\" -ResX=1280");
+        assert_eq!(got, "-windowed -ResX=1280");
+    }
+
+    #[test]
+    fn an_empty_box_stays_empty() {
+        assert_eq!(strip_base_args(""), "");
+        assert_eq!(strip_base_args("   \n  "), "");
+    }
+
+    #[test]
+    fn nothing_of_the_players_is_touched_when_there_are_no_defaults() {
+        assert_eq!(strip_base_args("-windowed -nosound"), "-windowed -nosound");
+    }
 }

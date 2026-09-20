@@ -83,11 +83,12 @@ export function LaunchArgs({ value, onSave }: Props) {
           className="input"
           ref={field}
           spellCheck={false}
+          placeholder="-windowed -ResX=1280"
           value={draft}
           onChange={(e) => setDraft(e.target.value)}
         />
         <div className="argpop__row">
-          <span className="argpop__hint">Passed to BravoHotelClient.exe on launch</span>
+          <span className="argpop__hint">Extra arguments only. The ones the game needs are always added for you.</span>
           <button className="btn" type="button" onClick={() => { setDraft(value); setOpen(false); }}>
             Cancel
           </button>
