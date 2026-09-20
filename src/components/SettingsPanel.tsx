@@ -1,5 +1,5 @@
 import type { Update } from "@tauri-apps/plugin-updater";
-import type { Config, HostsStatus } from "../types";
+import type { AuthStatus, Config, HostsStatus } from "../types";
 import { pickInstallFolder } from "../lib/browse";
 
 interface Props {
@@ -15,6 +15,8 @@ interface Props {
   updateChecked: boolean;
   updateError: string | null;
   onCheckUpdate: () => void;
+  auth: AuthStatus | null;
+  onSignOut: () => void;
 }
 
 const TOGGLES: { key: keyof Config; name: string; hint: string }[] = [
@@ -34,6 +36,8 @@ export function SettingsPanel({
   updateChecked,
   updateError,
   onCheckUpdate,
+  auth,
+  onSignOut,
 }: Props) {
   const needsAdmin = config.hosts_redirect && hosts && !hosts.writable;
 
@@ -44,6 +48,44 @@ export function SettingsPanel({
 
   return (
     <section className="panel settings is-active">
+      <div className="card">
+        <h2 className="card__title">Account</h2>
+
+        {auth && auth.signed_in ? (
+          <>
+            <div className="field">
+              <span className="field__label">Signed in as</span>
+              <span className="field__hint">
+                {auth.display_name || auth.account_id || "your account"}
+                {auth.status && auth.status !== "active" ? ` — key ${auth.status}` : ""}
+              </span>
+            </div>
+            {auth.status === "suspended" && (
+              <span className="field__hint">
+                Your key is suspended, so the game will not start. A Key Master can lift it in Discord.
+              </span>
+            )}
+            {auth.status === "revoked" && (
+              <span className="field__hint">
+                Your key has been revoked and can no longer be used.
+              </span>
+            )}
+            <div className="field__row" style={{ marginTop: 10 }}>
+              <button className="btn" type="button" onClick={onSignOut}>
+                Sign out
+              </button>
+            </div>
+            <span className="field__hint" style={{ marginTop: 8, display: "block" }}>
+              Signing out forgets the key on this PC. You can enter it again at any time.
+            </span>
+          </>
+        ) : (
+          <span className="field__hint">
+            Not signed in. Go to the Play tab and enter your launcher key.
+          </span>
+        )}
+      </div>
+
       <div className="card">
         <h2 className="card__title">Game Files</h2>
 
@@ -68,29 +110,13 @@ export function SettingsPanel({
       </div>
 
       <div className="card">
-        <h2 className="card__title">News</h2>
-
-        <div className="field">
-          <span className="field__label">News URL</span>
-          <input
-            className="input"
-            spellCheck={false}
-            value={config.news_url}
-            placeholder="https://files.example.com/sp/news.json"
-            onChange={(e) => onConfig({ news_url: e.target.value })}
-          />
-          <span className="field__hint">JSON feed for the Play tab's news carousel.</span>
-        </div>
-      </div>
-
-      <div className="card">
         <h2 className="card__title">Connection</h2>
 
         <div className="toggle">
           <span className="toggle__text">
             <span className="toggle__name">Hosts redirect</span>
             <span className="toggle__hint">
-              Point the game's domains at your backend while it runs
+              Point the game's domains at the server while it runs
             </span>
           </span>
           <button
@@ -104,34 +130,6 @@ export function SettingsPanel({
         </div>
 
         <div className="field" style={{ marginTop: 10 }}>
-          <span className="field__label">Backend IP</span>
-          <input
-            className="input"
-            spellCheck={false}
-            value={config.backend_ip}
-            placeholder="127.0.0.1"
-            onChange={(e) => onConfig({ backend_ip: e.target.value })}
-          />
-        </div>
-
-        <div className="field">
-          <span className="field__label">Redirected domains</span>
-          <textarea
-            className="input args"
-            spellCheck={false}
-            value={config.hosts_domains.join("\n")}
-            onChange={(e) =>
-              onConfig({
-                hosts_domains: e.target.value
-                  .split("\n")
-                  .map((s) => s.trim())
-                  .filter(Boolean),
-              })
-            }
-          />
-        </div>
-
-        <div className="field">
           <span className="field__label">Launch arguments</span>
           <textarea
             className="input args"

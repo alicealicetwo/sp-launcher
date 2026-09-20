@@ -1,18 +1,31 @@
 /** Mirrors `Config` in src-tauri/src/config.rs — keep the two in step. */
 export interface Config {
   install_dir: string;
-  /** URL the launcher fetches the news feed (`NewsItem[]` JSON) from. */
-  news_url: string;
   launch_args: string;
   /** Last `ip:port` entered in the connect prompt; pre-fills it next launch. */
   last_server: string;
   hosts_redirect: boolean;
-  backend_ip: string;
-  hosts_domains: string[];
   close_on_launch: boolean;
   auto_update: boolean;
   verify_before_launch: boolean;
   debug_logging: boolean;
+
+  /** DPAPI-encrypted launcher key. Never the key itself. */
+  auth_key_sealed: string;
+  /** Identifies this installation; a label, not a secret. */
+  device_id: string;
+  account_id: string;
+  display_name: string;
+  key_status: string;
+}
+
+/** Mirrors `auth::AuthStatus` in src-tauri/src/auth.rs — keep the two in step. */
+export interface AuthStatus {
+  signed_in: boolean;
+  account_id: string;
+  display_name: string;
+  /** "active", "suspended" or "revoked" as the backend last reported it. */
+  status: string;
 }
 
 export interface InstallState {

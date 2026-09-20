@@ -33,9 +33,21 @@ current install and restarts the app.
 This part is finished — it's here so you know what exists and where, not
 because you need to redo it.
 
-- **Signing keypair**: `%USERPROFILE%\.tauri\sp-launcher.key` (private —
-  never shared, never committed) and `sp-launcher.key.pub` (public, on the
+- **Signing keypair**: `%USERPROFILE%\.tauri\sp-launcher-2.key` (private —
+  never shared, never committed) and `sp-launcher-2.key.pub` (public, on the
   same machine, not sensitive but not needed after step below).
+
+  > **Rotated 20.09.2026.** The original `sp-launcher.key` had a password
+  > that was lost, so it could no longer sign anything. The old pair is still
+  > in `.tauri` in case the password ever resurfaces, but it is dead for
+  > practical purposes. The replacement has NO password: the file itself is
+  > the secret, and an unprotected key you still have beats a protected one
+  > you cannot open. **Back it up** — a password manager entry, not the repo
+  > and not the VPS.
+  >
+  > Consequence: every launcher built before 0.2.7 carries the OLD public key
+  > and rejects anything signed with the new one. Those installs had to be
+  > updated by hand once. From 0.2.7 onward the updater works normally again.
 - **Public key** is baked into `src-tauri/tauri.conf.json` under
   `plugins.updater.pubkey`. It's what every future build ships with, so it
   only needs to be set once — until you deliberately rotate keys (see
@@ -54,11 +66,30 @@ update source be user-editable would defeat the point of signing.
 
 ## Releasing a new version — do this every time
 
+> `powershell -ExecutionPolicy Bypass -File tools\publish-update.ps1` runs
+> steps 1b to 3 for you, asking for the key password up front (Tauri's own
+> mid-build prompt fails under a script) and refusing to build if the DLL or
+> the key is missing. The manual steps below remain the reference.
+
 **1. Bump the version number.** Keep these three in step (they don't have
 to match by a hard requirement, but it avoids confusion):
 - `src-tauri/tauri.conf.json` → `"version"`
 - `src-tauri/Cargo.toml` → `[package] version`
 - `package.json` → `"version"`
+
+**1b. Make sure the no-Steam DLL is bundled.** `src-tauri/resources/XAPOFX1_5.dll`
+has to exist, or the launcher ships without it — and since the launcher passes
+`-ServicePlatform=`, every player who does not already have that DLL by hand
+gets a game that never leaves the loading screen.
+
+```powershell
+cd ..\sp-listen-patch
+.\build_sp_proxy.bat
+copy dist\XAPOFX1_5.dll ..\sp-launcher\src-tauri\resources\
+```
+
+`build.rs` warns when it is missing and the launcher logs `this launcher has
+no DLL bundled` at launch; `tools\publish-update.ps1` refuses to build at all.
 
 **2. Build with signing enabled.** The private key and its password have to
 be available as environment variables during the build — this is what makes

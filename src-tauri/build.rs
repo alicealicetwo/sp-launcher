@@ -1,4 +1,16 @@
 fn main() {
+    // The no-Steam DLL is embedded by src/shim.rs with include_bytes!, which
+    // fails the build outright if the file is missing. A checkout without the
+    // binary -- a fresh clone, or a machine that has not built it yet -- should
+    // still compile, so the include is behind a cfg set here.
+    println!("cargo:rustc-check-cfg=cfg(has_shim)");
+    println!("cargo:rerun-if-changed=resources/XAPOFX1_5.dll");
+    if std::path::Path::new("resources/XAPOFX1_5.dll").is_file() {
+        println!("cargo:rustc-cfg=has_shim");
+    } else {
+        println!("cargo:warning=resources/XAPOFX1_5.dll is missing -- the launcher will NOT install the no-Steam DLL. Build it with sp-listen-patch/build_sp_proxy.bat and copy it there before shipping.");
+    }
+
     #[cfg(target_os = "windows")]
     {
         // Always run elevated: the hosts-file redirect needs administrator

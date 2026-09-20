@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { openUrl } from "@tauri-apps/plugin-opener";
 import { News } from "./News";
 import { LaunchArgs } from "./LaunchArgs";
@@ -10,59 +9,12 @@ interface Props {
   news: NewsItem[];
   phase: Phase;
   launchArgs: string;
-  lastServer: string;
   busy: boolean;
   onLaunchArgs: (next: string) => void;
   onPrimary: () => void;
-  onLaunch: (server: string | null) => void;
+  onLaunch: () => void;
   onStop: () => void;
   onError: (message: string) => void;
-}
-
-// Loose on purpose: a hostname works as well as an IP, only the ":port" part
-// is actually load-bearing for the "did they finish typing something" check.
-const SERVER_PATTERN = /^[^\s:]+:\d{1,5}$/;
-
-/** Text field + Play, plus the "skip it" fallback. Pre-filled with the last
- * address entered, since it's usually the same server launch to launch —
- * still editable, and still asked fresh (not skipped) every time. */
-function ConnectPlay({
-  initialServer,
-  onLaunch,
-}: {
-  initialServer: string;
-  onLaunch: (server: string | null) => void;
-}) {
-  const [server, setServer] = useState(initialServer);
-  const canJoin = SERVER_PATTERN.test(server.trim());
-
-  return (
-    <div className="connect">
-      <div className="connect__row">
-        <input
-          className="connect__input"
-          spellCheck={false}
-          placeholder="ip:port"
-          value={server}
-          onChange={(e) => setServer(e.target.value)}
-          onKeyDown={(e) => {
-            if (e.key === "Enter" && canJoin) onLaunch(server.trim());
-          }}
-        />
-        <button
-          className="connect__play"
-          type="button"
-          disabled={!canJoin}
-          onClick={() => onLaunch(server.trim())}
-        >
-          Play
-        </button>
-      </div>
-      <button className="connect__skip" type="button" onClick={() => onLaunch(null)}>
-        Play without joining server →
-      </button>
-    </div>
-  );
 }
 
 export function PlayPanel(props: Props) {
@@ -95,7 +47,14 @@ export function PlayPanel(props: Props) {
               </span>
             </button>
           ) : (
-            <ConnectPlay initialServer={props.lastServer} onLaunch={props.onLaunch} />
+            <button className="cta" type="button" onClick={props.onLaunch}>
+              <span className="cta__inner">
+                <span className="cta__label">Play</span>
+                <span className="cta__icon">
+                  <svg viewBox="0 0 14 14" fill="currentColor"><path d="M3 1.5l9 5.5-9 5.5z" /></svg>
+                </span>
+              </span>
+            </button>
           )}
         </div>
 

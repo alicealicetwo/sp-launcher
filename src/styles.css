@@ -891,3 +891,101 @@ input, textarea{ user-select:text; }
 }
 .settings::-webkit-scrollbar-thumb:hover,
 .dl::-webkit-scrollbar-thumb:hover{ background: rgba(255,255,255,0.26); background-clip: content-box; }
+
+/* ---------------------------------------------------------------- sign-in ---
+   The gate in front of Play. Same stage as the Play panel, so the slabs and
+   grain stay visible behind it — signing in should feel like part of the
+   launcher, not a modal bolted on top. */
+.signin{
+  display:grid;
+  place-items:center;
+  min-height:0;
+  padding:24px 16px;
+}
+.signin__card{
+  width:min(420px, 100%);
+  background: var(--surface);
+  border:1px solid var(--line);
+  padding:26px 26px 22px;
+}
+.signin__title{
+  margin:0 0 8px;
+  font-size:22px;
+  font-weight:800;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color: var(--paper);
+}
+.signin__lead{
+  margin:0 0 18px;
+  font-size:13px;
+  line-height:1.5;
+  color: var(--paper-dim);
+}
+.signin__form{ display:flex; gap:8px; }
+.signin__input{
+  flex:1;
+  min-width:0;
+  background: var(--surface-2);
+  border:1px solid var(--line);
+  color: var(--paper);
+  font-family: var(--font);
+  font-size:15px;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  padding:0 12px;
+  height:40px;
+}
+.signin__input::placeholder{ color: var(--muted); letter-spacing:0.16em; }
+.signin__input:focus-visible{ outline:2px solid var(--signal); outline-offset:-2px; }
+.signin__submit{
+  height:40px;
+  padding:0 20px;
+  border:0;
+  background: var(--signal);
+  color:#fff;
+  font-family: var(--font);
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  cursor:pointer;
+}
+.signin__submit:hover{ background: #f4574b; }
+.signin__submit:active{ background: #cf3327; }
+.signin__submit:disabled{
+  background: var(--surface-3);
+  color: var(--muted);
+  cursor:default;
+}
+.signin__error{
+  margin:12px 0 0;
+  font-size:13px;
+  line-height:1.5;
+  color: var(--signal-hi);
+}
+.signin__hint{
+  margin:16px 0 0;
+  font-size:12px;
+  line-height:1.6;
+  color: var(--muted);
+}
+.signin__hint code{
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size:11px;
+  color: var(--paper-dim);
+  background: var(--surface-2);
+  padding:1px 5px;
+}
+/* A link that is really a button, because opening a browser from a desktop
+   app goes through the opener plugin rather than an href. */
+.signin__link{
+  background:none;
+  border:0;
+  padding:0;
+  font:inherit;
+  color: var(--signal-hi);
+  cursor:pointer;
+  text-decoration:underline;
+}
+.signin__link:hover{ color: var(--signal); }

@@ -1,4 +1,4 @@
-//! The Play tab's news feed, fetched from `Config::news_url`.
+//! The Play tab's news feed.
 //!
 //! The feed is just a JSON array of `NewsItem`; this module only defines its
 //! shape and how to fetch it. `starts_at`/`ends_at` are informational —
@@ -29,13 +29,19 @@ pub struct NewsItem {
     pub url: Option<String>,
 }
 
-/// Fetches and parses the feed. An empty `news_url` is not an error — it just
-/// means no news is configured yet — and returns an empty feed.
-pub async fn fetch(news_url: &str) -> Result<Vec<NewsItem>> {
-    if news_url.is_empty() {
+/// Where the feed lives. Fixed rather than configurable: it is this
+/// server's feed, and a player pointing the launcher at some other URL only
+/// ever breaks their own news panel.
+pub const FEED_URL: &str = "http://64.226.112.204/launcher/news.json";
+
+/// Fetches and parses the feed from `url` (in practice always `FEED_URL`;
+/// taking it as an argument keeps this testable against a local server). An
+/// empty url yields an empty feed rather than an error.
+pub async fn fetch(url: &str) -> Result<Vec<NewsItem>> {
+    if url.is_empty() {
         return Ok(Vec::new());
     }
-    let items = reqwest::get(news_url)
+    let items = reqwest::get(url)
         .await?
         .error_for_status()?
         .json::<Vec<NewsItem>>()
