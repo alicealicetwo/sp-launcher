@@ -36,6 +36,7 @@ Rust backend. Windows only.
   are listed in [`client-fixes/`](client-fixes/README.md). It currently includes:
   - **Local class selection:** allows players to choose a class in local games.
   - **Super Capsules:** allows White and Gold Super Capsules to work when used.
+  - **First Blood:** plays the announcement once per local match.
 - **Engine.ini patch.** Before each launch, `n.VerifyPeer=False` and related
   settings are applied (`src-tauri/src/engine_ini.rs`).
 - **Starts the real game exe.** The launcher starts

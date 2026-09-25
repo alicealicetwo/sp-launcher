@@ -2,14 +2,26 @@
 #include <bcrypt.h>
 
 #include <array>
+#include <atomic>
 #include <cstdint>
 #include <cwchar>
 #include <string>
 #include <unordered_map>
 #include <vector>
 
+// Build-specific client patches for the preserved BravoHotel client.
+//
+// After build, the launcher embeds this DLL, installs it
+// next to the game executable, and loads it into the game process. Run() first
+// hashes that executable; none of the offsets below are read before it passes.
+//
+// After validation, one worker tracks the local world and class eligibility,
+// one tracks the merged capsule item table, and one tracks First Blood audio.
+// The launcher keeps the DLL loaded until process exit; there is no mid-game
+// unload protocol for stopping workers or restoring their temporary writes.
 namespace {
-// BravoHotel 1.3.0.473797 only. Never use these offsets on another binary.
+// BravoHotel 1.3.0.473797 only. RVAs are relative to the shipping EXE's
+// loaded image base, so ASLR changes the final addresses each run.
 constexpr wchar_t kSha256[] = L"16b8b421371457d936e5cc1810ff707b5f5984126973dbdc4e6b5c714522051f";
 constexpr std::uintptr_t kObjectsRva = 0x762f708;
 constexpr std::uintptr_t kTableRva = 0x6b3c0f8;
@@ -18,6 +30,9 @@ constexpr LONG kClassLevel = 5;
 constexpr std::uintptr_t kNamePoolRva = 0x7603240;
 constexpr std::uintptr_t kAnsiNameDecoderRva = 0x2a5dfb0;
 constexpr std::uintptr_t kWideNameDecoderRva = 0x2a6a710;
+// Run() publishes only controllers that pass Validate(). The First Blood
+// worker reads this pointer but still checks the widget's class before use.
+std::atomic<std::uintptr_t> gLocalController{0};
 
 // Write diagnostics to both the DLL console and a debugger, if attached.
 void Log(const wchar_t* message) {
@@ -29,7 +44,8 @@ void Log(const wchar_t* message) {
     }
 }
 
-// Read game memory without crashing if an object disappears during inspection.
+// These reads use ReadProcessMemory even though the DLL is in the same process.
+// A failed read returns false instead of dereferencing a stale Unreal object.
 template<class T> bool Read(std::uintptr_t address, T& value) {
     SIZE_T count = 0;
     return address && ReadProcessMemory(GetCurrentProcess(), reinterpret_cast<void*>(address),
@@ -41,8 +57,10 @@ bool ReadBlock(std::uintptr_t address, void* data, SIZE_T size) {
     return address && ReadProcessMemory(GetCurrentProcess(), reinterpret_cast<void*>(address),
                                         data, size, &count) && count == size;
 }
-// Change an aligned 32-bit field only if it still has the expected value.
-// Catch access violations if the game destroys the object between checks.
+// Change an aligned 32-bit field only if it still has the expected value. This
+// is used for both UserLevel and capsule FName indices. The compare/exchange
+// avoids overwriting a game update between our read and write; SEH handles an
+// object disappearing at the write site.
 bool CompareDword(std::uintptr_t address, LONG before, LONG after) {
     __try {
         return InterlockedCompareExchange(reinterpret_cast<volatile LONG*>(address),
@@ -52,7 +70,8 @@ bool CompareDword(std::uintptr_t address, LONG before, LONG after) {
     }
 }
 
-// Hash the running executable and reject every build except the researched one.
+// Hash the actual EXE backing this process, not a configured install path.
+// All three fixes fail closed if the file differs from the researched build.
 bool SupportedBuild() {
     std::vector<wchar_t> path(32768);
     DWORD length = GetModuleFileNameW(nullptr, path.data(), static_cast<DWORD>(path.size()));
@@ -102,27 +121,33 @@ bool SupportedBuild() {
     return okay;
 }
 
-// Layout of the build's global Unreal object array header.
+// The preserved build stores UObject pointers in 40-byte GObjects items,
+// grouped into chunks of up to 65,536. The header below is the live array
+// layout recovered by Preservation/tools/dump_objects.py.
 struct ObjectArray {
     std::uintptr_t chunks, preallocated;
     std::int32_t maximum, count, maxChunks, numChunks;
 };
 static_assert(sizeof(ObjectArray) == 32);
 
-// Objects whose identities must remain stable while the temporary fix is active.
+// Cache the active controller and the objects whose identities must remain
+// stable while the temporary class-level change is active.
 struct LocalPlayer {
     std::uintptr_t controller = 0, world = 0, info = 0;
 };
 
-// Require a playable authority world with no normal or replay network driver.
+// These offsets are Engine.World fields in the preserved SDK. A non-null
+// AuthorityGameMode with no NetDriver or DemoNetDriver was observed in local
+// play; requiring all three excludes online and replay worlds here.
 bool Standalone(std::uintptr_t world) {
     std::uintptr_t net = 0, demo = 0, mode = 0, level = 0;
     return Read(world+88, net) && !net && Read(world+304, demo) && !demo &&
            Read(world+464, mode) && mode && Read(world+80, level) && level;
 }
 
-// Before restoring, confirm the old info object still belongs to the same
-// controller and has not joined a networked world.
+// A transition may invalidate the old player objects. Restore UserLevel only
+// while the old controller still points to the same info component and its
+// world has not acquired a network driver.
 bool SafeToRestore(const LocalPlayer& active) {
     std::uintptr_t net=0, demo=0, state=0, info=0;
     return active.world && active.controller && active.info &&
@@ -132,15 +157,19 @@ bool SafeToRestore(const LocalPlayer& active) {
            Read(state+1496, info) && info == active.info;
 }
 
-// Verify the local player, controller, viewport and active world agree. This
-// excludes AI controllers, stale worlds, lobby/transition worlds and network play.
+// Resolve the local player's BHReplicatedPlayerInfo without relying on an
+// object's address from a previous run. The forward/back pointers and the
+// GameInstance.LocalPlayers array exclude AI controllers and unrelated UObjects.
+// PersistentLevel and ViewportClient.World must agree so a stale world fails.
 bool Validate(std::uintptr_t controller, LocalPlayer& result) {
     std::uintptr_t player=0, backlink=0, viewport=0, level=0, world=0;
     std::uintptr_t persistent=0, viewportWorld=0, instance=0, viewportInstance=0;
     std::uintptr_t entries=0, state=0, info=0, connection=0;
     std::int32_t count=0;
-    // These offsets follow Controller -> LocalPlayer -> Viewport -> World,
-    // then World -> GameInstance -> LocalPlayers.
+    // Key SDK fields: Controller.PlayerState +912, PlayerController.Player
+    // +1608, Player.PlayerController +56, LocalPlayer.ViewportClient +120,
+    // Level.OwningWorld +720, World.OwningGameInstance +560, and
+    // GameInstance.LocalPlayers +192. PlayerState.ReplicatedPlayerInfo is +1496.
     if (!Read(controller+1608, player) || !player ||
         !Read(player+56, backlink) || backlink != controller ||
         !Read(player+120, viewport) || !viewport ||
@@ -166,7 +195,8 @@ bool Validate(std::uintptr_t controller, LocalPlayer& result) {
     return true;
 }
 
-// Load and validate the per-process byte substitution table for object pointers.
+// This build substitutes every byte of an encoded GObjects pointer, then XORs
+// the result. Validate that the 256-byte table is a permutation before using it.
 bool PointerTable(std::uintptr_t base, std::array<UCHAR,256>& table) {
     std::uintptr_t address=0;
     if (!Read(base+kTableRva, address) || !address ||
@@ -186,8 +216,9 @@ std::uintptr_t Decode(const UCHAR* bytes, const std::array<UCHAR,256>& table) {
     return static_cast<std::uintptr_t>(value ^ kPointerXor);
 }
 
-// Search the object array for the controller that passes every local-world
-// relationship check. The scan runs only when no valid controller is cached.
+// Search GObjects for the controller that passes every local-world relationship
+// check. First verify the object's internal index to reject freed/reused slots.
+// Run() keeps the result and only rescans when that controller stops validating.
 LocalPlayer FindLocalPlayer(std::uintptr_t base) {
     ObjectArray objects{};
     if (!Read(base+kObjectsRva, objects) || objects.count <= 0 ||
@@ -216,8 +247,10 @@ LocalPlayer FindLocalPlayer(std::uintptr_t base) {
     return {};
 }
 
-// The game's FName pool stores encrypted text. These two exact-build native
-// routines are the same decoders used by the read-only reflection inventory.
+// The FName pool stores encrypted text. The two native decoder RVAs above are
+// the ones emulated by Preservation/tools/dump_objects.py. Calling them here
+// makes row and asset lookup independent of FName indices assigned this run.
+// Keep the SEH boundary small: an invalid pool entry must fail lookup.
 bool CallNameDecoder(std::uintptr_t function, std::uintptr_t entry,
                      void* output, std::size_t length) {
     using Decoder = void(__fastcall*)(const void*, void*, std::size_t);
@@ -230,7 +263,10 @@ bool CallNameDecoder(std::uintptr_t function, std::uintptr_t entry,
     }
 }
 
-// Resolve an FName index to its base text; the instance number is separate.
+// Resolve an FName index to its base text. The FName instance number is stored
+// separately and is intentionally ignored; for example, a generated
+// DataTable_123 object has the base name "DataTable".
+// All names used by these fixes are ASCII; reject other decoded text here.
 bool Name(std::uintptr_t base, std::uint32_t index, std::string& result) {
     std::uintptr_t block=0;
     if (!Read(base+kNamePoolRva+16+8*(index>>16), block) || !block) return false;
@@ -272,7 +308,8 @@ struct RowMap {
     std::uintptr_t entries=0;
     std::int32_t count=0, capacity=0;
 };
-// Read a DataTable's row map header and reject implausible sizes.
+// DataTable.RowMap is at +0x38 in this build. Its sparse TMap storage has
+// 32-byte slots; count can be smaller than capacity.
 bool ReadRowMap(std::uintptr_t table, RowMap& map) {
     return Read(table+0x38, map) && map.entries && map.count>0 &&
            map.count<=map.capacity && map.capacity<=20000;
@@ -285,8 +322,9 @@ struct NamedRows {
     std::uintptr_t mapEntries=0;
 };
 
-// Find two named rows in a UE DataTable's 32-byte TMap entries. Verify the
-// row pointers are readable; empty or stale map slots are ignored.
+// Walk every allocated row-map slot, including gaps in the sparse array.
+// Save each matching row's key index, pointer, and slot position so later
+// checks can tell if the merged table was rebuilt or its storage moved.
 NamedRows FindNamedRows(std::uintptr_t base, std::uintptr_t table,
                         const char* firstName, const char* secondName) {
     RowMap map{};
@@ -308,7 +346,9 @@ NamedRows FindNamedRows(std::uintptr_t base, std::uintptr_t table,
     return rows;
 }
 
-// Compare a UE FString field with an expected short UTF-16 value.
+// Read a short UE FString without trusting its pointer or capacity. The buff
+// table's Param01/Param02 values validate that the replacement rows still
+// mean "All" skills and +2/+3 levels.
 bool StringEquals(std::uintptr_t address, const wchar_t* expected) {
     std::uintptr_t data=0;
     std::int32_t count=0, capacity=0;
@@ -331,8 +371,11 @@ struct CapsuleRows {
     std::uint32_t whiteBuff=0, goldBuff=0;
 };
 
-// Locate the merged item table and the authoritative buff table by object,
-// row-struct and row names. No session-specific addresses are retained.
+// Find the generated merged item DataTable, not merely the packaged TBL-Item
+// source table. The live experiment only established that changing the merged
+// Tablet_White/Tablet_Black rows fixes capsule use. Also find TBL-BuffData and
+// confirm that its 220000104/220000105 rows have the expected parameters.
+// Returned FName indices and addresses are resolved afresh for this process.
 CapsuleRows FindCapsuleRows(std::uintptr_t base) {
     CapsuleRows result{};
     std::string zero;
@@ -395,7 +438,8 @@ CapsuleRows FindCapsuleRows(std::uintptr_t base) {
     return result;
 }
 
-// Confirm the tracked rows are still entries in the same merged table.
+// Confirm the map still uses the same allocation and that both keys still
+// point at the same rows before reading or rewriting their UsingBuffName data.
 bool RowsStillMapped(const CapsuleRows& rows) {
     RowMap map{};
     if (!rows.table || !ReadRowMap(rows.table,map) ||
@@ -414,8 +458,10 @@ bool RowsStillMapped(const CapsuleRows& rows) {
            matches(rows.goldPosition,rows.goldKey,rows.gold);
 }
 
-// The first FName in each UsingBuffName array is the four-byte index changed
-// by the successful live experiment. Verify both original IDs before writing.
+// InventoryItemDetailInfo.UsingBuffName is a TArray at row +0x508. The live
+// experiment changed only the first FName's four-byte comparison index, not
+// the array header or the rest of its 12-byte FName value. Require one entry
+// and a recognized broken/fixed buff name before returning the slot address.
 bool CapsuleSlots(std::uintptr_t base, const CapsuleRows& rows,
                   std::uintptr_t& whiteSlot, std::uintptr_t& goldSlot) {
     auto slot=[base](std::uintptr_t row, const char* broken,
@@ -442,7 +488,9 @@ struct CapsulePatch {
     std::uint32_t whiteOriginal=0, goldOriginal=0;
 };
 
-// Apply both remaps as one unit. If the second write fails, undo the first.
+// Apply White 221000337 -> 220000104 and Gold 221000338 -> 220000105.
+// Verify both broken names before either write; if Gold fails, put White back.
+// CompareDword changes exactly one four-byte FName index per item row.
 bool ApplyCapsulePatch(std::uintptr_t base, const CapsuleRows& rows,
                        CapsulePatch& patch) {
     std::uintptr_t whiteSlot=0, goldSlot=0;
@@ -464,8 +512,10 @@ bool ApplyCapsulePatch(std::uintptr_t base, const CapsuleRows& rows,
     return true;
 }
 
-// Keep the corrected merged rows present for the life of this game process.
-// The merged table can be loaded or rebuilt after the DLL has started.
+// The merged table may load after injection or be rebuilt during play. Search
+// every five seconds until patched, then check its two slots once per second.
+// If storage moves, discard those addresses and resolve the new table; if the
+// game restores the original indices in place, apply the remap again.
 DWORD WINAPI RunCapsules(LPVOID imageBase) {
     const auto base=reinterpret_cast<std::uintptr_t>(imageBase);
     CapsulePatch patch{};
@@ -500,14 +550,177 @@ DWORD WINAPI RunCapsules(LPVOID imageBase) {
     }
 }
 
-// Worker thread: verify the build, then apply and restore the local class
-// eligibility level as worlds appear and disappear.
+struct FirstBloodGraph {
+    std::uintptr_t widgetClass=0;
+    std::uintptr_t reference=0;
+    std::uintptr_t firstSound=0;
+};
+
+// Find UW-Inventory_Perk_C.ExecuteUbergraph_UW-Inventory_Perk among loaded
+// UFunctions. Its TArray script descriptor is at function +0x70. The two
+// references at script +0x1B47 and +0x1C9F must name AK_UI_FirstKill and
+// AK_UI_KillBonus respectively; this guards against an offset/layout mismatch.
+// The graph's Outer is the widget class used in PerkWidget().
+FirstBloodGraph FindFirstBloodGraph(std::uintptr_t base) {
+    ObjectArray objects{};
+    std::array<UCHAR,256> table{};
+    if (!Read(base+kObjectsRva,objects) || objects.count<=0 ||
+        objects.count>objects.maximum || objects.maximum>0x1000000 ||
+        objects.numChunks<=0 || objects.numChunks>objects.maxChunks ||
+        objects.maxChunks>=2048 || !PointerTable(base,table)) return {};
+    std::unordered_map<std::uintptr_t,bool> functionClass;
+    for (int c=0; c<objects.numChunks; ++c) {
+        std::uintptr_t chunk=0;
+        if (!Read(objects.chunks+c*8,chunk) || !chunk) break;
+        const int remaining=objects.count-c*65536;
+        if (remaining<=0) break;
+        const int n=remaining<65536?remaining:65536;
+        std::vector<UCHAR> items(static_cast<std::size_t>(n)*40);
+        if (!ReadBlock(chunk,items.data(),items.size())) break;
+        for (int i=0; i<n; ++i) {
+            const auto object=Decode(items.data()+i*40+8,table);
+            if (!object) continue;
+            std::int32_t index=-1;
+            std::uintptr_t cls=0, outer=0;
+            if (!Read(object+12,index) || index!=c*65536+i ||
+                !Read(object+32,cls) || !cls) continue;
+            auto known=functionClass.find(cls);
+            if (known==functionClass.end())
+                known=functionClass.emplace(cls,ObjectNamed(base,cls,"Function")).first;
+            if (!known->second ||
+                !Read(object+40,outer) || !outer ||
+                !ObjectNamed(base,object,"ExecuteUbergraph_UW-Inventory_Perk") ||
+                !ObjectNamed(base,outer,"UW-Inventory_Perk_C")) continue;
+            std::uintptr_t script=0,first=0,bonus=0;
+            std::int32_t count=0,capacity=0;
+            if (!Read(object+0x70,script) || !script ||
+                !Read(object+0x78,count) || !Read(object+0x7c,capacity) ||
+                count<=0x1ca7 || count>capacity || capacity>=0x200000 ||
+                !Read(script+0x1b47,first) || !first ||
+                !Read(script+0x1c9f,bonus) || !bonus || first==bonus ||
+                !ObjectNamed(base,first,"AK_UI_FirstKill") ||
+                !ObjectNamed(base,bonus,"AK_UI_KillBonus")) continue;
+            return {outer,script+0x1b47,first};
+        }
+    }
+    return {};
+}
+
+// Follow the pointer chain recorded by the live First Blood gate:
+// Controller.MyHUD +0x428 -> HUD +0x538 -> main widget +0x468 ->
+// top widget +0x2F8 -> perk widget. Check the final UObject class against
+// the verified graph Outer before reading its selected-sound field.
+std::uintptr_t PerkWidget(std::uintptr_t controller,
+                          std::uintptr_t expectedClass) {
+    std::uintptr_t hud=0,main=0,top=0,widget=0,cls=0;
+    return controller && expectedClass &&
+           Read(controller+0x428,hud) && hud &&
+           Read(hud+0x538,main) && main &&
+           Read(main+0x468,top) && top &&
+           Read(top+0x2f8,widget) && widget &&
+           Read(widget+32,cls) && cls==expectedClass ? widget : 0;
+}
+
+// The reference is an unaligned eight-byte UObject pointer inside loaded
+// Blueprint script data. The read/compare/write/readback mirrors the validated
+// memory gate. This is not an atomic swap, so another writer changing the same
+// script location concurrently would need a different coordination scheme.
+bool ReplaceScriptReference(std::uintptr_t address,
+                            std::uintptr_t expected,
+                            std::uintptr_t replacement) {
+    std::uintptr_t current=0;
+    if (!Read(address,current) || current!=expected) return false;
+    SIZE_T written=0;
+    if (!WriteProcessMemory(GetCurrentProcess(),
+                            reinterpret_cast<void*>(address),&replacement,
+                            sizeof(replacement),&written) ||
+        written!=sizeof(replacement)) return false;
+    return Read(address,current) && current==replacement;
+}
+
+// Restore the original First Kill reference between matches. A second restore
+// attempt is harmless if it already contains the original asset pointer.
+bool ArmFirstSound(const FirstBloodGraph& graph) {
+    std::uintptr_t current=0;
+    return Read(graph.reference,current) &&
+           (current==graph.firstSound ||
+            (current==0 && ReplaceScriptReference(graph.reference,0,
+                                                  graph.firstSound)));
+}
+
+// Mirror Preservation/tools/first_blood_memory_gate.py. The selected sound at
+// perk widget +0x8E8 changes to AK_UI_FirstKill for a bot's personal first
+// kill. On the first observed selection, clear only that script reference;
+// this silences later requests without changing perk counts or using Kill Bonus.
+// A new widget, or two seconds without one, arms the reference for the next
+// match. Polling every 25 ms preserves the verified workaround but can miss
+// exceptionally close events; an event hook would remove that timing limit.
+DWORD WINAPI RunFirstBlood(LPVOID imageBase) {
+    const auto base=reinterpret_cast<std::uintptr_t>(imageBase);
+    FirstBloodGraph graph{};
+    std::uintptr_t widget=0,lastSound=0;
+    ULONGLONG missingSince=0;
+    bool gated=false;
+    for (;;) {
+        if (!graph.reference) {
+            graph=FindFirstBloodGraph(base);
+            if (!graph.reference) { Sleep(2000); continue; }
+            Log(L"First Blood fix: perk audio reference located.\r\n");
+        }
+        const auto controller=gLocalController.load(std::memory_order_acquire);
+        const auto currentWidget=PerkWidget(controller,graph.widgetClass);
+        const auto now=GetTickCount64();
+        if (!currentWidget) {
+            if (!missingSince) missingSince=now;
+            if (gated && now-missingSince>=2000) {
+                if (ArmFirstSound(graph)) {
+                    Log(L"First Blood fix: next match armed.\r\n");
+                    gated=false;
+                }
+            }
+            // Retain the old widget during a brief visibility gap. If a new
+            // widget appears quickly, its changed identity still resets the
+            // gate; a transient gap in the same match leaves it muted.
+            if (now-missingSince>=2000) {
+                widget=0;
+                lastSound=0;
+            }
+        } else {
+            missingSince=0;
+            if (currentWidget!=widget) {
+                if (gated) {
+                    if (!ArmFirstSound(graph)) { Sleep(25); continue; }
+                    Log(L"First Blood fix: new match armed.\r\n");
+                    gated=false;
+                }
+                widget=currentWidget;
+                lastSound=0;
+            }
+            std::uintptr_t sound=0;
+            if (Read(widget+0x8e8,sound)) {
+                if (sound==graph.firstSound && sound!=lastSound && !gated) {
+                    if (ReplaceScriptReference(graph.reference,graph.firstSound,0)) {
+                        gated=true;
+                        Log(L"First Blood fix: first cue played; later cues muted.\r\n");
+                    }
+                }
+                lastSound=sound;
+            }
+        }
+        Sleep(25);
+    }
+}
+
+// Start after DllMain returns. The console appears before hash verification so
+// an unsupported build reports why no fix started. Capsules use their own
+// worker; this thread tracks the standalone local controller for class
+// selection and publishes it to the First Blood worker.
 DWORD WINAPI Run(LPVOID) {
     AllocConsole();
     SetConsoleTitleW(L"SP Client Fixes");
     Log(L"SP Client Fixes DLL loaded. Checking game build...\r\n");
     if (!SupportedBuild()) {
-        Log(L"Class selection fix disabled: unsupported executable SHA-256.\r\n");
+        Log(L"Client fixes disabled: unsupported executable SHA-256.\r\n");
         return 0;
     }
     Log(L"Supported build. Starting client fixes...\r\n");
@@ -516,6 +729,10 @@ DWORD WINAPI Run(LPVOID) {
                                       reinterpret_cast<LPVOID>(base),0,nullptr);
     if (capsuleThread) CloseHandle(capsuleThread);
     else Log(L"Capsule fix: could not start worker thread.\r\n");
+    HANDLE firstBloodThread=CreateThread(nullptr,0,RunFirstBlood,
+                                         reinterpret_cast<LPVOID>(base),0,nullptr);
+    if (firstBloodThread) CloseHandle(firstBloodThread);
+    else Log(L"First Blood fix: could not start worker thread.\r\n");
     LocalPlayer active{};
     LONG original=-1;
     DWORD nextScan=0;
@@ -525,6 +742,8 @@ DWORD WINAPI Run(LPVOID) {
             current.world == active.world && current.info == active.info) {
             // The existing local world remains active.
         } else {
+            // Restore only if the same old player info is still accessible
+            // and unnetworked. Otherwise a stale pointer is left untouched.
             if (original >= 0 && SafeToRestore(active) &&
                 CompareDword(active.info+632, kClassLevel, original)) {
                 Log(L"Class selection: original level restored.\r\n");
@@ -538,23 +757,32 @@ DWORD WINAPI Run(LPVOID) {
             }
         }
         if (current.info) {
+            active=current;
+            gLocalController.store(current.controller,std::memory_order_release);
             LONG level=-1;
+            // The live class-selection experiment established that level 5
+            // satisfies every current class tile. A legitimate higher level
+            // is never lowered, and the original low value is kept for exit.
             if (Read(current.info+632, level) && level >= 0 && level < kClassLevel &&
                 CompareDword(current.info+632, level, kClassLevel)) {
-                active=current;
                 original=level;
                 Log(L"Class selection: local level set to 5; class tiles are available.\r\n");
             }
+        } else {
+            gLocalController.store(0,std::memory_order_release);
         }
         Sleep(250);
     }
 }
 } // namespace
 
-// Launcher-facing version marker for the optional client fixes module.
-extern "C" __declspec(dllexport) unsigned int SPClientFixesVersion() { return 3; }
+// Exported version marker for identifying which DLL was embedded. This number
+// advances when a fix is added; the launcher does not currently branch on it.
+extern "C" __declspec(dllexport) unsigned int SPClientFixesVersion() { return 4; }
 
-// Leave the loader callback quickly; the worker does all hashing and game reads.
+// DllMain runs under the Windows loader lock. Only disable thread callbacks
+// and start the bootstrap worker here; do not hash files, scan UObjects, wait
+// for a thread, or run game code until Run() begins after this callback.
 BOOL APIENTRY DllMain(HMODULE module, DWORD reason, LPVOID) {
     if (reason == DLL_PROCESS_ATTACH) {
         DisableThreadLibraryCalls(module);
