@@ -32,9 +32,10 @@ Rust backend. Windows only.
   written into the game's `Win64` folder, so the client does not wait for Steam
   (`src-tauri/src/shim.rs`, `src-tauri/resources/README.md`).
 - **Optional client fixes.** A separate `SPClientFixes.dll` is loaded only when
-  enabled in Settings. Its source and build steps are in
-  [`client-fixes/`](client-fixes/README.md). The DLL currently contains no
-  gameplay hooks.
+  enabled in Settings. Its source is in `client-fixes/src/`, and the fixes
+  are listed in [`client-fixes/`](client-fixes/README.md). It currently includes:
+  - **Local class selection:** allows players to choose a class in local games.
+  - **Super Capsules:** allows White and Gold Super Capsules to work when used.
 - **Engine.ini patch.** Before each launch, `n.VerifyPeer=False` and related
   settings are applied (`src-tauri/src/engine_ini.rs`).
 - **Starts the real game exe.** The launcher starts
