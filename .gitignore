@@ -1,0 +1,45 @@
+# ---- dependencies / build output -------------------------------------------
+node_modules/
+dist/
+dist-ssr/
+*.local
+*.tsbuildinfo
+src-tauri/target/
+src-tauri/gen/schemas/
+
+# ---- release artifacts (made by tools/publish-update.ps1, uploaded to the VPS)
+latest.json
+*.sig
+*-setup.exe
+*.msi
+
+# ---- binaries embedded at build time (see src-tauri/resources/README.md) ---
+src-tauri/resources/XAPOFX1_5.dll
+src-tauri/resources/7za.exe
+
+# ---- secrets: NEVER commit ---------------------------------------------------
+# The updater's signing key lives in %USERPROFILE%\.tauri\ -- never in the repo.
+*.key
+*.key.pub.bak
+.tauri/
+.env
+.env.*
+
+# ---- logs / editor / OS --------------------------------------------------------
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+*.suo
+*.sw?
+
+# ---- scratch -------------------------------------------------------------------
+Claude outputs/
+manifest.json

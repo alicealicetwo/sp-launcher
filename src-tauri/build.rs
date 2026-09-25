@@ -1,0 +1,70 @@
+fn main() {
+    // The no-Steam DLL is embedded by src/shim.rs with include_bytes!, which
+    // fails the build outright if the file is missing. A checkout without the
+    // binary -- a fresh clone, or a machine that has not built it yet -- should
+    // still compile, so the include is behind a cfg set here.
+    println!("cargo:rustc-check-cfg=cfg(has_shim)");
+    // Same pattern for the 7-Zip used by the Download tab (download.rs).
+    // Optional: without it the launcher falls back to an installed 7-Zip.
+    println!("cargo:rustc-check-cfg=cfg(has_7za)");
+    println!("cargo:rerun-if-changed=resources/7za.exe");
+    if std::path::Path::new("resources/7za.exe").is_file() {
+        println!("cargo:rustc-cfg=has_7za");
+    } else {
+        println!("cargo:warning=resources/7za.exe is missing -- the Download tab will need 7-Zip installed on the player's PC to unpack the game. See resources/README.md.");
+    }
+    println!("cargo:rerun-if-changed=resources/XAPOFX1_5.dll");
+    if std::path::Path::new("resources/XAPOFX1_5.dll").is_file() {
+        println!("cargo:rustc-cfg=has_shim");
+    } else {
+        println!("cargo:warning=resources/XAPOFX1_5.dll is missing -- the launcher will NOT install the no-Steam DLL. Build it with sp-listen-patch/build_sp_proxy.bat and copy it there before shipping.");
+    }
+
+    #[cfg(target_os = "windows")]
+    {
+        // Runs as a normal user (asInvoker) since 0.3.0. Requiring admin at
+        // every start stopped the launcher from opening at all on some PCs.
+        // The one thing that needs admin -- the hosts entries -- is done by an
+        // elevated helper copy of the exe when needed (see hosts.rs).
+        //
+        // `app_manifest` REPLACES tauri's default manifest wholesale, not
+        // merges with it — and the default one exists solely to declare a
+        // dependency on comctl32.dll v6 (the "Common-Controls" assembly).
+        // Dropping that dependency, as an earlier version of this manifest
+        // did, makes Windows fall back to the ancient v5 comctl32.dll, which
+        // is missing exports like TaskDialogIndirect that Tauri/WebView2
+        // rely on — and the app then fails to start at all with
+        // STATUS_ENTRYPOINT_NOT_FOUND. So both pieces have to live in the
+        // one manifest below.
+        let manifest = r#"<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0">
+  <trustInfo xmlns="urn:schemas-microsoft-com:asm.v3">
+    <security>
+      <requestedPrivileges>
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentAssembly>
+      <assemblyIdentity
+        type="win32"
+        name="Microsoft.Windows.Common-Controls"
+        version="6.0.0.0"
+        processorArchitecture="*"
+        publicKeyToken="6595b64144ccf1df"
+        language="*"
+      />
+    </dependentAssembly>
+  </dependency>
+</assembly>
+"#;
+        let windows = tauri_build::WindowsAttributes::new().app_manifest(manifest);
+        let attrs = tauri_build::Attributes::new().windows_attributes(windows);
+        tauri_build::try_build(attrs).expect("failed to run tauri-build");
+    }
+    #[cfg(not(target_os = "windows"))]
+    {
+        tauri_build::build();
+    }
+}
