@@ -19,5 +19,6 @@ debugger when the window is hidden.
 - **Cheat Widget translation:** Replaces all 69 Korean command descriptions
   in the loaded `CheatTable` with concise English labels. It checks the table
   and row layout before writing, stays within each existing string buffer,
-  and repeats when the table reloads. Reopen the widget to refresh labels
-  already displayed. The separate yellow Close button remains Korean.
+  and repeats when the table reloads. **Close and reopen the Cheat Widget in
+  game for the English labels to appear.** The separate yellow Close button
+  remains Korean.
