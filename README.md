@@ -73,6 +73,13 @@ Three binaries can be embedded at build time and are **not** in the repo. See
 
 A fresh clone still compiles without them (`build.rs` only warns).
 
+For an unsigned Windows build without an installer, run the
+[Unsigned Windows build](.github/workflows/unsigned-build.yml) GitHub Action.
+It compiles `SPClientFixes.dll`, embeds it in the Tauri executable, and uploads
+both binaries as a workflow artifact. The no-Steam proxy is not built by this
+repository, so this artifact does not include it; testing game launch still
+requires `XAPOFX1_5.dll` in the game folder.
+
 ## Releasing an update
 
 `tools/publish-update.ps1` builds, signs and writes `latest.json`, then prints

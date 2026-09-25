@@ -24,3 +24,6 @@ Build the launcher after copying the DLL. A fresh checkout can compile without
 the binary, but enabling Client fixes then refuses to start the game with a
 clear error. The release script also requires the DLL so a published toggle is
 usable.
+
+The [unsigned Windows workflow](../.github/workflows/unsigned-build.yml)
+builds this DLL and the Tauri executable without creating an installer.
