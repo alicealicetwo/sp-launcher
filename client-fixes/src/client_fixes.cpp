@@ -1,8 +1,11 @@
 #include <windows.h>
 #include <bcrypt.h>
 
+#include "cheat_translations.hpp"
+
 #include <array>
 #include <atomic>
+#include <algorithm>
 #include <cstdint>
 #include <cwchar>
 #include <string>
@@ -16,7 +19,8 @@
 // hashes that executable; none of the offsets below are read before it passes.
 //
 // After validation, one worker tracks the local world and class eligibility,
-// one tracks the merged capsule item table, and one tracks First Blood audio.
+// one tracks the merged capsule item table, one tracks First Blood audio, and
+// one translates the loaded cheat command table.
 // The launcher keeps the DLL loaded until process exit; there is no mid-game
 // unload protocol for stopping workers or restoring their temporary writes.
 namespace {
@@ -71,7 +75,7 @@ bool CompareDword(std::uintptr_t address, LONG before, LONG after) {
 }
 
 // Hash the actual EXE backing this process, not a configured install path.
-// All three fixes fail closed if the file differs from the researched build.
+// All fixes fail closed if the file differs from the researched build.
 bool SupportedBuild() {
     std::vector<wchar_t> path(32768);
     DWORD length = GetModuleFileNameW(nullptr, path.data(), static_cast<DWORD>(path.size()));
@@ -550,6 +554,144 @@ DWORD WINAPI RunCapsules(LPVOID imageBase) {
     }
 }
 
+// CheatTable is a transient DataTable. Resolve it through GObjects each time
+// its previous instance disappears, and require both its object name and the
+// BravoHotelCheatTable row struct before touching any command data.
+std::uintptr_t FindCheatTable(std::uintptr_t base) {
+    ObjectArray objects{};
+    std::array<UCHAR,256> pointerTable{};
+    if (!Read(base+kObjectsRva,objects) || objects.count<=0 ||
+        objects.count>objects.maximum || objects.maximum>0x1000000 ||
+        objects.numChunks<=0 || objects.numChunks>objects.maxChunks ||
+        objects.maxChunks>=2048 || !PointerTable(base,pointerTable)) return 0;
+    std::unordered_map<std::uintptr_t,bool> dataTableClass;
+    for (int c=0; c<objects.numChunks; ++c) {
+        std::uintptr_t chunk=0;
+        if (!Read(objects.chunks+c*8,chunk) || !chunk) break;
+        const int remaining=objects.count-c*65536;
+        if (remaining<=0) break;
+        const int n=remaining<65536?remaining:65536;
+        std::vector<UCHAR> slots(static_cast<std::size_t>(n)*40);
+        if (!ReadBlock(chunk,slots.data(),slots.size())) break;
+        for (int i=0; i<n; ++i) {
+            const auto object=Decode(slots.data()+i*40+8,pointerTable);
+            if (!object) continue;
+            std::int32_t index=-1;
+            std::uintptr_t cls=0,rowStruct=0;
+            if (!Read(object+12,index) || index!=c*65536+i ||
+                !Read(object+32,cls) || !cls) continue;
+            auto known=dataTableClass.find(cls);
+            if (known==dataTableClass.end())
+                known=dataTableClass.emplace(cls,ObjectNamed(base,cls,"DataTable")).first;
+            if (!known->second || !ObjectNamed(base,object,"CheatTable") ||
+                !Read(object+0x30,rowStruct) || !rowStruct ||
+                !ObjectNamed(base,rowStruct,"BravoHotelCheatTable")) continue;
+            RowMap map{};
+            if (ReadRowMap(object,map) && map.count==12 && map.capacity<=64)
+                return object;
+        }
+    }
+    return 0;
+}
+
+// Read a UTF-16 FString header and value. Command is the stable English key;
+// Desc is the Korean label. Both arrays contain a trailing null. The bounded
+// counts guard against stale row pointers when a match ends during traversal.
+bool ReadCheatString(std::uintptr_t address, std::wstring& value,
+                     std::uintptr_t& data, std::int32_t& count,
+                     std::int32_t& capacity) {
+    if (!Read(address,data) || !Read(address+8,count) ||
+        !Read(address+12,capacity) || !data || count<1 ||
+        count>capacity || capacity>256) return false;
+    std::vector<wchar_t> buffer(static_cast<std::size_t>(count));
+    if (!ReadBlock(data,buffer.data(),buffer.size()*sizeof(wchar_t)) ||
+        buffer.back()!=L'\0') return false;
+    value.assign(buffer.data(),buffer.size()-1);
+    return true;
+}
+
+// The 69 replacements are deliberately short enough for their existing UE
+// FString allocations. Writing only within capacity avoids handing a foreign
+// allocation to Unreal's destructor when this transient table unloads. Change
+// Num last so a reader sees either the old or new string length. A menu already
+// open may still hold copied labels; reopening it rebuilds them from the table.
+bool TranslateCheatDescription(std::uintptr_t commandEntry) {
+    std::wstring command,description;
+    std::uintptr_t commandData=0,descData=0;
+    std::int32_t commandCount=0,commandCapacity=0,descCount=0,descCapacity=0;
+    if (!ReadCheatString(commandEntry+8,command,commandData,
+                         commandCount,commandCapacity) ||
+        !ReadCheatString(commandEntry+24,description,descData,
+                         descCount,descCapacity)) return false;
+    const auto translated=std::find_if(kCheatTranslations.begin(),
+                                       kCheatTranslations.end(),
+                                       [&command](const CheatTranslation& item) {
+                                           return command==item.command;
+                                       });
+    if (translated==kCheatTranslations.end() ||
+        description==translated->description ||
+        std::none_of(description.begin(),description.end(),[](wchar_t ch) {
+            return ch>=0xac00 && ch<=0xd7a3;
+        })) return false;
+    const auto newCount=wcslen(translated->description)+1;
+    if (newCount>static_cast<std::size_t>(descCapacity)) return false;
+    SIZE_T written=0;
+    if (!WriteProcessMemory(GetCurrentProcess(),reinterpret_cast<void*>(descData),
+                            translated->description,newCount*sizeof(wchar_t),
+                            &written) || written!=newCount*sizeof(wchar_t)) return false;
+    return CompareDword(commandEntry+32,descCount,static_cast<LONG>(newCount));
+}
+
+// Row map entries point to BravoHotelCheatTable rows. Each row's SubCommandList
+// begins at +0x10; each 24-byte sub-command has a CommandList at +0x08; each
+// 56-byte command has Command at +0x08 and Desc at +0x18. Validate all array
+// headers before walking. The three English/None descriptions are left alone.
+int TranslateCheatTable(std::uintptr_t table) {
+    RowMap map{};
+    if (!ReadRowMap(table,map) || map.count!=12 || map.capacity>64) return 0;
+    int changed=0;
+    for (int i=0; i<map.capacity; ++i) {
+        std::uintptr_t row=0;
+        if (!Read(map.entries+static_cast<std::uintptr_t>(i)*32+16,row) || !row) continue;
+        std::uintptr_t subs=0;
+        std::int32_t subCount=0,subCapacity=0;
+        if (!Read(row+16,subs) || !Read(row+24,subCount) ||
+            !Read(row+28,subCapacity) || !subs || subCount<0 ||
+            subCount>subCapacity || subCapacity>16) continue;
+        for (int s=0; s<subCount; ++s) {
+            const auto sub=subs+static_cast<std::uintptr_t>(s)*24;
+            std::uintptr_t commands=0;
+            std::int32_t count=0,capacity=0;
+            if (!Read(sub+8,commands) || !Read(sub+16,count) ||
+                !Read(sub+20,capacity) || !commands || count<0 ||
+                count>capacity || capacity>32) continue;
+            for (int c=0; c<count; ++c)
+                changed+=TranslateCheatDescription(
+                    commands+static_cast<std::uintptr_t>(c)*56) ? 1 : 0;
+        }
+    }
+    return changed;
+}
+
+// Keep looking because CheatTable can load after injection and can be rebuilt
+// between matches. The scan also handles descriptions that the game restores
+// in the same instance. No string pointer or capacity is changed by this fix.
+DWORD WINAPI RunCheatTranslation(LPVOID imageBase) {
+    const auto base=reinterpret_cast<std::uintptr_t>(imageBase);
+    for (;;) {
+        const auto table=FindCheatTable(base);
+        if (table) {
+            const int changed=TranslateCheatTable(table);
+            if (changed) {
+                wchar_t message[128]{};
+                swprintf_s(message,L"Cheat Widget: translated %d labels.\r\n",changed);
+                Log(message);
+            }
+        }
+        Sleep(5000);
+    }
+}
+
 struct FirstBloodGraph {
     std::uintptr_t widgetClass=0;
     std::uintptr_t reference=0;
@@ -713,8 +855,9 @@ DWORD WINAPI RunFirstBlood(LPVOID imageBase) {
 
 // Start after DllMain returns. The console appears before hash verification so
 // an unsupported build reports why no fix started. Capsules use their own
-// worker; this thread tracks the standalone local controller for class
-// selection and publishes it to the First Blood worker.
+// and Cheat Widget translations use their own workers. This thread tracks
+// the standalone local controller for class selection and publishes it to
+// the First Blood worker.
 DWORD WINAPI Run(LPVOID) {
     AllocConsole();
     SetConsoleTitleW(L"SP Client Fixes");
@@ -733,6 +876,10 @@ DWORD WINAPI Run(LPVOID) {
                                          reinterpret_cast<LPVOID>(base),0,nullptr);
     if (firstBloodThread) CloseHandle(firstBloodThread);
     else Log(L"First Blood fix: could not start worker thread.\r\n");
+    HANDLE cheatThread=CreateThread(nullptr,0,RunCheatTranslation,
+                                    reinterpret_cast<LPVOID>(base),0,nullptr);
+    if (cheatThread) CloseHandle(cheatThread);
+    else Log(L"Cheat Widget fix: could not start worker thread.\r\n");
     LocalPlayer active{};
     LONG original=-1;
     DWORD nextScan=0;
@@ -778,7 +925,7 @@ DWORD WINAPI Run(LPVOID) {
 
 // Exported version marker for identifying which DLL was embedded. This number
 // advances when a fix is added; the launcher does not currently branch on it.
-extern "C" __declspec(dllexport) unsigned int SPClientFixesVersion() { return 4; }
+extern "C" __declspec(dllexport) unsigned int SPClientFixesVersion() { return 5; }
 
 // DllMain runs under the Windows loader lock. Only disable thread callbacks
 // and start the bootstrap worker here; do not hash files, scan UObjects, wait
