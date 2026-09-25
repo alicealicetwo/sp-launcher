@@ -349,6 +349,13 @@ async fn launch_game(
     } else {
         None
     };
+    if cfg.client_fixes_enabled {
+        // The DLL reads this inherited setting after injection. Supply an
+        // explicit zero as well, so an ambient variable cannot open the
+        // console when the saved option is off.
+        let debug_window = if cfg.client_fixes_debug_window { "1" } else { "0" };
+        env.push(("SP_CLIENT_FIXES_CONSOLE".into(), debug_window.into()));
+    }
 
     engine_ini::apply()?;
 

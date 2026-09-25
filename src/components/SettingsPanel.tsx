@@ -208,6 +208,22 @@ export function SettingsPanel({
             />
           </div>
         ))}
+        {config.client_fixes_enabled && (
+          <div className="toggle">
+            <span className="toggle__text">
+              <span className="toggle__name">Client fixes debug window</span>
+              <span className="toggle__hint">Show the DLL diagnostic window when the game starts; takes effect on the next launch</span>
+            </span>
+            <button
+              className={`switch${config.client_fixes_debug_window ? " is-on" : ""}`}
+              type="button"
+              role="switch"
+              aria-checked={config.client_fixes_debug_window}
+              aria-label="Client fixes debug window"
+              onClick={() => onConfig({ client_fixes_debug_window: !config.client_fixes_debug_window })}
+            />
+          </div>
+        )}
 
       </div>
 

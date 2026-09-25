@@ -33,7 +33,8 @@ Rust backend. Windows only.
   (`src-tauri/src/shim.rs`, `src-tauri/resources/README.md`).
 - **Optional client fixes.** A separate `SPClientFixes.dll` is loaded only when
   enabled in Settings. Its source is in `client-fixes/src/`, and the fixes
-  are listed in [`client-fixes/`](client-fixes/README.md). It currently includes:
+  are listed in [`client-fixes/`](client-fixes/README.md). Its debug window is
+  off by default and can be enabled separately in Settings. It currently includes:
   - **Local class selection:** allows players to choose a class in local games.
   - **Super Capsules:** allows White and Gold Super Capsules to work when used.
   - **First Blood:** plays the announcement once per local match.

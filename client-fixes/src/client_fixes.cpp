@@ -38,7 +38,7 @@ constexpr std::uintptr_t kWideNameDecoderRva = 0x2a6a710;
 // worker reads this pointer but still checks the widget's class before use.
 std::atomic<std::uintptr_t> gLocalController{0};
 
-// Write diagnostics to both the DLL console and a debugger, if attached.
+// Write diagnostics to the optional DLL console and a debugger, if attached.
 void Log(const wchar_t* message) {
     OutputDebugStringW(message);
     HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -859,8 +859,10 @@ DWORD WINAPI RunFirstBlood(LPVOID imageBase) {
 // the standalone local controller for class selection and publishes it to
 // the First Blood worker.
 DWORD WINAPI Run(LPVOID) {
-    AllocConsole();
-    SetConsoleTitleW(L"SP Client Fixes");
+    wchar_t consoleSetting[2]{};
+    if (GetEnvironmentVariableW(L"SP_CLIENT_FIXES_CONSOLE",consoleSetting,2)==1 &&
+        consoleSetting[0]==L'1' && AllocConsole())
+        SetConsoleTitleW(L"SP Client Fixes");
     Log(L"SP Client Fixes DLL loaded. Checking game build...\r\n");
     if (!SupportedBuild()) {
         Log(L"Client fixes disabled: unsupported executable SHA-256.\r\n");
