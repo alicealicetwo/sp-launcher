@@ -1,5 +1,6 @@
 mod auth;
 mod config;
+mod client_fixes;
 mod discord;
 mod download;
 mod engine_ini;
@@ -341,6 +342,14 @@ async fn launch_game(
         Err(e) => return Err(e),
     }
 
+    // The optional fixes are a second DLL. Keep their installation and loading
+    // separate from the no-Steam proxy so the setting controls one launch.
+    let client_fixes_path = if cfg.client_fixes_enabled {
+        Some(client_fixes::apply(&cfg.install_dir)?)
+    } else {
+        None
+    };
+
     engine_ini::apply()?;
 
     // Redirect first: the game reads the hostnames on startup, so the entries
@@ -360,7 +369,7 @@ async fn launch_game(
         false
     };
 
-    let child = game::launch(game::LaunchSpec {
+    let mut child = game::launch(game::LaunchSpec {
         install_dir: &cfg.install_dir,
         server: server.as_deref(),
         user_args: &cfg.launch_args,
@@ -369,6 +378,17 @@ async fn launch_game(
 ?;
 
     let pid = child.id();
+    if let Some(path) = client_fixes_path {
+        if let Err(error) = client_fixes::inject(pid, &path) {
+            if let Err(kill_error) = child.kill() {
+                return Err(LauncherError::Message(format!(
+                    "{error}; also could not stop the game after injection failed: {kill_error}"
+                )));
+            }
+            let _ = child.wait();
+            return Err(error);
+        }
+    }
     *state.running_pid.lock().expect("pid mutex") = Some(pid);
     state.discord.set(discord::State::InGame);
 

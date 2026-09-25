@@ -105,7 +105,7 @@ pub fn apply(install_dir: &str) -> Result<Applied> {
 /// Write to a temporary file next to the target, then rename over it. A
 /// half-written DLL is worse than no DLL: the loader would fail in a way that
 /// looks nothing like "the file is missing".
-fn write_atomically(path: &Path, bytes: &[u8]) -> Result<()> {
+pub(crate) fn write_atomically(path: &Path, bytes: &[u8]) -> Result<()> {
     let tmp = path.with_extension("dll.new");
     std::fs::write(&tmp, bytes)?;
     match std::fs::rename(&tmp, path) {

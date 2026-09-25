@@ -1,5 +1,12 @@
 # src-tauri/resources
 
+## SPClientFixes.dll — optional client fixes
+
+Built from `client-fixes/` in this repository. It is separate from the
+no-Steam proxy below and is loaded only when Settings → Client fixes is on.
+See [client-fixes/README.md](../../client-fixes/README.md). A fresh clone can
+compile without it, but the release script requires it so the toggle works.
+
 ## XAPOFX1_5.dll  — required before shipping a release
 
 This is the no-Steam proxy from `sp-listen-patch/sp_proxy.cpp`. The launcher

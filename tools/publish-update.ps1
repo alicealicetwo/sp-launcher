@@ -46,6 +46,15 @@ if (-not (Test-Path $dll)) {
     exit 1
 }
 Write-Host "  DLL bundled: $((Get-Item $dll).Length) bytes" -ForegroundColor Green
+$clientFixesDll = 'src-tauri\resources\SPClientFixes.dll'
+if (-not (Test-Path $clientFixesDll)) {
+    Write-Host ''
+    Write-Host 'STOP: src-tauri\resources\SPClientFixes.dll is missing.' -ForegroundColor Red
+    Write-Host 'The Client fixes toggle would be present but could not load its DLL.'
+    Write-Host 'Build it using client-fixes/README.md before publishing.'
+    exit 1
+}
+Write-Host "  client fixes DLL bundled: $((Get-Item $clientFixesDll).Length) bytes" -ForegroundColor Green
 
 # --- 2. the signing key ----------------------------------------------------
 # Tauri wants the key's CONTENTS, not its path (UPDATING.md step 2).

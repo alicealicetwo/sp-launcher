@@ -37,6 +37,8 @@ pub struct Config {
     pub auto_update: bool,
     pub verify_before_launch: bool,
     pub debug_logging: bool,
+    /// Load the separate, optional in-process client fixes DLL at launch.
+    pub client_fixes_enabled: bool,
 
     // --- key login (see auth.rs) -------------------------------------------
     /// The launcher key, encrypted with DPAPI and hex-encoded. Never the key
@@ -65,6 +67,7 @@ impl Default for Config {
             auto_update: true,
             verify_before_launch: false,
             debug_logging: false,
+            client_fixes_enabled: false,
             auth_key_sealed: String::new(),
             device_id: String::new(),
             account_id: String::new(),

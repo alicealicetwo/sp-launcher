@@ -91,6 +91,11 @@ copy dist\XAPOFX1_5.dll ..\sp-launcher\src-tauri\resources\
 `build.rs` warns when it is missing and the launcher logs `this launcher has
 no DLL bundled` at launch; `tools\publish-update.ps1` refuses to build at all.
 
+**1c. Build the separate client fixes DLL.** The Settings toggle loads
+`src-tauri/resources/SPClientFixes.dll`; it does not affect the no-Steam
+proxy. Follow [client-fixes/README.md](client-fixes/README.md) to build and
+copy it. The release script refuses to publish without this payload.
+
 **2. Build with signing enabled.** The private key has to be available as an
 environment variable during the build — this is what makes `tauri build` sign
 the installer automatically instead of just building it. The current key

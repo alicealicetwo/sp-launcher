@@ -31,6 +31,10 @@ Rust backend. Windows only.
 - **No-Steam fix.** Before each launch the embedded `XAPOFX1_5.dll` proxy is
   written into the game's `Win64` folder, so the client does not wait for Steam
   (`src-tauri/src/shim.rs`, `src-tauri/resources/README.md`).
+- **Optional client fixes.** A separate `SPClientFixes.dll` is loaded only when
+  enabled in Settings. Its source and build steps are in
+  [`client-fixes/`](client-fixes/README.md). The DLL currently contains no
+  gameplay hooks.
 - **Engine.ini patch.** Before each launch, `n.VerifyPeer=False` and related
   settings are applied (`src-tauri/src/engine_ini.rs`).
 - **Starts the real game exe.** The launcher starts
@@ -57,11 +61,13 @@ npm run tauri dev      # development, hot reload
 npm run tauri build    # NSIS installer in src-tauri/target/release/bundle/nsis/
 ```
 
-Two binaries are embedded at build time and are **not** in the repo. See
+Three binaries can be embedded at build time and are **not** in the repo. See
 [src-tauri/resources/README.md](src-tauri/resources/README.md):
 
 - `src-tauri/resources/XAPOFX1_5.dll` is the no-Steam proxy, built from
   `sp-listen-patch/sp_proxy.cpp`. It is required for a release.
+- `src-tauri/resources/SPClientFixes.dll` is built from `client-fixes/` and
+  loaded only when the Client fixes toggle is on. It is required for a release.
 - `src-tauri/resources/7za.exe` comes from the 7-Zip Extra package. It is
   recommended.
 

@@ -4,6 +4,7 @@ fn main() {
     // binary -- a fresh clone, or a machine that has not built it yet -- should
     // still compile, so the include is behind a cfg set here.
     println!("cargo:rustc-check-cfg=cfg(has_shim)");
+    println!("cargo:rustc-check-cfg=cfg(has_client_fixes)");
     // Same pattern for the 7-Zip used by the Download tab (download.rs).
     // Optional: without it the launcher falls back to an installed 7-Zip.
     println!("cargo:rustc-check-cfg=cfg(has_7za)");
@@ -18,6 +19,12 @@ fn main() {
         println!("cargo:rustc-cfg=has_shim");
     } else {
         println!("cargo:warning=resources/XAPOFX1_5.dll is missing -- the launcher will NOT install the no-Steam DLL. Build it with sp-listen-patch/build_sp_proxy.bat and copy it there before shipping.");
+    }
+    println!("cargo:rerun-if-changed=resources/SPClientFixes.dll");
+    if std::path::Path::new("resources/SPClientFixes.dll").is_file() {
+        println!("cargo:rustc-cfg=has_client_fixes");
+    } else {
+        println!("cargo:warning=resources/SPClientFixes.dll is missing -- the optional Client fixes setting cannot be used until it is built.");
     }
 
     #[cfg(target_os = "windows")]

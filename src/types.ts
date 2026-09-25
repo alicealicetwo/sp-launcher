@@ -9,6 +9,7 @@ export interface Config {
   auto_update: boolean;
   verify_before_launch: boolean;
   debug_logging: boolean;
+  client_fixes_enabled: boolean;
 
   /** DPAPI-encrypted launcher key. Never the key itself. */
   auth_key_sealed: string;

@@ -182,9 +182,15 @@ export default function App() {
   // `launch_game` still takes an address and passes it as the first argument --
   // so bringing the prompt back is a UI change only.
   const onLaunch = useCallback(() => {
+    if (!config) return;
     setBusy(true);
     setError(null);
-    void invoke("launch_game", { server: null })
+    // Settings are normally debounced. Flush them before launch so a toggle
+    // changed immediately before Play controls this run, not the next one.
+    if (saveTimer.current) window.clearTimeout(saveTimer.current);
+    saveTimer.current = null;
+    void invoke("set_config", { cfg: config })
+      .then(() => invoke("launch_game", { server: null }))
       .then(() => invoke<HostsStatus>("hosts_status").then(setHosts))
       .catch((e) => {
         setError(String(e));
@@ -192,7 +198,7 @@ export default function App() {
       });
     // `busy` is cleared by the game:exited event, not here: the launcher
     // stays in the launched state for as long as the game is up.
-  }, []);
+  }, [config]);
 
   const stopGame = useCallback(() => {
     void invoke("stop_game").catch((e) => setError(String(e)));

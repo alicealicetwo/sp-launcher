@@ -15,6 +15,7 @@ latest.json
 
 # ---- binaries embedded at build time (see src-tauri/resources/README.md) ---
 src-tauri/resources/XAPOFX1_5.dll
+src-tauri/resources/SPClientFixes.dll
 src-tauri/resources/7za.exe
 
 # ---- secrets: NEVER commit ---------------------------------------------------
